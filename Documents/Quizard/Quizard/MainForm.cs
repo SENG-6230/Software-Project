@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quizard.Pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Quizard
 {
     public partial class MainForm : Form
     {
+        #region Variables
         public bool Loaded
         {
             get
@@ -21,15 +23,26 @@ namespace Quizard
         }
         bool loaded = false;
 
+        ClassesPage classes = new ClassesPage();
+        #endregion
+
+        #region Methods
         public MainForm()
         {
             InitializeComponent();
             loaded = false;
         }
 
+        void showPage(Control page)
+        {
+            pagePnl.Controls.Clear();
+            pagePnl.Controls.Add(page);
+        }
+
+        #region Event Handlers
         private void ClassesBtn_Click(object sender, EventArgs e)
         {
-
+            showPage();
         }
 
         private void HomeBtn_Click(object sender, EventArgs e)
@@ -41,5 +54,12 @@ namespace Quizard
         {
 
         }
+
+        private void usersBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+        #endregion
     }
 }

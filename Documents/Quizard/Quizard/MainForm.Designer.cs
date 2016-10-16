@@ -34,9 +34,10 @@
             this.InfoBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
             this.pagePnl = new System.Windows.Forms.Panel();
+            this.loginPage = new Quizard.Pages.LoginPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginPage = new Quizard.Pages.LoginPage();
+            this.usersBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.pagePnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -70,6 +71,7 @@
             this.flowLayoutPanel1.Controls.Add(this.HomeBtn);
             this.flowLayoutPanel1.Controls.Add(this.ClassesBtn);
             this.flowLayoutPanel1.Controls.Add(this.InfoBtn);
+            this.flowLayoutPanel1.Controls.Add(this.usersBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 40);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -108,6 +110,15 @@
             this.pagePnl.Size = new System.Drawing.Size(1174, 470);
             this.pagePnl.TabIndex = 3;
             // 
+            // loginPage
+            // 
+            this.loginPage.Location = new System.Drawing.Point(4, 7);
+            this.loginPage.Margin = new System.Windows.Forms.Padding(4);
+            this.loginPage.MinimumSize = new System.Drawing.Size(1170, 465);
+            this.loginPage.Name = "loginPage";
+            this.loginPage.Size = new System.Drawing.Size(1170, 465);
+            this.loginPage.TabIndex = 0;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -125,14 +136,16 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(90, 36);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // loginPage
+            // usersBtn
             // 
-            this.loginPage.Location = new System.Drawing.Point(4, 7);
-            this.loginPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.loginPage.MinimumSize = new System.Drawing.Size(1170, 465);
-            this.loginPage.Name = "loginPage";
-            this.loginPage.Size = new System.Drawing.Size(1170, 465);
-            this.loginPage.TabIndex = 0;
+            this.usersBtn.Location = new System.Drawing.Point(724, 20);
+            this.usersBtn.Margin = new System.Windows.Forms.Padding(10);
+            this.usersBtn.Name = "usersBtn";
+            this.usersBtn.Size = new System.Drawing.Size(212, 79);
+            this.usersBtn.TabIndex = 3;
+            this.usersBtn.Text = "Users";
+            this.usersBtn.UseVisualStyleBackColor = true;
+            this.usersBtn.Click += new System.EventHandler(this.usersBtn_Click);
             // 
             // MainForm
             // 
@@ -148,7 +161,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Quizard";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pagePnl.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -168,6 +181,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private Pages.LoginPage loginPage;
+        private System.Windows.Forms.Button usersBtn;
     }
 }
 
