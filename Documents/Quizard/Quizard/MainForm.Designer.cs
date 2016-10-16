@@ -32,12 +32,12 @@
             this.ClassesBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.InfoBtn = new System.Windows.Forms.Button();
+            this.usersBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
             this.pagePnl = new System.Windows.Forms.Panel();
             this.loginPage = new Quizard.Pages.LoginPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.pagePnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -90,6 +90,17 @@
             this.InfoBtn.UseVisualStyleBackColor = true;
             this.InfoBtn.Click += new System.EventHandler(this.InfoBtn_Click);
             // 
+            // usersBtn
+            // 
+            this.usersBtn.Location = new System.Drawing.Point(724, 20);
+            this.usersBtn.Margin = new System.Windows.Forms.Padding(10);
+            this.usersBtn.Name = "usersBtn";
+            this.usersBtn.Size = new System.Drawing.Size(212, 79);
+            this.usersBtn.TabIndex = 3;
+            this.usersBtn.Text = "Users";
+            this.usersBtn.UseVisualStyleBackColor = true;
+            this.usersBtn.Click += new System.EventHandler(this.usersBtn_Click);
+            // 
             // logOutBtn
             // 
             this.logOutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -135,17 +146,6 @@
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(90, 36);
             this.menuToolStripMenuItem.Text = "Menu";
-            // 
-            // usersBtn
-            // 
-            this.usersBtn.Location = new System.Drawing.Point(724, 20);
-            this.usersBtn.Margin = new System.Windows.Forms.Padding(10);
-            this.usersBtn.Name = "usersBtn";
-            this.usersBtn.Size = new System.Drawing.Size(212, 79);
-            this.usersBtn.TabIndex = 3;
-            this.usersBtn.Text = "Users";
-            this.usersBtn.UseVisualStyleBackColor = true;
-            this.usersBtn.Click += new System.EventHandler(this.usersBtn_Click);
             // 
             // MainForm
             // 
