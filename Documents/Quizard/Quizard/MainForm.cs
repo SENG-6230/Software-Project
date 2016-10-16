@@ -26,5 +26,20 @@ namespace Quizard
             InitializeComponent();
             loaded = false;
         }
+
+        private void ClassesBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HomeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InfoBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
