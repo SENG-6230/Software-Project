@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class ClassesPage : UserControl
+    public partial class UsersPage : UserControl
     {
-        public ClassesPage()
+        public UsersPage()
         {
             InitializeComponent();
         }

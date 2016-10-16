@@ -24,6 +24,8 @@ namespace Quizard
         bool loaded = false;
 
         ClassesPage classes = new ClassesPage();
+        HomePage home = new HomePage();
+        LoginPage login = this.loginPage;
         #endregion
 
         #region Methods

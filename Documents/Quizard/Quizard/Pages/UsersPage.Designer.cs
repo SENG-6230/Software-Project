@@ -1,6 +1,6 @@
 ﻿namespace Quizard.Pages
 {
-    partial class ProfilePage
+    partial class UsersPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,19 +34,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(551, 220);
+            this.label1.Location = new System.Drawing.Point(451, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Profile";
+            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Users";
             // 
-            // ProfilePage
+            // UsersPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(1170, 465);
-            this.Name = "ProfilePage";
+            this.Name = "UsersPage";
             this.Size = new System.Drawing.Size(1170, 465);
             this.ResumeLayout(false);
             this.PerformLayout();
