@@ -25,7 +25,9 @@ namespace Quizard
 
         ClassesPage classes = new ClassesPage();
         HomePage home = new HomePage();
-        LoginPage login = this.loginPage;
+        LoginPage login = new LoginPage();
+        ProfilePage profile = new ProfilePage();
+        UsersPage user = new UsersPage();
         #endregion
 
         #region Methods
@@ -44,22 +46,27 @@ namespace Quizard
         #region Event Handlers
         private void ClassesBtn_Click(object sender, EventArgs e)
         {
-            showPage();
+            showPage(classes);
         }
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-
+            showPage(home);
         }
 
         private void InfoBtn_Click(object sender, EventArgs e)
         {
-
+            showPage(profile);
         }
 
         private void usersBtn_Click(object sender, EventArgs e)
         {
+            showPage(user);
+        }
 
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            showPage(login);
         }
         #endregion
         #endregion

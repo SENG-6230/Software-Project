@@ -30,8 +30,8 @@
         {
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -54,7 +54,7 @@
             this.splitContainer.Panel2.AutoScroll = true;
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel1);
             this.splitContainer.Panel2.Controls.Add(this.panel1);
-            this.splitContainer.Size = new System.Drawing.Size(1170, 465);
+            this.splitContainer.Size = new System.Drawing.Size(730, 370);
             this.splitContainer.SplitterDistance = 390;
             this.splitContainer.TabIndex = 0;
             // 
@@ -64,15 +64,8 @@
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(390, 465);
+            this.treeView1.Size = new System.Drawing.Size(390, 370);
             this.treeView1.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(878, 545);
-            this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -81,14 +74,21 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(21, 22);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // Classes
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(878, 545);
+            this.panel1.TabIndex = 0;
+            // 
+            // ClassesPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.Controls.Add(this.splitContainer);
-            this.MinimumSize = new System.Drawing.Size(1170, 465);
-            this.Name = "Classes";
-            this.Size = new System.Drawing.Size(1170, 465);
+            this.MinimumSize = new System.Drawing.Size(730, 370);
+            this.Name = "ClassesPage";
+            this.Size = new System.Drawing.Size(730, 370);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();

@@ -36,7 +36,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(448, 154);
+            this.textBox1.Location = new System.Drawing.Point(315, 91);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(243, 31);
             this.textBox1.TabIndex = 0;
@@ -44,7 +44,7 @@
             // usernameLbl
             // 
             this.usernameLbl.AutoSize = true;
-            this.usernameLbl.Location = new System.Drawing.Point(240, 157);
+            this.usernameLbl.Location = new System.Drawing.Point(107, 94);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(116, 25);
             this.usernameLbl.TabIndex = 1;
@@ -53,7 +53,7 @@
             // passwordLbl
             // 
             this.passwordLbl.AutoSize = true;
-            this.passwordLbl.Location = new System.Drawing.Point(240, 237);
+            this.passwordLbl.Location = new System.Drawing.Point(107, 174);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(112, 25);
             this.passwordLbl.TabIndex = 2;
@@ -61,7 +61,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(448, 234);
+            this.textBox2.Location = new System.Drawing.Point(315, 171);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(243, 31);
@@ -69,14 +69,15 @@
             // 
             // LoginPage
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.passwordLbl);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.textBox1);
-            this.MinimumSize = new System.Drawing.Size(1174, 470);
+            this.MinimumSize = new System.Drawing.Size(730, 370);
             this.Name = "LoginPage";
-            this.Size = new System.Drawing.Size(1174, 470);
+            this.Size = new System.Drawing.Size(730, 370);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -34,7 +34,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(451, 140);
+            this.label1.Location = new System.Drawing.Point(320, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 25);
             this.label1.TabIndex = 0;
@@ -45,9 +45,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(1170, 465);
+            this.MinimumSize = new System.Drawing.Size(730, 370);
             this.Name = "UsersPage";
-            this.Size = new System.Drawing.Size(1170, 465);
+            this.Size = new System.Drawing.Size(730, 370);
             this.ResumeLayout(false);
             this.PerformLayout();
 
