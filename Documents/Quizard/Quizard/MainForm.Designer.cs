@@ -37,8 +37,8 @@
             this.pagePnl = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginPage = new Quizard.Pages.LoginPage();
             this.classesAddBtn = new System.Windows.Forms.Button();
+            this.loginPage = new Quizard.Pages.LoginPage();
             this.flowLayoutPanel1.SuspendLayout();
             this.pagePnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -145,15 +145,6 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 22);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // loginPage
-            // 
-            this.loginPage.Location = new System.Drawing.Point(2, 4);
-            this.loginPage.Margin = new System.Windows.Forms.Padding(2);
-            this.loginPage.MinimumSize = new System.Drawing.Size(585, 232);
-            this.loginPage.Name = "loginPage";
-            this.loginPage.Size = new System.Drawing.Size(585, 232);
-            this.loginPage.TabIndex = 0;
-            // 
             // classesAddBtn
             // 
             this.classesAddBtn.Location = new System.Drawing.Point(478, 10);
@@ -163,6 +154,16 @@
             this.classesAddBtn.TabIndex = 4;
             this.classesAddBtn.Text = "Add Classes";
             this.classesAddBtn.UseVisualStyleBackColor = true;
+            this.classesAddBtn.Click += new System.EventHandler(this.classesAddBtn_Click);
+            // 
+            // loginPage
+            // 
+            this.loginPage.Location = new System.Drawing.Point(2, 4);
+            this.loginPage.Margin = new System.Windows.Forms.Padding(2);
+            this.loginPage.MinimumSize = new System.Drawing.Size(585, 232);
+            this.loginPage.Name = "loginPage";
+            this.loginPage.Size = new System.Drawing.Size(585, 232);
+            this.loginPage.TabIndex = 0;
             // 
             // MainForm
             // 

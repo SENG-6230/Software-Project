@@ -28,6 +28,7 @@ namespace Quizard
         LoginPage login = new LoginPage();
         ProfilePage profile = new ProfilePage();
         UsersPage user = new UsersPage();
+        AddClassPage addClass = new AddClassPage();
         #endregion
 
         #region Methods
@@ -35,6 +36,7 @@ namespace Quizard
         {
             InitializeComponent();
             loaded = false;
+            menuStrip1.Visible = false;
         }
 
         void showPage(Control page)
@@ -67,6 +69,11 @@ namespace Quizard
         private void logOutBtn_Click(object sender, EventArgs e)
         {
             showPage(login);
+        }
+
+        private void classesAddBtn_Click(object sender, EventArgs e)
+        {
+            showPage(addClass);
         }
         #endregion
         #endregion

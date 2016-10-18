@@ -30,7 +30,6 @@
         {
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -52,10 +51,9 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.AutoScroll = true;
-            this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel1);
             this.splitContainer.Panel2.Controls.Add(this.panel1);
             this.splitContainer.Size = new System.Drawing.Size(730, 370);
-            this.splitContainer.SplitterDistance = 390;
+            this.splitContainer.SplitterDistance = 200;
             this.splitContainer.TabIndex = 0;
             // 
             // treeView1
@@ -64,21 +62,14 @@
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(390, 370);
+            this.treeView1.Size = new System.Drawing.Size(200, 370);
             this.treeView1.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(381, 185);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(21, 22);
-            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(878, 545);
+            this.panel1.Size = new System.Drawing.Size(520, 364);
             this.panel1.TabIndex = 0;
             // 
             // ClassesPage
@@ -101,7 +92,6 @@
 
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
     }
 }
