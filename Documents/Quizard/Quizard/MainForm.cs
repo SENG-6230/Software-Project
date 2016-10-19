@@ -37,11 +37,13 @@ namespace Quizard
             InitializeComponent();
             loaded = false;
             menuStrip1.Visible = false;
+            HomeBtn.Visible = false;
         }
 
         void showPage(Control page)
         {
             pagePnl.Controls.Clear();
+            page.Dock = DockStyle.Fill;
             pagePnl.Controls.Add(page);
         }
 

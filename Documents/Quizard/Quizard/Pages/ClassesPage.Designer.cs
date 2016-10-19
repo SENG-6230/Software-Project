@@ -28,13 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("CSCI 6230");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("SENG 6000");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CSCI 6540");
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.classInfoPanel = new System.Windows.Forms.Panel();
+            this.classNameLbl = new System.Windows.Forms.Label();
+            this.classNameValueLbl = new System.Windows.Forms.Label();
+            this.teacherNameLbl = new System.Windows.Forms.Label();
+            this.teacherValueLbl = new System.Windows.Forms.Label();
+            this.assignmentsBx = new System.Windows.Forms.ListBox();
+            this.assignmentsLbl = new System.Windows.Forms.Label();
+            this.gradeLbl = new System.Windows.Forms.Label();
+            this.attendanceValLbl = new System.Windows.Forms.Label();
+            this.attendanceLbl = new System.Windows.Forms.Label();
+            this.gradeValLbl = new System.Windows.Forms.Label();
+            this.studentsLbl = new System.Windows.Forms.Label();
+            this.studentsBx = new System.Windows.Forms.ListBox();
+            this.assistantsLbl = new System.Windows.Forms.Label();
+            this.assistantsBx = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.classInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -51,7 +69,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.AutoScroll = true;
-            this.splitContainer.Panel2.Controls.Add(this.panel1);
+            this.splitContainer.Panel2.Controls.Add(this.classInfoPanel);
             this.splitContainer.Size = new System.Drawing.Size(730, 370);
             this.splitContainer.SplitterDistance = 200;
             this.splitContainer.TabIndex = 0;
@@ -59,18 +77,195 @@
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
+            treeNode1.Name = "Class1";
+            treeNode1.Text = "CSCI 6230";
+            treeNode2.Name = "class 2";
+            treeNode2.Text = "SENG 6000";
+            treeNode3.Name = "Class3";
+            treeNode3.Text = "CSCI 6540";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(200, 370);
             this.treeView1.TabIndex = 0;
             // 
-            // panel1
+            // classInfoPanel
             // 
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(520, 364);
-            this.panel1.TabIndex = 0;
+            this.classInfoPanel.Controls.Add(this.assistantsLbl);
+            this.classInfoPanel.Controls.Add(this.assistantsBx);
+            this.classInfoPanel.Controls.Add(this.studentsLbl);
+            this.classInfoPanel.Controls.Add(this.studentsBx);
+            this.classInfoPanel.Controls.Add(this.gradeValLbl);
+            this.classInfoPanel.Controls.Add(this.attendanceLbl);
+            this.classInfoPanel.Controls.Add(this.attendanceValLbl);
+            this.classInfoPanel.Controls.Add(this.gradeLbl);
+            this.classInfoPanel.Controls.Add(this.assignmentsLbl);
+            this.classInfoPanel.Controls.Add(this.assignmentsBx);
+            this.classInfoPanel.Controls.Add(this.teacherValueLbl);
+            this.classInfoPanel.Controls.Add(this.teacherNameLbl);
+            this.classInfoPanel.Controls.Add(this.classNameValueLbl);
+            this.classInfoPanel.Controls.Add(this.classNameLbl);
+            this.classInfoPanel.Location = new System.Drawing.Point(3, 3);
+            this.classInfoPanel.Name = "classInfoPanel";
+            this.classInfoPanel.Size = new System.Drawing.Size(520, 364);
+            this.classInfoPanel.TabIndex = 0;
+            // 
+            // classNameLbl
+            // 
+            this.classNameLbl.AutoSize = true;
+            this.classNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classNameLbl.Location = new System.Drawing.Point(20, 20);
+            this.classNameLbl.Name = "classNameLbl";
+            this.classNameLbl.Size = new System.Drawing.Size(91, 18);
+            this.classNameLbl.TabIndex = 0;
+            this.classNameLbl.Text = "Class name:";
+            // 
+            // classNameValueLbl
+            // 
+            this.classNameValueLbl.AutoSize = true;
+            this.classNameValueLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classNameValueLbl.Location = new System.Drawing.Point(120, 19);
+            this.classNameValueLbl.Name = "classNameValueLbl";
+            this.classNameValueLbl.Size = new System.Drawing.Size(79, 18);
+            this.classNameValueLbl.TabIndex = 1;
+            this.classNameValueLbl.Text = "CSCI 6230";
+            // 
+            // teacherNameLbl
+            // 
+            this.teacherNameLbl.AutoSize = true;
+            this.teacherNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherNameLbl.Location = new System.Drawing.Point(20, 50);
+            this.teacherNameLbl.Name = "teacherNameLbl";
+            this.teacherNameLbl.Size = new System.Drawing.Size(70, 18);
+            this.teacherNameLbl.TabIndex = 2;
+            this.teacherNameLbl.Text = "Teacher: ";
+            // 
+            // teacherValueLbl
+            // 
+            this.teacherValueLbl.AutoSize = true;
+            this.teacherValueLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherValueLbl.Location = new System.Drawing.Point(120, 50);
+            this.teacherValueLbl.Name = "teacherValueLbl";
+            this.teacherValueLbl.Size = new System.Drawing.Size(106, 18);
+            this.teacherValueLbl.TabIndex = 3;
+            this.teacherValueLbl.Text = "Sergiy Vilkomir";
+            // 
+            // assignmentsBx
+            // 
+            this.assignmentsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assignmentsBx.FormattingEnabled = true;
+            this.assignmentsBx.ItemHeight = 18;
+            this.assignmentsBx.Items.AddRange(new object[] {
+            "Quiz 1,",
+            "Quiz 2,",
+            "Quiz 3"});
+            this.assignmentsBx.Location = new System.Drawing.Point(349, 45);
+            this.assignmentsBx.Name = "assignmentsBx";
+            this.assignmentsBx.Size = new System.Drawing.Size(166, 310);
+            this.assignmentsBx.TabIndex = 4;
+            // 
+            // assignmentsLbl
+            // 
+            this.assignmentsLbl.AutoSize = true;
+            this.assignmentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assignmentsLbl.Location = new System.Drawing.Point(392, 18);
+            this.assignmentsLbl.Name = "assignmentsLbl";
+            this.assignmentsLbl.Size = new System.Drawing.Size(93, 18);
+            this.assignmentsLbl.TabIndex = 5;
+            this.assignmentsLbl.Text = "Assignments";
+            // 
+            // gradeLbl
+            // 
+            this.gradeLbl.AutoSize = true;
+            this.gradeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradeLbl.Location = new System.Drawing.Point(20, 80);
+            this.gradeLbl.Name = "gradeLbl";
+            this.gradeLbl.Size = new System.Drawing.Size(53, 18);
+            this.gradeLbl.TabIndex = 6;
+            this.gradeLbl.Text = "Grade:";
+            // 
+            // attendanceValLbl
+            // 
+            this.attendanceValLbl.AutoSize = true;
+            this.attendanceValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceValLbl.Location = new System.Drawing.Point(120, 110);
+            this.attendanceValLbl.Name = "attendanceValLbl";
+            this.attendanceValLbl.Size = new System.Drawing.Size(37, 18);
+            this.attendanceValLbl.TabIndex = 7;
+            this.attendanceValLbl.Text = "95%";
+            // 
+            // attendanceLbl
+            // 
+            this.attendanceLbl.AutoSize = true;
+            this.attendanceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceLbl.Location = new System.Drawing.Point(20, 110);
+            this.attendanceLbl.Name = "attendanceLbl";
+            this.attendanceLbl.Size = new System.Drawing.Size(85, 18);
+            this.attendanceLbl.TabIndex = 8;
+            this.attendanceLbl.Text = "Attendance:";
+            // 
+            // gradeValLbl
+            // 
+            this.gradeValLbl.AutoSize = true;
+            this.gradeValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradeValLbl.Location = new System.Drawing.Point(120, 80);
+            this.gradeValLbl.Name = "gradeValLbl";
+            this.gradeValLbl.Size = new System.Drawing.Size(37, 18);
+            this.gradeValLbl.TabIndex = 10;
+            this.gradeValLbl.Text = "88%";
+            // 
+            // studentsLbl
+            // 
+            this.studentsLbl.AutoSize = true;
+            this.studentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsLbl.Location = new System.Drawing.Point(227, 96);
+            this.studentsLbl.Name = "studentsLbl";
+            this.studentsLbl.Size = new System.Drawing.Size(66, 18);
+            this.studentsLbl.TabIndex = 12;
+            this.studentsLbl.Text = "Students";
+            // 
+            // studentsBx
+            // 
+            this.studentsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsBx.FormattingEnabled = true;
+            this.studentsBx.ItemHeight = 18;
+            this.studentsBx.Items.AddRange(new object[] {
+            "Alan Master",
+            "David Anderson",
+            "Bigyan Pandit",
+            "Mohammed Sarim Akbar",
+            "Jonathan Eng"});
+            this.studentsBx.Location = new System.Drawing.Point(177, 117);
+            this.studentsBx.Name = "studentsBx";
+            this.studentsBx.Size = new System.Drawing.Size(166, 238);
+            this.studentsBx.TabIndex = 11;
+            // 
+            // assistantsLbl
+            // 
+            this.assistantsLbl.AutoSize = true;
+            this.assistantsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assistantsLbl.Location = new System.Drawing.Point(44, 150);
+            this.assistantsLbl.Name = "assistantsLbl";
+            this.assistantsLbl.Size = new System.Drawing.Size(80, 36);
+            this.assistantsLbl.TabIndex = 14;
+            this.assistantsLbl.Text = "Teaching\r\n Assistants";
+            this.assistantsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // assistantsBx
+            // 
+            this.assistantsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assistantsBx.FormattingEnabled = true;
+            this.assistantsBx.ItemHeight = 18;
+            this.assistantsBx.Items.AddRange(new object[] {
+            "Swetha Mahendrakar"});
+            this.assistantsBx.Location = new System.Drawing.Point(5, 189);
+            this.assistantsBx.Name = "assistantsBx";
+            this.assistantsBx.Size = new System.Drawing.Size(166, 166);
+            this.assistantsBx.TabIndex = 13;
             // 
             // ClassesPage
             // 
@@ -84,6 +279,8 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.classInfoPanel.ResumeLayout(false);
+            this.classInfoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -92,6 +289,20 @@
 
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel classInfoPanel;
+        private System.Windows.Forms.Label teacherValueLbl;
+        private System.Windows.Forms.Label teacherNameLbl;
+        private System.Windows.Forms.Label classNameValueLbl;
+        private System.Windows.Forms.Label classNameLbl;
+        private System.Windows.Forms.Label assistantsLbl;
+        private System.Windows.Forms.ListBox assistantsBx;
+        private System.Windows.Forms.Label studentsLbl;
+        private System.Windows.Forms.ListBox studentsBx;
+        private System.Windows.Forms.Label gradeValLbl;
+        private System.Windows.Forms.Label attendanceLbl;
+        private System.Windows.Forms.Label attendanceValLbl;
+        private System.Windows.Forms.Label gradeLbl;
+        private System.Windows.Forms.Label assignmentsLbl;
+        private System.Windows.Forms.ListBox assignmentsBx;
     }
 }
