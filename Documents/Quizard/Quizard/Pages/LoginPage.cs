@@ -16,5 +16,10 @@ namespace Quizard.Pages
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //TODO add login action
+        }
     }
 }
