@@ -72,11 +72,6 @@ namespace Quizard
         {
             showPage(login);
         }
-
-        private void classesAddBtn_Click(object sender, EventArgs e)
-        {
-            showPage(addClass);
-        }
         #endregion
         #endregion
     }

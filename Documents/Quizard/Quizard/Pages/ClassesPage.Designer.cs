@@ -35,24 +35,26 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.classInfoPanel = new System.Windows.Forms.Panel();
-            this.classNameLbl = new System.Windows.Forms.Label();
-            this.classNameValueLbl = new System.Windows.Forms.Label();
-            this.teacherNameLbl = new System.Windows.Forms.Label();
-            this.teacherValueLbl = new System.Windows.Forms.Label();
-            this.assignmentsBx = new System.Windows.Forms.ListBox();
-            this.assignmentsLbl = new System.Windows.Forms.Label();
-            this.gradeLbl = new System.Windows.Forms.Label();
-            this.attendanceValLbl = new System.Windows.Forms.Label();
-            this.attendanceLbl = new System.Windows.Forms.Label();
-            this.gradeValLbl = new System.Windows.Forms.Label();
-            this.studentsLbl = new System.Windows.Forms.Label();
-            this.studentsBx = new System.Windows.Forms.ListBox();
+            this.addAssignmentBtn = new System.Windows.Forms.Button();
             this.assistantsLbl = new System.Windows.Forms.Label();
             this.assistantsBx = new System.Windows.Forms.ListBox();
-            this.addAssignmentBtn = new System.Windows.Forms.Button();
+            this.studentsLbl = new System.Windows.Forms.Label();
+            this.studentsBx = new System.Windows.Forms.ListBox();
+            this.gradeValLbl = new System.Windows.Forms.Label();
+            this.attendanceLbl = new System.Windows.Forms.Label();
+            this.attendanceValLbl = new System.Windows.Forms.Label();
+            this.gradeLbl = new System.Windows.Forms.Label();
+            this.assignmentsLbl = new System.Windows.Forms.Label();
+            this.assignmentsBx = new System.Windows.Forms.ListBox();
             this.assignmentStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teacherValueLbl = new System.Windows.Forms.Label();
+            this.teacherNameLbl = new System.Windows.Forms.Label();
+            this.classNameValueLbl = new System.Windows.Forms.Label();
+            this.classNameLbl = new System.Windows.Forms.Label();
+            this.quizGradeValLbl = new System.Windows.Forms.Label();
+            this.quizGradelbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -101,6 +103,8 @@
             // 
             // classInfoPanel
             // 
+            this.classInfoPanel.Controls.Add(this.quizGradeValLbl);
+            this.classInfoPanel.Controls.Add(this.quizGradelbl);
             this.classInfoPanel.Controls.Add(this.addAssignmentBtn);
             this.classInfoPanel.Controls.Add(this.assistantsLbl);
             this.classInfoPanel.Controls.Add(this.assistantsBx);
@@ -121,110 +125,38 @@
             this.classInfoPanel.Size = new System.Drawing.Size(570, 364);
             this.classInfoPanel.TabIndex = 0;
             // 
-            // classNameLbl
+            // addAssignmentBtn
             // 
-            this.classNameLbl.AutoSize = true;
-            this.classNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classNameLbl.Location = new System.Drawing.Point(20, 20);
-            this.classNameLbl.Name = "classNameLbl";
-            this.classNameLbl.Size = new System.Drawing.Size(91, 18);
-            this.classNameLbl.TabIndex = 0;
-            this.classNameLbl.Text = "Class name:";
+            this.addAssignmentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAssignmentBtn.Location = new System.Drawing.Point(414, 319);
+            this.addAssignmentBtn.Name = "addAssignmentBtn";
+            this.addAssignmentBtn.Size = new System.Drawing.Size(135, 29);
+            this.addAssignmentBtn.TabIndex = 15;
+            this.addAssignmentBtn.Text = "Add Assignment";
+            this.addAssignmentBtn.UseVisualStyleBackColor = true;
             // 
-            // classNameValueLbl
+            // assistantsLbl
             // 
-            this.classNameValueLbl.AutoSize = true;
-            this.classNameValueLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classNameValueLbl.Location = new System.Drawing.Point(120, 19);
-            this.classNameValueLbl.Name = "classNameValueLbl";
-            this.classNameValueLbl.Size = new System.Drawing.Size(79, 18);
-            this.classNameValueLbl.TabIndex = 1;
-            this.classNameValueLbl.Text = "CSCI 6230";
+            this.assistantsLbl.AutoSize = true;
+            this.assistantsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assistantsLbl.Location = new System.Drawing.Point(52, 150);
+            this.assistantsLbl.Name = "assistantsLbl";
+            this.assistantsLbl.Size = new System.Drawing.Size(80, 36);
+            this.assistantsLbl.TabIndex = 14;
+            this.assistantsLbl.Text = "Teaching\r\n Assistants";
+            this.assistantsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // teacherNameLbl
+            // assistantsBx
             // 
-            this.teacherNameLbl.AutoSize = true;
-            this.teacherNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherNameLbl.Location = new System.Drawing.Point(20, 50);
-            this.teacherNameLbl.Name = "teacherNameLbl";
-            this.teacherNameLbl.Size = new System.Drawing.Size(70, 18);
-            this.teacherNameLbl.TabIndex = 2;
-            this.teacherNameLbl.Text = "Teacher: ";
-            // 
-            // teacherValueLbl
-            // 
-            this.teacherValueLbl.AutoSize = true;
-            this.teacherValueLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherValueLbl.Location = new System.Drawing.Point(120, 50);
-            this.teacherValueLbl.Name = "teacherValueLbl";
-            this.teacherValueLbl.Size = new System.Drawing.Size(106, 18);
-            this.teacherValueLbl.TabIndex = 3;
-            this.teacherValueLbl.Text = "Sergiy Vilkomir";
-            // 
-            // assignmentsBx
-            // 
-            this.assignmentsBx.ContextMenuStrip = this.assignmentStrip;
-            this.assignmentsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assignmentsBx.FormattingEnabled = true;
-            this.assignmentsBx.ItemHeight = 18;
-            this.assignmentsBx.Items.AddRange(new object[] {
-            "Quiz 1,",
-            "Quiz 2,",
-            "Quiz 3"});
-            this.assignmentsBx.Location = new System.Drawing.Point(395, 39);
-            this.assignmentsBx.Name = "assignmentsBx";
-            this.assignmentsBx.Size = new System.Drawing.Size(166, 274);
-            this.assignmentsBx.TabIndex = 4;
-            // 
-            // assignmentsLbl
-            // 
-            this.assignmentsLbl.AutoSize = true;
-            this.assignmentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assignmentsLbl.Location = new System.Drawing.Point(429, 18);
-            this.assignmentsLbl.Name = "assignmentsLbl";
-            this.assignmentsLbl.Size = new System.Drawing.Size(93, 18);
-            this.assignmentsLbl.TabIndex = 5;
-            this.assignmentsLbl.Text = "Assignments";
-            // 
-            // gradeLbl
-            // 
-            this.gradeLbl.AutoSize = true;
-            this.gradeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradeLbl.Location = new System.Drawing.Point(20, 80);
-            this.gradeLbl.Name = "gradeLbl";
-            this.gradeLbl.Size = new System.Drawing.Size(53, 18);
-            this.gradeLbl.TabIndex = 6;
-            this.gradeLbl.Text = "Grade:";
-            // 
-            // attendanceValLbl
-            // 
-            this.attendanceValLbl.AutoSize = true;
-            this.attendanceValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attendanceValLbl.Location = new System.Drawing.Point(120, 110);
-            this.attendanceValLbl.Name = "attendanceValLbl";
-            this.attendanceValLbl.Size = new System.Drawing.Size(37, 18);
-            this.attendanceValLbl.TabIndex = 7;
-            this.attendanceValLbl.Text = "95%";
-            // 
-            // attendanceLbl
-            // 
-            this.attendanceLbl.AutoSize = true;
-            this.attendanceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attendanceLbl.Location = new System.Drawing.Point(20, 110);
-            this.attendanceLbl.Name = "attendanceLbl";
-            this.attendanceLbl.Size = new System.Drawing.Size(85, 18);
-            this.attendanceLbl.TabIndex = 8;
-            this.attendanceLbl.Text = "Attendance:";
-            // 
-            // gradeValLbl
-            // 
-            this.gradeValLbl.AutoSize = true;
-            this.gradeValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradeValLbl.Location = new System.Drawing.Point(120, 80);
-            this.gradeValLbl.Name = "gradeValLbl";
-            this.gradeValLbl.Size = new System.Drawing.Size(37, 18);
-            this.gradeValLbl.TabIndex = 10;
-            this.gradeValLbl.Text = "88%";
+            this.assistantsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assistantsBx.FormattingEnabled = true;
+            this.assistantsBx.ItemHeight = 18;
+            this.assistantsBx.Items.AddRange(new object[] {
+            "Swetha Mahendrakar"});
+            this.assistantsBx.Location = new System.Drawing.Point(12, 189);
+            this.assistantsBx.Name = "assistantsBx";
+            this.assistantsBx.Size = new System.Drawing.Size(166, 166);
+            this.assistantsBx.TabIndex = 13;
             // 
             // studentsLbl
             // 
@@ -252,38 +184,70 @@
             this.studentsBx.Size = new System.Drawing.Size(166, 238);
             this.studentsBx.TabIndex = 11;
             // 
-            // assistantsLbl
+            // gradeValLbl
             // 
-            this.assistantsLbl.AutoSize = true;
-            this.assistantsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assistantsLbl.Location = new System.Drawing.Point(52, 150);
-            this.assistantsLbl.Name = "assistantsLbl";
-            this.assistantsLbl.Size = new System.Drawing.Size(80, 36);
-            this.assistantsLbl.TabIndex = 14;
-            this.assistantsLbl.Text = "Teaching\r\n Assistants";
-            this.assistantsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.gradeValLbl.AutoSize = true;
+            this.gradeValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradeValLbl.Location = new System.Drawing.Point(120, 80);
+            this.gradeValLbl.Name = "gradeValLbl";
+            this.gradeValLbl.Size = new System.Drawing.Size(37, 18);
+            this.gradeValLbl.TabIndex = 10;
+            this.gradeValLbl.Text = "88%";
             // 
-            // assistantsBx
+            // attendanceLbl
             // 
-            this.assistantsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assistantsBx.FormattingEnabled = true;
-            this.assistantsBx.ItemHeight = 18;
-            this.assistantsBx.Items.AddRange(new object[] {
-            "Swetha Mahendrakar"});
-            this.assistantsBx.Location = new System.Drawing.Point(12, 189);
-            this.assistantsBx.Name = "assistantsBx";
-            this.assistantsBx.Size = new System.Drawing.Size(166, 166);
-            this.assistantsBx.TabIndex = 13;
+            this.attendanceLbl.AutoSize = true;
+            this.attendanceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceLbl.Location = new System.Drawing.Point(20, 110);
+            this.attendanceLbl.Name = "attendanceLbl";
+            this.attendanceLbl.Size = new System.Drawing.Size(85, 18);
+            this.attendanceLbl.TabIndex = 8;
+            this.attendanceLbl.Text = "Attendance:";
             // 
-            // addAssignmentBtn
+            // attendanceValLbl
             // 
-            this.addAssignmentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAssignmentBtn.Location = new System.Drawing.Point(414, 319);
-            this.addAssignmentBtn.Name = "addAssignmentBtn";
-            this.addAssignmentBtn.Size = new System.Drawing.Size(135, 29);
-            this.addAssignmentBtn.TabIndex = 15;
-            this.addAssignmentBtn.Text = "Add Assignment";
-            this.addAssignmentBtn.UseVisualStyleBackColor = true;
+            this.attendanceValLbl.AutoSize = true;
+            this.attendanceValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceValLbl.Location = new System.Drawing.Point(120, 110);
+            this.attendanceValLbl.Name = "attendanceValLbl";
+            this.attendanceValLbl.Size = new System.Drawing.Size(37, 18);
+            this.attendanceValLbl.TabIndex = 7;
+            this.attendanceValLbl.Text = "95%";
+            // 
+            // gradeLbl
+            // 
+            this.gradeLbl.AutoSize = true;
+            this.gradeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradeLbl.Location = new System.Drawing.Point(20, 80);
+            this.gradeLbl.Name = "gradeLbl";
+            this.gradeLbl.Size = new System.Drawing.Size(53, 18);
+            this.gradeLbl.TabIndex = 6;
+            this.gradeLbl.Text = "Grade:";
+            // 
+            // assignmentsLbl
+            // 
+            this.assignmentsLbl.AutoSize = true;
+            this.assignmentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assignmentsLbl.Location = new System.Drawing.Point(429, 18);
+            this.assignmentsLbl.Name = "assignmentsLbl";
+            this.assignmentsLbl.Size = new System.Drawing.Size(93, 18);
+            this.assignmentsLbl.TabIndex = 5;
+            this.assignmentsLbl.Text = "Assignments";
+            // 
+            // assignmentsBx
+            // 
+            this.assignmentsBx.ContextMenuStrip = this.assignmentStrip;
+            this.assignmentsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assignmentsBx.FormattingEnabled = true;
+            this.assignmentsBx.ItemHeight = 18;
+            this.assignmentsBx.Items.AddRange(new object[] {
+            "Quiz 1,",
+            "Quiz 2,",
+            "Quiz 3"});
+            this.assignmentsBx.Location = new System.Drawing.Point(395, 39);
+            this.assignmentsBx.Name = "assignmentsBx";
+            this.assignmentsBx.Size = new System.Drawing.Size(166, 256);
+            this.assignmentsBx.TabIndex = 4;
             // 
             // assignmentStrip
             // 
@@ -304,6 +268,66 @@
             this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
             this.uploadToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.uploadToolStripMenuItem.Text = "Upload";
+            // 
+            // teacherValueLbl
+            // 
+            this.teacherValueLbl.AutoSize = true;
+            this.teacherValueLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherValueLbl.Location = new System.Drawing.Point(120, 50);
+            this.teacherValueLbl.Name = "teacherValueLbl";
+            this.teacherValueLbl.Size = new System.Drawing.Size(106, 18);
+            this.teacherValueLbl.TabIndex = 3;
+            this.teacherValueLbl.Text = "Sergiy Vilkomir";
+            // 
+            // teacherNameLbl
+            // 
+            this.teacherNameLbl.AutoSize = true;
+            this.teacherNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherNameLbl.Location = new System.Drawing.Point(20, 50);
+            this.teacherNameLbl.Name = "teacherNameLbl";
+            this.teacherNameLbl.Size = new System.Drawing.Size(70, 18);
+            this.teacherNameLbl.TabIndex = 2;
+            this.teacherNameLbl.Text = "Teacher: ";
+            // 
+            // classNameValueLbl
+            // 
+            this.classNameValueLbl.AutoSize = true;
+            this.classNameValueLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classNameValueLbl.Location = new System.Drawing.Point(120, 19);
+            this.classNameValueLbl.Name = "classNameValueLbl";
+            this.classNameValueLbl.Size = new System.Drawing.Size(79, 18);
+            this.classNameValueLbl.TabIndex = 1;
+            this.classNameValueLbl.Text = "CSCI 6230";
+            // 
+            // classNameLbl
+            // 
+            this.classNameLbl.AutoSize = true;
+            this.classNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classNameLbl.Location = new System.Drawing.Point(20, 20);
+            this.classNameLbl.Name = "classNameLbl";
+            this.classNameLbl.Size = new System.Drawing.Size(91, 18);
+            this.classNameLbl.TabIndex = 0;
+            this.classNameLbl.Text = "Class name:";
+            // 
+            // quizGradeValLbl
+            // 
+            this.quizGradeValLbl.AutoSize = true;
+            this.quizGradeValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quizGradeValLbl.Location = new System.Drawing.Point(512, 298);
+            this.quizGradeValLbl.Name = "quizGradeValLbl";
+            this.quizGradeValLbl.Size = new System.Drawing.Size(45, 18);
+            this.quizGradeValLbl.TabIndex = 17;
+            this.quizGradeValLbl.Text = "100%";
+            // 
+            // quizGradelbl
+            // 
+            this.quizGradelbl.AutoSize = true;
+            this.quizGradelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quizGradelbl.Location = new System.Drawing.Point(401, 298);
+            this.quizGradelbl.Name = "quizGradelbl";
+            this.quizGradelbl.Size = new System.Drawing.Size(88, 18);
+            this.quizGradelbl.TabIndex = 16;
+            this.quizGradelbl.Text = "Quiz Grade:";
             // 
             // ClassesPage
             // 
@@ -348,5 +372,7 @@
         private System.Windows.Forms.ContextMenuStrip assignmentStrip;
         private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem;
+        private System.Windows.Forms.Label quizGradeValLbl;
+        private System.Windows.Forms.Label quizGradelbl;
     }
 }

@@ -82,7 +82,7 @@
             // 
             this.roleVal.AutoSize = true;
             this.roleVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleVal.Location = new System.Drawing.Point(121, 125);
+            this.roleVal.Location = new System.Drawing.Point(170, 125);
             this.roleVal.Name = "roleVal";
             this.roleVal.Size = new System.Drawing.Size(62, 18);
             this.roleVal.TabIndex = 5;
@@ -92,7 +92,7 @@
             // 
             this.passwordVal.AutoSize = true;
             this.passwordVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordVal.Location = new System.Drawing.Point(121, 92);
+            this.passwordVal.Location = new System.Drawing.Point(170, 92);
             this.passwordVal.Name = "passwordVal";
             this.passwordVal.Size = new System.Drawing.Size(62, 18);
             this.passwordVal.TabIndex = 6;
@@ -102,7 +102,7 @@
             // 
             this.emailVal.AutoSize = true;
             this.emailVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailVal.Location = new System.Drawing.Point(121, 57);
+            this.emailVal.Location = new System.Drawing.Point(170, 57);
             this.emailVal.Name = "emailVal";
             this.emailVal.Size = new System.Drawing.Size(154, 18);
             this.emailVal.TabIndex = 7;
@@ -112,7 +112,7 @@
             // 
             this.nameVal.AutoSize = true;
             this.nameVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameVal.Location = new System.Drawing.Point(121, 25);
+            this.nameVal.Location = new System.Drawing.Point(170, 25);
             this.nameVal.Name = "nameVal";
             this.nameVal.Size = new System.Drawing.Size(110, 18);
             this.nameVal.TabIndex = 8;
