@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("CSCI 6230");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("SENG 6000");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CSCI 6540");
@@ -48,11 +49,16 @@
             this.studentsBx = new System.Windows.Forms.ListBox();
             this.assistantsLbl = new System.Windows.Forms.Label();
             this.assistantsBx = new System.Windows.Forms.ListBox();
+            this.addAssignmentBtn = new System.Windows.Forms.Button();
+            this.assignmentStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.classInfoPanel.SuspendLayout();
+            this.assignmentStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -71,7 +77,7 @@
             this.splitContainer.Panel2.AutoScroll = true;
             this.splitContainer.Panel2.Controls.Add(this.classInfoPanel);
             this.splitContainer.Size = new System.Drawing.Size(730, 370);
-            this.splitContainer.SplitterDistance = 200;
+            this.splitContainer.SplitterDistance = 150;
             this.splitContainer.TabIndex = 0;
             // 
             // treeView1
@@ -90,11 +96,12 @@
             treeNode1,
             treeNode2,
             treeNode3});
-            this.treeView1.Size = new System.Drawing.Size(200, 370);
+            this.treeView1.Size = new System.Drawing.Size(150, 370);
             this.treeView1.TabIndex = 0;
             // 
             // classInfoPanel
             // 
+            this.classInfoPanel.Controls.Add(this.addAssignmentBtn);
             this.classInfoPanel.Controls.Add(this.assistantsLbl);
             this.classInfoPanel.Controls.Add(this.assistantsBx);
             this.classInfoPanel.Controls.Add(this.studentsLbl);
@@ -111,7 +118,7 @@
             this.classInfoPanel.Controls.Add(this.classNameLbl);
             this.classInfoPanel.Location = new System.Drawing.Point(3, 3);
             this.classInfoPanel.Name = "classInfoPanel";
-            this.classInfoPanel.Size = new System.Drawing.Size(520, 364);
+            this.classInfoPanel.Size = new System.Drawing.Size(570, 364);
             this.classInfoPanel.TabIndex = 0;
             // 
             // classNameLbl
@@ -156,6 +163,7 @@
             // 
             // assignmentsBx
             // 
+            this.assignmentsBx.ContextMenuStrip = this.assignmentStrip;
             this.assignmentsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assignmentsBx.FormattingEnabled = true;
             this.assignmentsBx.ItemHeight = 18;
@@ -163,16 +171,16 @@
             "Quiz 1,",
             "Quiz 2,",
             "Quiz 3"});
-            this.assignmentsBx.Location = new System.Drawing.Point(349, 45);
+            this.assignmentsBx.Location = new System.Drawing.Point(395, 39);
             this.assignmentsBx.Name = "assignmentsBx";
-            this.assignmentsBx.Size = new System.Drawing.Size(166, 310);
+            this.assignmentsBx.Size = new System.Drawing.Size(166, 274);
             this.assignmentsBx.TabIndex = 4;
             // 
             // assignmentsLbl
             // 
             this.assignmentsLbl.AutoSize = true;
             this.assignmentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assignmentsLbl.Location = new System.Drawing.Point(392, 18);
+            this.assignmentsLbl.Location = new System.Drawing.Point(429, 18);
             this.assignmentsLbl.Name = "assignmentsLbl";
             this.assignmentsLbl.Size = new System.Drawing.Size(93, 18);
             this.assignmentsLbl.TabIndex = 5;
@@ -222,7 +230,7 @@
             // 
             this.studentsLbl.AutoSize = true;
             this.studentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentsLbl.Location = new System.Drawing.Point(227, 96);
+            this.studentsLbl.Location = new System.Drawing.Point(243, 96);
             this.studentsLbl.Name = "studentsLbl";
             this.studentsLbl.Size = new System.Drawing.Size(66, 18);
             this.studentsLbl.TabIndex = 12;
@@ -239,7 +247,7 @@
             "Bigyan Pandit",
             "Mohammed Sarim Akbar",
             "Jonathan Eng"});
-            this.studentsBx.Location = new System.Drawing.Point(177, 117);
+            this.studentsBx.Location = new System.Drawing.Point(202, 117);
             this.studentsBx.Name = "studentsBx";
             this.studentsBx.Size = new System.Drawing.Size(166, 238);
             this.studentsBx.TabIndex = 11;
@@ -248,7 +256,7 @@
             // 
             this.assistantsLbl.AutoSize = true;
             this.assistantsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assistantsLbl.Location = new System.Drawing.Point(44, 150);
+            this.assistantsLbl.Location = new System.Drawing.Point(52, 150);
             this.assistantsLbl.Name = "assistantsLbl";
             this.assistantsLbl.Size = new System.Drawing.Size(80, 36);
             this.assistantsLbl.TabIndex = 14;
@@ -262,16 +270,47 @@
             this.assistantsBx.ItemHeight = 18;
             this.assistantsBx.Items.AddRange(new object[] {
             "Swetha Mahendrakar"});
-            this.assistantsBx.Location = new System.Drawing.Point(5, 189);
+            this.assistantsBx.Location = new System.Drawing.Point(12, 189);
             this.assistantsBx.Name = "assistantsBx";
             this.assistantsBx.Size = new System.Drawing.Size(166, 166);
             this.assistantsBx.TabIndex = 13;
+            // 
+            // addAssignmentBtn
+            // 
+            this.addAssignmentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAssignmentBtn.Location = new System.Drawing.Point(414, 319);
+            this.addAssignmentBtn.Name = "addAssignmentBtn";
+            this.addAssignmentBtn.Size = new System.Drawing.Size(135, 29);
+            this.addAssignmentBtn.TabIndex = 15;
+            this.addAssignmentBtn.Text = "Add Assignment";
+            this.addAssignmentBtn.UseVisualStyleBackColor = true;
+            // 
+            // assignmentStrip
+            // 
+            this.assignmentStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.downloadToolStripMenuItem,
+            this.uploadToolStripMenuItem});
+            this.assignmentStrip.Name = "assignmentStrip";
+            this.assignmentStrip.Size = new System.Drawing.Size(129, 48);
+            // 
+            // downloadToolStripMenuItem
+            // 
+            this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.downloadToolStripMenuItem.Text = "Download";
+            // 
+            // uploadToolStripMenuItem
+            // 
+            this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.uploadToolStripMenuItem.Text = "Upload";
             // 
             // ClassesPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.Controls.Add(this.splitContainer);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(730, 370);
             this.Name = "ClassesPage";
             this.Size = new System.Drawing.Size(730, 370);
@@ -281,6 +320,7 @@
             this.splitContainer.ResumeLayout(false);
             this.classInfoPanel.ResumeLayout(false);
             this.classInfoPanel.PerformLayout();
+            this.assignmentStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,5 +344,9 @@
         private System.Windows.Forms.Label gradeLbl;
         private System.Windows.Forms.Label assignmentsLbl;
         private System.Windows.Forms.ListBox assignmentsBx;
+        private System.Windows.Forms.Button addAssignmentBtn;
+        private System.Windows.Forms.ContextMenuStrip assignmentStrip;
+        private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem;
     }
 }
