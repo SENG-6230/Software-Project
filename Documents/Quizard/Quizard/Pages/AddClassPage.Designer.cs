@@ -108,7 +108,7 @@
             // addBtn
             // 
             this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.Location = new System.Drawing.Point(50, 588);
+            this.addBtn.Location = new System.Drawing.Point(32, 624);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(189, 65);
             this.addBtn.TabIndex = 22;
@@ -118,7 +118,7 @@
             // cancelBtn
             // 
             this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtn.Location = new System.Drawing.Point(282, 588);
+            this.cancelBtn.Location = new System.Drawing.Point(250, 624);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(189, 65);
             this.cancelBtn.TabIndex = 23;
@@ -129,7 +129,7 @@
             // 
             this.assistantsLbl.AutoSize = true;
             this.assistantsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assistantsLbl.Location = new System.Drawing.Point(800, 24);
+            this.assistantsLbl.Location = new System.Drawing.Point(544, 227);
             this.assistantsLbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.assistantsLbl.Name = "assistantsLbl";
             this.assistantsLbl.Size = new System.Drawing.Size(160, 72);
@@ -144,18 +144,18 @@
             this.assistantsBx.ItemHeight = 36;
             this.assistantsBx.Items.AddRange(new object[] {
             "Swetha Mahendrakar"});
-            this.assistantsBx.Location = new System.Drawing.Point(728, 115);
+            this.assistantsBx.Location = new System.Drawing.Point(448, 325);
             this.assistantsBx.Margin = new System.Windows.Forms.Padding(6);
             this.assistantsBx.Name = "assistantsBx";
             this.assistantsBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.assistantsBx.Size = new System.Drawing.Size(328, 544);
+            this.assistantsBx.Size = new System.Drawing.Size(328, 364);
             this.assistantsBx.TabIndex = 26;
             // 
             // studentsLbl
             // 
             this.studentsLbl.AutoSize = true;
             this.studentsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentsLbl.Location = new System.Drawing.Point(1222, 21);
+            this.studentsLbl.Location = new System.Drawing.Point(904, 42);
             this.studentsLbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.studentsLbl.Name = "studentsLbl";
             this.studentsLbl.Size = new System.Drawing.Size(133, 36);
@@ -173,11 +173,11 @@
             "Bigyan Pandit",
             "Mohammed Sarim Akbar",
             "Jonathan Eng"});
-            this.studentsBx.Location = new System.Drawing.Point(1098, 79);
+            this.studentsBx.Location = new System.Drawing.Point(806, 106);
             this.studentsBx.Margin = new System.Windows.Forms.Padding(6);
             this.studentsBx.Name = "studentsBx";
             this.studentsBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.studentsBx.Size = new System.Drawing.Size(328, 580);
+            this.studentsBx.Size = new System.Drawing.Size(328, 616);
             this.studentsBx.TabIndex = 24;
             // 
             // AddClassPage
@@ -197,9 +197,9 @@
             this.Controls.Add(this.nameBx);
             this.Controls.Add(this.userNameLbl);
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.MinimumSize = new System.Drawing.Size(1460, 740);
+            this.MinimumSize = new System.Drawing.Size(1140, 728);
             this.Name = "AddClassPage";
-            this.Size = new System.Drawing.Size(1460, 740);
+            this.Size = new System.Drawing.Size(1140, 728);
             this.ResumeLayout(false);
             this.PerformLayout();
 

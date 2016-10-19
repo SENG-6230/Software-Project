@@ -55,6 +55,8 @@
             this.teacherNameLbl = new System.Windows.Forms.Label();
             this.classNameValueLbl = new System.Windows.Forms.Label();
             this.classNameLbl = new System.Windows.Forms.Label();
+            this.addClassBtn = new System.Windows.Forms.Button();
+            this.addClassPage = new Quizard.Pages.AddClassPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -74,11 +76,13 @@
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer.Panel1.Controls.Add(this.addClassBtn);
             // 
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.AutoScroll = true;
             this.splitContainer.Panel2.Controls.Add(this.classInfoPanel);
+            this.splitContainer.Panel2.Controls.Add(this.addClassPage);
             this.splitContainer.Size = new System.Drawing.Size(1460, 740);
             this.splitContainer.SplitterDistance = 150;
             this.splitContainer.SplitterWidth = 8;
@@ -88,7 +92,7 @@
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Location = new System.Drawing.Point(0, 88);
             this.treeView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Class1";
@@ -101,7 +105,7 @@
             treeNode1,
             treeNode2,
             treeNode3});
-            this.treeView1.Size = new System.Drawing.Size(150, 740);
+            this.treeView1.Size = new System.Drawing.Size(150, 652);
             this.treeView1.TabIndex = 0;
             // 
             // classInfoPanel
@@ -351,6 +355,28 @@
             this.classNameLbl.TabIndex = 0;
             this.classNameLbl.Text = "Class name:";
             // 
+            // addClassBtn
+            // 
+            this.addClassBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addClassBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addClassBtn.Location = new System.Drawing.Point(0, 0);
+            this.addClassBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.addClassBtn.Name = "addClassBtn";
+            this.addClassBtn.Size = new System.Drawing.Size(150, 88);
+            this.addClassBtn.TabIndex = 2;
+            this.addClassBtn.Text = "Add Class";
+            this.addClassBtn.UseVisualStyleBackColor = true;
+            this.addClassBtn.Click += new System.EventHandler(this.addClassBtn_Click);
+            // 
+            // addClassPage
+            // 
+            this.addClassPage.Location = new System.Drawing.Point(-6, 0);
+            this.addClassPage.Margin = new System.Windows.Forms.Padding(6);
+            this.addClassPage.MinimumSize = new System.Drawing.Size(1140, 728);
+            this.addClassPage.Name = "addClassPage";
+            this.addClassPage.Size = new System.Drawing.Size(1140, 728);
+            this.addClassPage.TabIndex = 18;
+            // 
             // ClassesPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -398,5 +424,7 @@
         private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem;
         private System.Windows.Forms.Label quizGradeValLbl;
         private System.Windows.Forms.Label quizGradelbl;
+        private System.Windows.Forms.Button addClassBtn;
+        private AddClassPage addClassPage;
     }
 }
