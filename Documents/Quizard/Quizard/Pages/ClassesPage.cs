@@ -17,6 +17,14 @@ namespace Quizard.Pages
             InitializeComponent();
 
             addClassPage.Visible = false;
+            addClassPage.finishedEvent += addClassFInishedHandler;
+        }
+
+        private void addClassFInishedHandler(object sender, ClassArgs e)
+        {
+            classInfoPanel.Visible = true;
+            addClassPage.Visible = false;
+            addClassBtn.Visible = true;
         }
 
         private void addClassBtn_Click(object sender, EventArgs e)

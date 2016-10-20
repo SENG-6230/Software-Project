@@ -38,7 +38,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(630, 182);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(482, 31);
             this.textBox1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // usernameLbl
             // 
             this.usernameLbl.AutoSize = true;
-            this.usernameLbl.Location = new System.Drawing.Point(214, 188);
+            this.usernameLbl.Location = new System.Drawing.Point(313, 188);
             this.usernameLbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(116, 25);
@@ -56,7 +56,7 @@
             // passwordLbl
             // 
             this.passwordLbl.AutoSize = true;
-            this.passwordLbl.Location = new System.Drawing.Point(214, 348);
+            this.passwordLbl.Location = new System.Drawing.Point(313, 348);
             this.passwordLbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(112, 25);
@@ -66,7 +66,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(630, 342);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(6);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(482, 31);
@@ -92,7 +92,7 @@
             this.Controls.Add(this.passwordLbl);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1460, 740);
             this.Name = "LoginPage";
             this.Size = new System.Drawing.Size(1460, 740);

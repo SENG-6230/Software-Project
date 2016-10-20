@@ -46,7 +46,7 @@
             // 
             this.nameBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBx.Location = new System.Drawing.Point(376, 36);
-            this.nameBx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nameBx.Margin = new System.Windows.Forms.Padding(6);
             this.nameBx.Name = "nameBx";
             this.nameBx.Size = new System.Drawing.Size(312, 41);
             this.nameBx.TabIndex = 15;
@@ -114,6 +114,7 @@
             this.addBtn.TabIndex = 22;
             this.addBtn.Text = "Add Class";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // cancelBtn
             // 
@@ -124,6 +125,7 @@
             this.cancelBtn.TabIndex = 23;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // assistantsLbl
             // 
@@ -176,7 +178,7 @@
             this.studentsBx.Location = new System.Drawing.Point(806, 106);
             this.studentsBx.Margin = new System.Windows.Forms.Padding(6);
             this.studentsBx.Name = "studentsBx";
-            this.studentsBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.studentsBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.studentsBx.Size = new System.Drawing.Size(328, 616);
             this.studentsBx.TabIndex = 24;
             // 
@@ -196,7 +198,7 @@
             this.Controls.Add(this.departmentLbl);
             this.Controls.Add(this.nameBx);
             this.Controls.Add(this.userNameLbl);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1140, 728);
             this.Name = "AddClassPage";
             this.Size = new System.Drawing.Size(1140, 728);
