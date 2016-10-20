@@ -149,7 +149,7 @@
             this.assistantsBx.Location = new System.Drawing.Point(448, 325);
             this.assistantsBx.Margin = new System.Windows.Forms.Padding(6);
             this.assistantsBx.Name = "assistantsBx";
-            this.assistantsBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.assistantsBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.assistantsBx.Size = new System.Drawing.Size(328, 364);
             this.assistantsBx.TabIndex = 26;
             // 
