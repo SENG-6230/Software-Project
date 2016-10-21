@@ -12,6 +12,30 @@ namespace Quizard.Pages
 {
     public partial class LoginPage : UserControl
     {
+        string userName
+        {
+            get
+            {
+                return this.usernameLbl.Text;
+            }
+            set
+            {
+                usernameLbl.Text = value;
+            }
+        }
+
+        string password
+        {
+            get
+            {
+                return passwordBx.Text;
+            }
+            set
+            {
+                passwordBx.Text = value;
+            }
+        }
+
         public LoginPage()
         {
             InitializeComponent();
