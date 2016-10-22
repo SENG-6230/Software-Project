@@ -38,6 +38,9 @@ namespace Quizard.Pages
         private void addAssignmentBtn_Click(object sender, EventArgs e)
         {
             AssignmentForm form = new AssignmentForm();
+            form.assignmentFormText = "Upload a new assignment";
+            form.assignmentNameText = "Enter Name";
+            form.assignmentDueDate = DateTime.Now;
             form.Show();
         }
 
@@ -46,7 +49,9 @@ namespace Quizard.Pages
             int index = this.assignmentsBx.IndexFromPoint(e.Location);
             if (index != System.Windows.Forms.ListBox.NoMatches)
             {
+                // will pull the properties of the selected assignment from the database
                 AssignmentForm form = new AssignmentForm();
+                form.assignmentFormText = "Editing existing assignment";
                 form.Show();
             }
         }

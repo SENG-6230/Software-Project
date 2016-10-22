@@ -17,6 +17,24 @@ namespace Quizard
             InitializeComponent();
         }
 
+        public string assignmentFormText
+        {
+            get { return this.Text; }
+            set { this.Text = value;}
+        }
+
+        public string assignmentNameText
+        {
+            get { return this.txtName.Text; }
+            set { this.txtName.Text = value;}
+        }
+
+        public DateTime assignmentDueDate
+        {
+            get { return this.dueDatePicker.Value; }
+            set { this.dueDatePicker.Value = value;}
+        }
+
         private void btnUpload_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileChooser = new OpenFileDialog();
