@@ -37,20 +37,8 @@ namespace Quizard.Pages
 
         private void addAssignmentBtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fileChooser = new OpenFileDialog();
-            fileChooser.Title = "Select Assignment to Upload";
-            fileChooser.InitialDirectory = @"C:\";
-            fileChooser.CheckFileExists = true;
-            DialogResult result = fileChooser.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                // This just adds the name of the selected file to the assignments ListBox.
-                // WHen the database is created, this will update the database and the
-                // Assignments ListBox will pull from the database
-                string file = fileChooser.FileName;
-                MessageBox.Show("Assignment Successfully Uploaded");
-                assignmentsBx.Items.Add(file);
-            }
+            AssignmentForm form = new AssignmentForm();
+            form.Show();
         }
 
         private void assignmentsBx_SelectedIndexChanged(object sender, EventArgs e)
