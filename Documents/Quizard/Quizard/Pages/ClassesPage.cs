@@ -41,9 +41,14 @@ namespace Quizard.Pages
             form.Show();
         }
 
-        private void assignmentsBx_SelectedIndexChanged(object sender, EventArgs e)
+        private void assignmentsBx_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            int index = this.assignmentsBx.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                AssignmentForm form = new AssignmentForm();
+                form.Show();
+            }
         }
     }
 }

@@ -286,7 +286,7 @@
             this.assignmentsBx.Name = "assignmentsBx";
             this.assignmentsBx.Size = new System.Drawing.Size(166, 256);
             this.assignmentsBx.TabIndex = 4;
-            this.assignmentsBx.SelectedIndexChanged += new System.EventHandler(this.assignmentsBx_SelectedIndexChanged);
+            this.assignmentsBx.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.assignmentsBx_MouseDoubleClick);
             // 
             // assignmentStrip
             // 

@@ -105,16 +105,15 @@
             // lblFile
             // 
             this.lblFile.AutoSize = true;
-            this.lblFile.Location = new System.Drawing.Point(6, 29);
+            this.lblFile.Location = new System.Drawing.Point(6, 53);
             this.lblFile.Name = "lblFile";
-            this.lblFile.Size = new System.Drawing.Size(95, 18);
+            this.lblFile.Size = new System.Drawing.Size(0, 18);
             this.lblFile.TabIndex = 0;
-            this.lblFile.Text = "Upload A File";
             // 
             // btnUpload
             // 
             this.btnUpload.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnUpload.Location = new System.Drawing.Point(119, 24);
+            this.btnUpload.Location = new System.Drawing.Point(6, 23);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(75, 27);
             this.btnUpload.TabIndex = 3;
@@ -140,7 +139,8 @@
             this.ClientSize = new System.Drawing.Size(618, 432);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "AssignmentForm";
-            this.Text = "AssignmentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Add An Assignment";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBoxName.ResumeLayout(false);
             this.groupBoxName.PerformLayout();
