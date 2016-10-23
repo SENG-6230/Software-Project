@@ -46,7 +46,7 @@ namespace Quizard.Pages
             int index = this.assignmentsBx.IndexFromPoint(e.Location);
             if (index != System.Windows.Forms.ListBox.NoMatches)
             {
-                AssignmentForm form = AssignmentForm.editAssignmentForm(0);
+                AssignmentForm form = AssignmentForm.studentAssignmentForm(0);
                 form.Show();
             }
         }
