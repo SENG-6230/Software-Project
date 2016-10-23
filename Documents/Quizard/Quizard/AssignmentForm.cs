@@ -45,7 +45,7 @@ namespace Quizard
             // TODO: pull assignment info from database for assignment matching id
             AssignmentForm form = new AssignmentForm();
             form.Text = "Upload student assignment submission";
-            form.Text = "Placeholder";
+            form.txtName.Text = "Placeholder";
             form.dueDatePicker.Value = DateTime.Now;
             form.txtName.Enabled = false;
             form.dueDatePicker.Enabled = false;
@@ -86,16 +86,23 @@ namespace Quizard
         private void btnStudentUpload_Click(object sender, EventArgs e)
         {
             // TODO: modify this to upload submission to database
-            OpenFileDialog fileChooser = new OpenFileDialog();
-            fileChooser.Title = "Select Your Submission File";
-            fileChooser.InitialDirectory = @"C:\";
-            fileChooser.CheckFileExists = true;
-            fileChooser.CheckPathExists = true;
-            if (fileChooser.ShowDialog() == DialogResult.OK)
+            if(DateTime.Now <= this.dueDatePicker.Value)
             {
-                string file = fileChooser.FileName.ToString();
-                MessageBox.Show("File " + file + " Successfully Uploaded!");
-                lblSubmission.Text = file;
+                OpenFileDialog fileChooser = new OpenFileDialog();
+                fileChooser.Title = "Select Your Submission File";
+                fileChooser.InitialDirectory = @"C:\";
+                fileChooser.CheckFileExists = true;
+                fileChooser.CheckPathExists = true;
+                if (fileChooser.ShowDialog() == DialogResult.OK)
+                {
+                    string file = fileChooser.FileName.ToString();
+                    MessageBox.Show("File " + file + " Successfully Uploaded!");
+                    lblSubmission.Text = file;
+                }
+            }
+            else
+            {
+                MessageBox.Show("The due date for this assignment has passed and submissions may no longer be uploaded.");
             }
         }
 
