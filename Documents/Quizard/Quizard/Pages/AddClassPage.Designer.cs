@@ -173,7 +173,7 @@
             this.studentsBx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.studentsBx.Size = new System.Drawing.Size(166, 310);
             this.studentsBx.TabIndex = 24;
-            this.studentsBx.SelectedIndexChanged += new System.EventHandler(this.studentsBx_SelectedIndexChanged);
+          //  this.studentsBx.SelectedIndexChanged += new System.EventHandler(this.studentsBx_SelectedIndexChanged);
             // 
             // AddClassPage
             // 
