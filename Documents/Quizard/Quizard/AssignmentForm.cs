@@ -17,22 +17,35 @@ namespace Quizard
             InitializeComponent();
         }
 
-        public string assignmentFormText
+        public static AssignmentForm uploadAssignmentForm()
         {
-            get { return this.Text; }
-            set { this.Text = value;}
+            AssignmentForm form = new AssignmentForm();
+            form.Text = "Upload a new assignment";
+            form.txtName.Text = "Enter Name";
+            form.dueDatePicker.Value = DateTime.Now;
+            return form;
         }
 
-        public string assignmentNameText
+        public static AssignmentForm editAssignmentForm(int id)
         {
-            get { return this.txtName.Text; }
-            set { this.txtName.Text = value;}
+            // will pull assignment info from database for assignment matching id
+            AssignmentForm form = new AssignmentForm();
+            form.Text = "Editing existing assignment";
+            form.txtName.Text = "Placeholder";
+            form.dueDatePicker.Value = DateTime.Now;
+            return form;
         }
 
-        public DateTime assignmentDueDate
+        public static AssignmentForm studentUploadAssigmentForm(int id)
         {
-            get { return this.dueDatePicker.Value; }
-            set { this.dueDatePicker.Value = value;}
+            // will pull assignment info from database for assignment matching id
+            AssignmentForm form = new AssignmentForm();
+            form.Text = "Upload assignment submission";
+            form.Text = "Placeholder";
+            form.dueDatePicker.Value = DateTime.Now;
+            form.txtName.Enabled = false;
+            form.dueDatePicker.Enabled = false;
+            return form;
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
