@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite; 
 
 namespace Quizard.Pages
 {
@@ -49,6 +50,11 @@ namespace Quizard.Pages
                 AssignmentForm form = AssignmentForm.studentAssignmentForm(0);
                 form.Show();
             }
+        }
+
+        private void studentsBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
