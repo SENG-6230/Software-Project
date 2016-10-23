@@ -16,11 +16,11 @@ namespace Quizard.Pages
         {
             get
             {
-                return this.usernameLbl.Text;
+                return this.usernameBx.Text;
             }
             set
             {
-                usernameLbl.Text = value;
+                usernameBx.Text = value;
             }
         }
 
@@ -43,6 +43,23 @@ namespace Quizard.Pages
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            System.Data.SQLite.SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
+            database.Open();
+
+            string checkPassword = "SELECT * FROM users WHERE email = '" + userName + "' AND password = '" +password +"';";
+           //string checkPassword = "SELECT * FROM users WHERE email = 'engj@ecu.edu' AND password = 'password';";
+
+            System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(checkPassword, database);
+            System.Data.SQLite.SQLiteDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+            System.Windows.Forms.MessageBox.Show("Success - " + userName + " password " + password);
+            }else
+            {
+                System.Windows.Forms.MessageBox.Show("fail - " + userName + " password " + password);
+            }
             //TODO add login action
         }
     }
