@@ -10,6 +10,7 @@ namespace Quizard
     static class Program
     {
         static MainForm mainForm;
+        internal static QuizardDatabase Database;
 
         /// <summary>
         /// The main entry point for the application.
@@ -63,10 +64,14 @@ namespace Quizard
 
             protected override void OnCreateMainForm()
             {
-                mainForm = new MainForm();
-                MainForm = mainForm;
                 try
                 {
+                    Database = new QuizardDatabase();
+                    Database.Open();
+
+                    mainForm = new MainForm();
+                    MainForm = mainForm;
+
                     processCommandLine();
                 }
                 catch (Exception e)
