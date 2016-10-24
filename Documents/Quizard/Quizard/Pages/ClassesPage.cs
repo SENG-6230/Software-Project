@@ -11,7 +11,7 @@ using System.Data.SQLite;
 
 namespace Quizard.Pages
 {
-    public partial class ClassesPage : UserControl
+    public partial class ClassesPage : UserControl, QuizardPage
     {
         public ClassesPage()
         {
@@ -53,6 +53,11 @@ namespace Quizard.Pages
         }
 
         private void studentsBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ShowPage(UserTypes user)
         {
 
         }

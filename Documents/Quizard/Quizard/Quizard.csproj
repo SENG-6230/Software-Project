@@ -76,6 +76,7 @@
     <Compile Include="AssignmentForm.Designer.cs">
       <DependentUpon>AssignmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\UserTypes.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +113,7 @@
     <Compile Include="Pages\ProfilePage.Designer.cs">
       <DependentUpon>ProfilePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\QuizardPage.cs" />
     <Compile Include="Pages\UsersPage.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class UsersPage : UserControl
+    public partial class UsersPage : UserControl, QuizardPage
     {
         public UsersPage()
         {
             InitializeComponent();
+        }
+
+        public void ShowPage(UserTypes user)
+        {
+
         }
     }
 }

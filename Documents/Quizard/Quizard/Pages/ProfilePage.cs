@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class ProfilePage : UserControl
+    public partial class ProfilePage : UserControl, QuizardPage
     {
         string name
         {
@@ -63,6 +63,11 @@ namespace Quizard.Pages
         public ProfilePage()
         {
             InitializeComponent();
+        }
+
+        public void ShowPage(UserTypes user)
+        {
+
         }
     }
 }

@@ -45,6 +45,8 @@ namespace Quizard
             pagePnl.Controls.Clear();
             page.Dock = DockStyle.Fill;
             pagePnl.Controls.Add(page);
+            //This will tie into the results from the login page when we set that up
+            ((QuizardPage)page).ShowPage(UserTypes.Teacher);
         }
 
         #region Event Handlers

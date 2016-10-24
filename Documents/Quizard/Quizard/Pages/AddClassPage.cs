@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class AddClassPage : UserControl
+    public partial class AddClassPage : UserControl, QuizardPage
     {
         public event EventHandler<ClassArgs> finishedEvent;
 
@@ -33,6 +33,11 @@ namespace Quizard.Pages
             {
                 finishedEvent(null, null);
             }
+        }
+
+        public void ShowPage(UserTypes user)
+        {
+
         }
     }
 

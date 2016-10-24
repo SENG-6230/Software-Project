@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class LoginPage : UserControl
+    public partial class LoginPage : UserControl, QuizardPage
     {
         string userName
         {
@@ -61,6 +61,11 @@ namespace Quizard.Pages
                 System.Windows.Forms.MessageBox.Show("fail - " + userName + " password " + password);
             }
             //TODO add login action
+        }
+
+        public void ShowPage(UserTypes user)
+        {
+
         }
     }
 }
