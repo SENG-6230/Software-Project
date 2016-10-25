@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             this.userNameLbl = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.passwordLbl = new System.Windows.Forms.Label();
@@ -86,7 +87,7 @@
             this.roleVal.Name = "roleVal";
             this.roleVal.Size = new System.Drawing.Size(62, 18);
             this.roleVal.TabIndex = 5;
-            this.roleVal.Text = "Teacher";
+           // this.roleVal.Text = "Teacher";
             // 
             // passwordVal
             // 
@@ -96,7 +97,7 @@
             this.passwordVal.Name = "passwordVal";
             this.passwordVal.Size = new System.Drawing.Size(62, 18);
             this.passwordVal.TabIndex = 6;
-            this.passwordVal.Text = "*********";
+          //  this.passwordVal.Text = "*********";
             // 
             // emailVal
             // 
@@ -106,7 +107,8 @@
             this.emailVal.Name = "emailVal";
             this.emailVal.Size = new System.Drawing.Size(154, 18);
             this.emailVal.TabIndex = 7;
-            this.emailVal.Text = "VILKOMIRS@ecu.edu";
+          //this.emailVal.Text = "VILKOMIRS@ecu.edu";
+
             // 
             // nameVal
             // 
@@ -116,7 +118,7 @@
             this.nameVal.Name = "nameVal";
             this.nameVal.Size = new System.Drawing.Size(110, 18);
             this.nameVal.TabIndex = 8;
-            this.nameVal.Text = "Vilkomir, Sergiy";
+         //   this.nameVal.Text = "Vilkomir, Sergiy";
             // 
             // ProfilePage
             // 
@@ -135,6 +137,36 @@
             this.Size = new System.Drawing.Size(730, 370);
             this.ResumeLayout(false);
             this.PerformLayout();
+
+
+            System.Data.SQLite.SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
+            database.Open();
+            //string checkPassword = "SELECT * FROM users WHERE email = '" + userName + "' AND password = '" + password + "';";
+            string checkPassword = "SELECT * FROM users WHERE user_ID = 1;";
+
+            System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(checkPassword, database);
+            System.Data.SQLite.SQLiteDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                this.emailVal.Text = reader["email"].ToString(); ;
+                this.passwordVal.Text = reader["password"].ToString();
+                this.nameVal.Text = reader["Fname"].ToString() + " " + reader["LName"].ToString();
+
+                if (reader["user_type"].ToString() == "1"){
+                    this.roleVal.Text = "Student";
+                }else if (reader["user_type"].ToString() == "2"){
+                    this.roleVal.Text = "Teacher";
+                }else if (reader["user_type"].ToString() == "3"){
+                    this.roleVal.Text = "Teacher's Assistant"; 
+                }else if (reader["user_type"].ToString() == "4"){
+                    this.roleVal.Text = "Department Head";
+                }else if (reader["user_type"].ToString() == "5"){
+                    this.roleVal.Text = "Administrator";
+                }
+             
+            }
 
         }
 

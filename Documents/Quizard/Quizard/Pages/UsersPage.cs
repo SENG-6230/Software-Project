@@ -24,11 +24,11 @@ namespace Quizard.Pages
 
         private void createBtn_Click(object sender, EventArgs e)
         {
-            Program.Database.CreateUser(
-                    Name: nameBx.Text,
-                    email: emailBx.Text,
-                    password: passwordBx.Text,
-                    role: roleCbx.Text);
+            //Program.Database.CreateUser(
+            //        Name: nameBx.Text,
+            //        email: emailBx.Text,
+            //        password: passwordBx.Text,
+            //        role: roleCbx.Text);
         }
     }
 }
