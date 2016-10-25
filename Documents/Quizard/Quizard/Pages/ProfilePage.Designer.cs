@@ -1,5 +1,7 @@
-﻿namespace Quizard.Pages
-{
+﻿using System;
+
+namespace Quizard.Pages
+   {
     partial class ProfilePage
     {
         /// <summary> 
@@ -141,10 +143,9 @@
 
             System.Data.SQLite.SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
             database.Open();
-            //string checkPassword = "SELECT * FROM users WHERE email = '" + userName + "' AND password = '" + password + "';";
-            string checkPassword = "SELECT * FROM users WHERE user_ID = 1;";
+            string sqlCommand = "SELECT * FROM users WHERE user_ID = 1;"; // need some sort of variable to represent what user is loged in
 
-            System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(checkPassword, database);
+            System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(sqlCommand, database);
             System.Data.SQLite.SQLiteDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -154,18 +155,12 @@
                 this.passwordVal.Text = reader["password"].ToString();
                 this.nameVal.Text = reader["Fname"].ToString() + " " + reader["LName"].ToString();
 
-                if (reader["user_type"].ToString() == "1"){
-                    this.roleVal.Text = "Student";
-                }else if (reader["user_type"].ToString() == "2"){
-                    this.roleVal.Text = "Teacher";
-                }else if (reader["user_type"].ToString() == "3"){
-                    this.roleVal.Text = "Teacher's Assistant"; 
-                }else if (reader["user_type"].ToString() == "4"){
-                    this.roleVal.Text = "Department Head";
-                }else if (reader["user_type"].ToString() == "5"){
-                    this.roleVal.Text = "Administrator";
-                }
-             
+               int typeInt = Convert.ToInt32(reader["user_type"].ToString());
+               UserTypes thisUser = (UserTypes)typeInt;
+               this.roleVal.Text = thisUser.ToString();
+            } else
+            {
+                System.Windows.Forms.MessageBox.Show("There is an issue with your application, please contact an administrator/developer");
             }
 
         }

@@ -8,7 +8,7 @@ namespace Quizard
 {
     public enum UserTypes
     {
-        Student,
+        Student = 1,
         Teacher,
         TeachingAssistant,
         DepartmentHead,
