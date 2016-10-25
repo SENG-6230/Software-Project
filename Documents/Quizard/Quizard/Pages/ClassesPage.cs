@@ -61,5 +61,10 @@ namespace Quizard.Pages
         {
 
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            //add code to load up a selected class to the addclass page 5ttttttt
+        }
     }
 }
