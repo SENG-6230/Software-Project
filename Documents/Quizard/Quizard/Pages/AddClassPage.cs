@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class AddClassPage : UserControl //, QuizardPage
+    public partial class AddClassPage : UserControl , QuizardPage
     {
         public event EventHandler<ClassArgs> finishedEvent;
         
@@ -21,12 +21,12 @@ namespace Quizard.Pages
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            //Program.Database.CreateClass(
-            //    nameBx.Text,
-            //    teacherCbx.SelectedText,
-            //    headCbx.SelectedText,
-            //    getListOfAssistants(),
-            //    GetListOfStudents());
+            Program.Database.CreateClass(
+                nameBx.Text,
+                teacherCbx.SelectedText,
+                headCbx.SelectedText,
+                getListOfAssistants(),
+                GetListOfStudents());
 
             finishedEvent?.Invoke(null, null);
         }
