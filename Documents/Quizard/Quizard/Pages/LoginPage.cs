@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class LoginPage : UserControl // QuizardPage
+    public partial class LoginPage : UserControl, QuizardPage
     {
         string userName
         {

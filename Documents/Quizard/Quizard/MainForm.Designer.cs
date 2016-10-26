@@ -56,7 +56,7 @@
             // 
             // ClassesBtn
             // 
-            this.ClassesBtn.Location = new System.Drawing.Point(260, 20);
+            this.ClassesBtn.Location = new System.Drawing.Point(492, 20);
             this.ClassesBtn.Margin = new System.Windows.Forms.Padding(10);
             this.ClassesBtn.Name = "ClassesBtn";
             this.ClassesBtn.Size = new System.Drawing.Size(212, 80);
@@ -69,8 +69,8 @@
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.HomeBtn);
-            this.flowLayoutPanel1.Controls.Add(this.ClassesBtn);
             this.flowLayoutPanel1.Controls.Add(this.InfoBtn);
+            this.flowLayoutPanel1.Controls.Add(this.ClassesBtn);
             this.flowLayoutPanel1.Controls.Add(this.usersBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 40);
@@ -82,7 +82,7 @@
             // 
             // InfoBtn
             // 
-            this.InfoBtn.Location = new System.Drawing.Point(492, 20);
+            this.InfoBtn.Location = new System.Drawing.Point(260, 20);
             this.InfoBtn.Margin = new System.Windows.Forms.Padding(10);
             this.InfoBtn.Name = "InfoBtn";
             this.InfoBtn.Size = new System.Drawing.Size(212, 80);
