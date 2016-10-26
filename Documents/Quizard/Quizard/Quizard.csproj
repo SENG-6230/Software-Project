@@ -76,6 +76,7 @@
     <Compile Include="AssignmentForm.Designer.cs">
       <DependentUpon>AssignmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\QuizardDatabase.cs" />
     <Compile Include="Database\UserTypes.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
