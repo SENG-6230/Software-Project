@@ -30,6 +30,12 @@ namespace Quizard
             }
         }
 
+        internal List<User> GetAllUsers()
+        {
+            //insert user parsing here
+            return new List<User>();
+        }
+
         internal int CreateUser(string Name, string email, string password, string role)
         {
             int results = 0;
