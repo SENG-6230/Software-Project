@@ -19,12 +19,12 @@ namespace Quizard.Pages
 
         public void ShowPage(UserTypes user)
         {
-            usersBx.Nodes.Clear();
             populateUserList();
         }
 
         private void populateUserList()
         {
+            //usersBx.Nodes.Clear();
             List<User> users = Program.Database.GetAllUsers();
             foreach (User user in users)
             {
@@ -41,6 +41,16 @@ namespace Quizard.Pages
                     email: emailBx.Text,
                     password: passwordBx.Text,
                     role: roleCbx.Text);
+        }
+
+        private void usersBx_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+           
+        }
+
+        private void usersBx_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

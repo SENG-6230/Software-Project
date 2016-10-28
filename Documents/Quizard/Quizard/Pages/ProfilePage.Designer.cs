@@ -89,7 +89,7 @@ namespace Quizard.Pages
             this.roleVal.Name = "roleVal";
             this.roleVal.Size = new System.Drawing.Size(62, 18);
             this.roleVal.TabIndex = 5;
-           // this.roleVal.Text = "Teacher";
+            this.roleVal.Text = "Teacher";
             // 
             // passwordVal
             // 
@@ -99,7 +99,7 @@ namespace Quizard.Pages
             this.passwordVal.Name = "passwordVal";
             this.passwordVal.Size = new System.Drawing.Size(62, 18);
             this.passwordVal.TabIndex = 6;
-          //  this.passwordVal.Text = "*********";
+            this.passwordVal.Text = "*********";
             // 
             // emailVal
             // 
@@ -109,7 +109,7 @@ namespace Quizard.Pages
             this.emailVal.Name = "emailVal";
             this.emailVal.Size = new System.Drawing.Size(154, 18);
             this.emailVal.TabIndex = 7;
-          //this.emailVal.Text = "VILKOMIRS@ecu.edu";
+            this.emailVal.Text = "VILKOMIRS@ecu.edu";
 
             // 
             // nameVal
@@ -120,7 +120,7 @@ namespace Quizard.Pages
             this.nameVal.Name = "nameVal";
             this.nameVal.Size = new System.Drawing.Size(110, 18);
             this.nameVal.TabIndex = 8;
-         //   this.nameVal.Text = "Vilkomir, Sergiy";
+            this.nameVal.Text = "Vilkomir, Sergiy";
             // 
             // ProfilePage
             // 
@@ -139,30 +139,6 @@ namespace Quizard.Pages
             this.Size = new System.Drawing.Size(730, 370);
             this.ResumeLayout(false);
             this.PerformLayout();
-
-
-            System.Data.SQLite.SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
-            database.Open();
-            string sqlCommand = "SELECT * FROM users WHERE user_ID = 1;"; // need some sort of variable to represent what user is loged in
-
-            System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(sqlCommand, database);
-            System.Data.SQLite.SQLiteDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                reader.Read();
-                this.emailVal.Text = reader["email"].ToString(); ;
-                this.passwordVal.Text = reader["password"].ToString();
-                this.nameVal.Text = reader["Fname"].ToString() + " " + reader["LName"].ToString();
-
-               int typeInt = Convert.ToInt32(reader["user_type"].ToString());
-               UserTypes thisUser = (UserTypes)typeInt;
-               this.roleVal.Text = thisUser.ToString();
-            } else
-            {
-                System.Windows.Forms.MessageBox.Show("There is an issue with your application, please contact an administrator/developer");
-            }
-
         }
 
         #endregion

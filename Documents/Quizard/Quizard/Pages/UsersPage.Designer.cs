@@ -94,6 +94,8 @@
             treeNode6});
             this.usersBx.Size = new System.Drawing.Size(250, 652);
             this.usersBx.TabIndex = 0;
+            this.usersBx.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.usersBx_NodeMouseClick);
+            this.usersBx.Click += new System.EventHandler(this.usersBx_Click);
             // 
             // splitContainer
             // 

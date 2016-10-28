@@ -63,6 +63,30 @@ namespace Quizard.Pages
         public ProfilePage()
         {
             InitializeComponent();
+
+
+            System.Data.SQLite.SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
+            database.Open();
+            string sqlCommand = "SELECT * FROM users WHERE user_ID = 1;"; // need some sort of variable to represent what user is loged in
+
+            System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(sqlCommand, database);
+            System.Data.SQLite.SQLiteDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                this.emailVal.Text = reader["email"].ToString(); ;
+                this.passwordVal.Text = reader["password"].ToString();
+                this.nameVal.Text = reader["Fname"].ToString() + " " + reader["LName"].ToString();
+
+                int typeInt = Convert.ToInt32(reader["user_type"].ToString());
+                UserTypes thisUser = (UserTypes)typeInt;
+                this.roleVal.Text = thisUser.ToString();
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("There is an issue with your application, please contact an administrator/developer");
+            }
         }
 
         public void ShowPage(UserTypes user)
