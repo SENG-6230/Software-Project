@@ -70,14 +70,29 @@ namespace Quizard
             return results;
         }
 
-        internal int CreateSubmission(int quizid, int classid, int userid, string score, string path)
+        internal int CreateSubmission(int quizid, int classid, int userid, string path)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
                     "INSERT INTO submissions(quiz_ID, class_ID, user_ID, score,submission_path) "
-                    + "VALUES(" + quizid + "," + classid + "," + userid + "," + score + "," + path + ");";
+                    + "VALUES(" + quizid + "," + classid + "," + userid + "," + "ungraded" + "," + path + ");";
+
+                results = command.ExecuteNonQuery();
+            });
+            return results;
+        }
+
+        internal int GradeSubmission(int id, string grade)
+        {
+            int results = 0;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "UPDATE submissions "
+                    + "SET score = " + grade
+                    + "WHERE submission_ID = " + id + ";";
 
                 results = command.ExecuteNonQuery();
             });
