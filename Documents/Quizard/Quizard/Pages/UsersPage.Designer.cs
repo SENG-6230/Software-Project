@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Vilkomir, Sergiy");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Eng, Jonathan");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Akbar, Mohammed Sarim");
@@ -48,11 +49,14 @@
             this.passwordLbl = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.userNameLbl = new System.Windows.Forms.Label();
+            this.userMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.classInfoPanel.SuspendLayout();
+            this.userMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +72,7 @@
             // 
             // usersBx
             // 
+            this.usersBx.ContextMenuStrip = this.userMenuStrip;
             this.usersBx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usersBx.Location = new System.Drawing.Point(0, 88);
@@ -95,7 +100,6 @@
             this.usersBx.Size = new System.Drawing.Size(250, 652);
             this.usersBx.TabIndex = 0;
             this.usersBx.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.usersBx_NodeMouseClick);
-            this.usersBx.Click += new System.EventHandler(this.usersBx_Click);
             // 
             // splitContainer
             // 
@@ -247,6 +251,21 @@
             this.userNameLbl.TabIndex = 9;
             this.userNameLbl.Text = "Name:";
             // 
+            // userMenuStrip
+            // 
+            this.userMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.userMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem});
+            this.userMenuStrip.Name = "userMenuStrip";
+            this.userMenuStrip.Size = new System.Drawing.Size(270, 86);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
             // UsersPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -263,6 +282,7 @@
             this.splitContainer.ResumeLayout(false);
             this.classInfoPanel.ResumeLayout(false);
             this.classInfoPanel.PerformLayout();
+            this.userMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +304,7 @@
         private System.Windows.Forms.Label emailLbl;
         private System.Windows.Forms.Label userNameLbl;
         private System.Windows.Forms.Button createBtn;
+        private System.Windows.Forms.ContextMenuStrip userMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
     }
 }

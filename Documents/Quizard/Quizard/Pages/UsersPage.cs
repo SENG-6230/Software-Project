@@ -48,7 +48,7 @@ namespace Quizard.Pages
            
         }
 
-        private void usersBx_Click(object sender, EventArgs e)
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
