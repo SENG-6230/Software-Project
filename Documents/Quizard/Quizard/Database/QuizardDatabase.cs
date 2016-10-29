@@ -55,5 +55,33 @@ namespace Quizard
         {
             //add sql code here to add a class
         }
+
+        internal int CreateQuiz(int classid, string name, DateTime duedate, string path)
+        {
+            int results = 0;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "INSERT INTO quizzes(class_ID, quiz_name, due_date, quiz_path) "
+                    + "VALUES(" + classid + "," + name + "," + duedate + "," + path + ");";
+
+                results = command.ExecuteNonQuery();
+            });
+            return results;
+        }
+
+        internal int CreateSubmission(int quizid, int classid, int userid, string score, string path)
+        {
+            int results = 0;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "INSERT INTO submissions(quiz_ID, class_ID, user_ID, score,submission_path) "
+                    + "VALUES(" + quizid + "," + classid + "," + userid + "," + score + "," + path + ");";
+
+                results = command.ExecuteNonQuery();
+            });
+            return results;
+        }
     }
 }
