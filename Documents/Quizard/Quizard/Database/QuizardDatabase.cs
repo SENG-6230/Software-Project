@@ -30,6 +30,20 @@ namespace Quizard
             }
         }
 
+        internal List<User> GetAllUsers(UserTypes type)
+        {
+            List<User> users = GetAllUsers();
+            List<User> rtnList = new List<User>();
+            foreach (User possible in users)
+            {
+                if (possible.Role == type)
+                {
+                    rtnList.Add(possible);
+                }
+            }
+            return rtnList;
+        }
+
         internal List<User> GetAllUsers()
         {
             //insert user parsing here
