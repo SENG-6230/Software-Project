@@ -8,6 +8,6 @@ namespace Quizard
 {
     public class Class
     {
-        
+        internal int rowId = -1;
     }
 }

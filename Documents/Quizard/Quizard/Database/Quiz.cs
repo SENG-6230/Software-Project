@@ -8,6 +8,7 @@ namespace Quizard
 {
     class Quiz
     {
+        internal int rowId = -1;
         private int quizid  { get; set; }
         private int classid { get; set; }
         private string name { get; set; }

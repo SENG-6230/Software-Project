@@ -53,7 +53,7 @@ namespace Quizard.Pages
             nameBx.Text = newUser.Name;
             emailBx.Text = newUser.Email;
             passwordBx.Text = newUser.Password;
-            roleCbx.SelectedIndex = newUser.Role;
+            roleCbx.SelectedIndex = (int)newUser.Role;
         }
 
         private void createBtn_Click(object sender, EventArgs e)

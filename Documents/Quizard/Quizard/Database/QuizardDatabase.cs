@@ -65,7 +65,7 @@ namespace Quizard
             return results;
         }
 
-        internal void CreateClass(string text, string selectedText1, string selectedText2, List<string> list1, List<string> list2)
+        internal void CreateClass(string name, User teacher, User DpHead, List<User> assistants, List<User> students)
         {
             //add sql code here to add a class
         }

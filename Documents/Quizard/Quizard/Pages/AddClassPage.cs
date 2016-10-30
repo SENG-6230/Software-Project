@@ -17,30 +17,82 @@ namespace Quizard.Pages
         public AddClassPage()
         {
             InitializeComponent();
+            populateAllAssitants();
+            populateAllTeachers();
+            populateAllDpHeads();
+            populateAllStudents();
+        }
+
+        private void populateAllStudents()
+        {
+            studentsBx.Items.Clear();
+            List<User> students = Program.Database.GetAllUsers(UserTypes.Student);
+            foreach (User student in students)
+            {
+                studentsBx.Items.Add(student);
+            }
+        }
+
+        private void populateAllDpHeads()
+        {
+            headCbx.Items.Clear();
+            List<User> dpHead = Program.Database.GetAllUsers(UserTypes.DepartmentHead);
+            foreach (User head in dpHead)
+            {
+                headCbx.Items.Add(head);
+            }
+        }
+
+        private void populateAllTeachers()
+        {
+            teacherCbx.Items.Clear();
+            List<User> teachers = Program.Database.GetAllUsers(UserTypes.Teacher);
+            foreach (User teacher in teachers)
+            {
+                teacherCbx.Items.Add(teacher);
+            }
+        }
+
+        private void populateAllAssitants()
+        {
+            assistantsBx.Items.Clear();
+            List<User> assistants = Program.Database.GetAllUsers(UserTypes.TeachingAssistant);
+            foreach (User assistant in assistants)
+            {
+                assistantsBx.Items.Add(assistant);
+            }
         }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
             Program.Database.CreateClass(
                 nameBx.Text,
-                teacherCbx.SelectedText,
-                headCbx.SelectedText,
+                (User)teacherCbx.SelectedItem,
+                (User)headCbx.SelectedItem,
                 getListOfAssistants(),
                 GetListOfStudents());
 
             finishedEvent?.Invoke(null, null);
         }
 
-        private List<string> GetListOfStudents()
+        private List<User> GetListOfStudents()
         {
-            List<string> rtnList = assistantsBx.SelectedItems.OfType<string>().ToList();
-            return rtnList;
+            List<User> users = new List<User>();
+            foreach (User userIndx in studentsBx.CheckedItems)
+            {
+                users.Add(userIndx);
+            }
+            return users;
         }
 
-        private List<string> getListOfAssistants()
+        private List<User> getListOfAssistants()
         {
-            List<string> rtnList = studentsBx.SelectedItems.OfType<string>().ToList();
-            return rtnList;
+            List<User> assist = new List<User>();
+            foreach (User userIndx in assistantsBx.CheckedItems)
+            {
+                assist.Add(userIndx);
+            }
+            return assist;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
