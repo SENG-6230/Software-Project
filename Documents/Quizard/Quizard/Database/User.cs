@@ -8,6 +8,9 @@ namespace Quizard
 {
     public class User
     {
-        public string Name { get; internal set; }
+        internal string Email;
+        internal string Password;
+        internal int Role;
+        internal string Name;
     }
 }

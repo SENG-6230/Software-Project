@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Quizard
 {
-    public class Classcs
+    public class Class
     {
+        
     }
 }

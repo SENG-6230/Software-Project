@@ -34,6 +34,8 @@
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CSCI 6540");
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.classStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.addClassBtn = new System.Windows.Forms.Button();
             this.classInfoPanel = new System.Windows.Forms.Panel();
             this.quizGradeValLbl = new System.Windows.Forms.Label();
@@ -57,15 +59,13 @@
             this.classNameValueLbl = new System.Windows.Forms.Label();
             this.classNameLbl = new System.Windows.Forms.Label();
             this.addClassPage = new Quizard.Pages.AddClassPage();
-            this.classStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.classStrip.SuspendLayout();
             this.classInfoPanel.SuspendLayout();
             this.assignmentStrip.SuspendLayout();
-            this.classStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -73,7 +73,7 @@
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(6);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -97,7 +97,7 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(0, 88);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(6);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Class1";
             treeNode1.Text = "CSCI 6230";
@@ -112,12 +112,27 @@
             this.treeView1.Size = new System.Drawing.Size(150, 652);
             this.treeView1.TabIndex = 0;
             // 
+            // classStrip
+            // 
+            this.classStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.classStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.classStrip.Name = "assignmentStrip";
+            this.classStrip.Size = new System.Drawing.Size(270, 86);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(269, 38);
+            this.toolStripMenuItem2.Text = "Edit";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
             // addClassBtn
             // 
             this.addClassBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.addClassBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addClassBtn.Location = new System.Drawing.Point(0, 0);
-            this.addClassBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.addClassBtn.Margin = new System.Windows.Forms.Padding(6);
             this.addClassBtn.Name = "addClassBtn";
             this.addClassBtn.Size = new System.Drawing.Size(150, 88);
             this.addClassBtn.TabIndex = 2;
@@ -145,7 +160,7 @@
             this.classInfoPanel.Controls.Add(this.classNameValueLbl);
             this.classInfoPanel.Controls.Add(this.classNameLbl);
             this.classInfoPanel.Location = new System.Drawing.Point(6, 6);
-            this.classInfoPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.classInfoPanel.Margin = new System.Windows.Forms.Padding(6);
             this.classInfoPanel.Name = "classInfoPanel";
             this.classInfoPanel.Size = new System.Drawing.Size(1140, 728);
             this.classInfoPanel.TabIndex = 0;
@@ -176,7 +191,7 @@
             // 
             this.addAssignmentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addAssignmentBtn.Location = new System.Drawing.Point(828, 638);
-            this.addAssignmentBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.addAssignmentBtn.Margin = new System.Windows.Forms.Padding(6);
             this.addAssignmentBtn.Name = "addAssignmentBtn";
             this.addAssignmentBtn.Size = new System.Drawing.Size(270, 58);
             this.addAssignmentBtn.TabIndex = 15;
@@ -204,7 +219,7 @@
             this.assistantsBx.Items.AddRange(new object[] {
             "Swetha Mahendrakar"});
             this.assistantsBx.Location = new System.Drawing.Point(24, 378);
-            this.assistantsBx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.assistantsBx.Margin = new System.Windows.Forms.Padding(6);
             this.assistantsBx.Name = "assistantsBx";
             this.assistantsBx.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.assistantsBx.Size = new System.Drawing.Size(328, 328);
@@ -233,7 +248,7 @@
             "Mohammed Sarim Akbar",
             "Jonathan Eng"});
             this.studentsBx.Location = new System.Drawing.Point(404, 234);
-            this.studentsBx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.studentsBx.Margin = new System.Windows.Forms.Padding(6);
             this.studentsBx.Name = "studentsBx";
             this.studentsBx.Size = new System.Drawing.Size(328, 472);
             this.studentsBx.TabIndex = 11;
@@ -304,7 +319,7 @@
             "Quiz 2,",
             "Quiz 3"});
             this.assignmentsBx.Location = new System.Drawing.Point(790, 78);
-            this.assignmentsBx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.assignmentsBx.Margin = new System.Windows.Forms.Padding(6);
             this.assignmentsBx.Name = "assignmentsBx";
             this.assignmentsBx.Size = new System.Drawing.Size(328, 508);
             this.assignmentsBx.TabIndex = 4;
@@ -378,26 +393,11 @@
             // addClassPage
             // 
             this.addClassPage.Location = new System.Drawing.Point(-6, 0);
-            this.addClassPage.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.addClassPage.Margin = new System.Windows.Forms.Padding(12);
             this.addClassPage.MinimumSize = new System.Drawing.Size(1140, 728);
             this.addClassPage.Name = "addClassPage";
             this.addClassPage.Size = new System.Drawing.Size(1140, 728);
             this.addClassPage.TabIndex = 18;
-            // 
-            // classStrip
-            // 
-            this.classStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.classStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.classStrip.Name = "assignmentStrip";
-            this.classStrip.Size = new System.Drawing.Size(270, 86);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(269, 38);
-            this.toolStripMenuItem2.Text = "Edit";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // ClassesPage
             // 
@@ -406,7 +406,7 @@
             this.AutoSize = true;
             this.Controls.Add(this.splitContainer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1460, 740);
             this.Name = "ClassesPage";
             this.Size = new System.Drawing.Size(1460, 740);
@@ -414,10 +414,10 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.classStrip.ResumeLayout(false);
             this.classInfoPanel.ResumeLayout(false);
             this.classInfoPanel.PerformLayout();
             this.assignmentStrip.ResumeLayout(false);
-            this.classStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

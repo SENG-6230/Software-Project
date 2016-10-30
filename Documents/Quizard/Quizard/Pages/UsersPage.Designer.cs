@@ -37,6 +37,8 @@
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Master, Alan");
             this.label1 = new System.Windows.Forms.Label();
             this.usersBx = new System.Windows.Forms.TreeView();
+            this.userMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.addUserBtn = new System.Windows.Forms.Button();
             this.classInfoPanel = new System.Windows.Forms.Panel();
@@ -49,14 +51,12 @@
             this.passwordLbl = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.userNameLbl = new System.Windows.Forms.Label();
-            this.userMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.classInfoPanel.SuspendLayout();
-            this.userMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -101,6 +101,21 @@
             this.usersBx.TabIndex = 0;
             this.usersBx.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.usersBx_NodeMouseClick);
             // 
+            // userMenuStrip
+            // 
+            this.userMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.userMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem});
+            this.userMenuStrip.Name = "userMenuStrip";
+            this.userMenuStrip.Size = new System.Drawing.Size(156, 42);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,6 +149,7 @@
             this.addUserBtn.TabIndex = 1;
             this.addUserBtn.Text = "Add User";
             this.addUserBtn.UseVisualStyleBackColor = true;
+            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
             // 
             // classInfoPanel
             // 
@@ -251,21 +267,6 @@
             this.userNameLbl.TabIndex = 9;
             this.userNameLbl.Text = "Name:";
             // 
-            // userMenuStrip
-            // 
-            this.userMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.userMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem});
-            this.userMenuStrip.Name = "userMenuStrip";
-            this.userMenuStrip.Size = new System.Drawing.Size(270, 86);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
             // UsersPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -276,13 +277,13 @@
             this.MinimumSize = new System.Drawing.Size(1460, 740);
             this.Name = "UsersPage";
             this.Size = new System.Drawing.Size(1460, 740);
+            this.userMenuStrip.ResumeLayout(false);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.classInfoPanel.ResumeLayout(false);
             this.classInfoPanel.PerformLayout();
-            this.userMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
