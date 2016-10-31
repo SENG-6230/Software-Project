@@ -64,10 +64,10 @@ namespace Quizard.Pages
         {
             InitializeComponent();
 
-            //this.passwordVal.Text = user.Password;
-            //this.emailVal.Text = user.Email;
-            //this.nameVal.Text = user.Name;
-            //this.roleVal.Text = user.Role.ToString();
+            this.passwordVal.Text = user.Password;
+            this.emailVal.Text = user.Email;
+            this.nameVal.Text = user.Name;
+            this.roleVal.Text = user.Role.ToString();
         }
 
         public void ShowPage(UserTypes user)
