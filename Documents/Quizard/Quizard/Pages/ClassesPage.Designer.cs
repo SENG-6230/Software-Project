@@ -35,7 +35,7 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.classStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addClassBtn = new System.Windows.Forms.Button();
             this.classInfoPanel = new System.Windows.Forms.Panel();
             this.quizGradeValLbl = new System.Windows.Forms.Label();
@@ -116,16 +116,16 @@
             // 
             this.classStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.classStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
+            this.editMenuItem});
             this.classStrip.Name = "assignmentStrip";
             this.classStrip.Size = new System.Drawing.Size(270, 86);
             // 
             // toolStripMenuItem2
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(269, 38);
-            this.toolStripMenuItem2.Text = "Edit";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.editMenuItem.Name = "toolStripMenuItem2";
+            this.editMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.editMenuItem.Text = "Edit";
+            this.editMenuItem.Click += new System.EventHandler(this.editMenuItem_Click);
             // 
             // addClassBtn
             // 
@@ -450,6 +450,6 @@
         private System.Windows.Forms.Button addClassBtn;
         private AddClassPage addClassPage;
         private System.Windows.Forms.ContextMenuStrip classStrip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem editMenuItem;
     }
 }

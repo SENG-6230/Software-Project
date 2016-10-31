@@ -9,5 +9,10 @@ namespace Quizard
     public class Class
     {
         internal int rowId = -1;
+        internal string Name;
+        internal User Teacher;
+        internal User DepartmentHead;
+        internal List<User> AssistantTeachers;
+        internal List<User> Students;
     }
 }

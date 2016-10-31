@@ -10,17 +10,13 @@ using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
-    public partial class AddClassPage : UserControl , QuizardPage
+    public partial class AddClassPage : UserControl 
     {
         public event EventHandler<ClassArgs> finishedEvent;
         
         public AddClassPage()
         {
             InitializeComponent();
-            populateAllAssitants();
-            populateAllTeachers();
-            populateAllDpHeads();
-            populateAllStudents();
         }
 
         private void populateAllStudents()
@@ -100,9 +96,40 @@ namespace Quizard.Pages
             finishedEvent?.Invoke(null, null);
         }
 
-        public void ShowPage(UserTypes user)
+        public void ShowPage(Class editClass = null)
         {
+            populateAllAssitants();
+            populateAllTeachers();
+            populateAllDpHeads();
+            populateAllStudents();
 
+            if (editClass != null)
+            {
+                nameBx.Text = editClass.Name;
+                teacherCbx.SelectedValue = editClass.Teacher;
+                headCbx.SelectedValue = editClass.DepartmentHead;
+                foreach (User student in editClass.Students)
+                {
+                    int sIdx = studentsBx.Items.IndexOf(student);
+                    if (sIdx > -1)
+                    {
+                        studentsBx.SetItemChecked(sIdx, true);
+                    }
+                }
+                foreach (User assist in editClass.AssistantTeachers)
+                {
+                    int aIdx = assistantsBx.Items.IndexOf(assist);
+                    if (aIdx > -1)
+                    {
+                        assistantsBx.SetItemChecked(aIdx, true);
+                    }
+                }
+            }
+            else
+            {
+
+                nameBx.Text = "";
+            }
         }
     }
 

@@ -33,7 +33,6 @@ namespace Quizard.Pages
             classInfoPanel.Visible = false;
             addClassPage.Visible = true;
             addClassBtn.Visible = false;
-            classInfoPanel.Visible = false;
         }
 
         private void addAssignmentBtn_Click(object sender, EventArgs e)
@@ -62,9 +61,11 @@ namespace Quizard.Pages
 
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void editMenuItem_Click(object sender, EventArgs e)
         {
-            //add code to load up a selected class to the addclass page 5ttttttt
+            classInfoPanel.Visible = false;
+            addClassPage.Visible = true;
+            addClassBtn.Visible = false;
         }
     }
 }
