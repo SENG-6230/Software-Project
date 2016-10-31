@@ -9,6 +9,6 @@ namespace Quizard
     internal interface QuizardPage
     {
         //This will go to a user object when we develop the database more
-        void ShowPage(UserTypes user);
+        void ShowPage(User user);
     }
 }

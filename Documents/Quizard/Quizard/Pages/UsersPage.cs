@@ -19,7 +19,7 @@ namespace Quizard.Pages
             InitializeComponent();
         }
 
-        public void ShowPage(UserTypes user)
+        public void ShowPage(User user)
         {
             populateUserList();
             clearSelection();

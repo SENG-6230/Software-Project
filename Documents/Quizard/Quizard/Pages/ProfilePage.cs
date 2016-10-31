@@ -60,6 +60,7 @@ namespace Quizard.Pages
             }
         }
 
+        public void ShowPage(User user)
         {
             InitializeComponent();
 

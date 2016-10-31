@@ -53,7 +53,7 @@ namespace Quizard.Pages
             if (check.rowId != 0)
             {
                 MessageBox.Show("Welcome" + " who is logged in ? " + check.Name);
-                ShowPage(check.Role);
+                ShowPage(check);
             }
             else
             {
@@ -63,10 +63,9 @@ namespace Quizard.Pages
             //TODO add login action
         }
 
-        public void ShowPage(UserTypes user) //why Usertype and not User object
+        public void ShowPage(User user)
         {
            //user object holds all the logged in users info (userId, email, p/w, role, name)
-
         }
     }
 }

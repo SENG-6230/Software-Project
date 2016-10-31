@@ -56,7 +56,7 @@ namespace Quizard.Pages
 
         }
 
-        public void ShowPage(UserTypes user)
+        public void ShowPage(User user)
         {
 
         }
