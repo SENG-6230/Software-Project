@@ -50,7 +50,7 @@ namespace Quizard.Pages
             QuizardDatabase validate = new QuizardDatabase();
             User check = validate.loginCheck(userName, password);
 
-            if (check.rowId != 0)
+            if (check != null)
             {
                 MessageBox.Show("Welcome" + " who is logged in ? " + check.Name);
                 ShowPage(check);

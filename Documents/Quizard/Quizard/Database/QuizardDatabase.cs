@@ -113,6 +113,29 @@ namespace Quizard
             return results;
         }
 
+        private User parseUserFromReader(SQLiteDataReader reader)
+        {
+            User user = null;
+            if (reader.HasRows)
+            {
+                try
+                {
+                    user = new User();
+                    reader.Read();
+                    user.rowId = Convert.ToInt32(reader["user_ID"].ToString());
+                    user.Email = reader["email"].ToString();
+                    user.Password = reader["password"].ToString();
+                    user.Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
+                    user.Role = (UserTypes)reader["user_type"];
+                }
+                catch
+                {
+                    //bad reader. return null
+                    return null;
+                }
+            }
+            return user;
+        }
 
         private SQLiteDataReader retrieveCommands(string query)
         {
@@ -128,29 +151,13 @@ namespace Quizard
 
         internal User loginCheck(string userName, string password)
         {
-            User userLoggedIn = new User();
-            UserTypes loggedInType = new UserTypes();
-            int validUser = 0;
-            //add sql code here to check user creditentials 
-
             string command = "SELECT * FROM users WHERE email = '" + userName + "' AND password = '" + password + "';";
-            SQLiteDataReader reader = retrieveCommands(command);
-
-            if (reader.HasRows)
+            User rtnUser = null;
+            using (SQLiteDataReader reader = retrieveCommands(command))
             {
-                reader.Read();
-                validUser = Convert.ToInt32(reader["user_type"].ToString());
-                userLoggedIn.rowId = Convert.ToInt32(reader["user_ID"].ToString());
-                userLoggedIn.Email = reader["email"].ToString(); ;
-                userLoggedIn.Password = reader["password"].ToString();
-                userLoggedIn.Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
-                loggedInType = (UserTypes)validUser;
+                rtnUser = parseUserFromReader(reader);
             }
-            else
-            {
-                validUser = 0;
-            }
-             return userLoggedIn;
+            return rtnUser;
         }
 
     }
