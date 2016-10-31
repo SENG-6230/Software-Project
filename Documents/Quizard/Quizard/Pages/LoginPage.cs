@@ -6,12 +6,16 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace Quizard.Pages
 {
     public partial class LoginPage : UserControl, QuizardPage
     {
+
+        //ProfilePage profile = new ProfilePage();
+
         string userName
         {
             get
@@ -43,41 +47,25 @@ namespace Quizard.Pages
 
         private void button1_Click(object sender, EventArgs e)
         {
+            QuizardDatabase validate = new QuizardDatabase();
+            User check = validate.loginCheck(userName, password);
 
-            System.Data.SQLite.SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
-            database.Open();
-
-            string checkPassword = "SELECT user_type FROM users WHERE email = '" + userName + "' AND password = '" +password +"';";
-           //string checkPassword = "SELECT * FROM users WHERE email = 'engj@ecu.edu' AND password = 'password';";
-
-            System.Data.SQLite.SQLiteCommand command = new System.Data.SQLite.SQLiteCommand(checkPassword, database);
-            System.Data.SQLite.SQLiteDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
+            if (check.rowId != 0)
             {
-                reader.Read();
-                if (reader.GetInt32(0) == 1){
-                    System.Windows.Forms.MessageBox.Show("User is an Student");     //set session for student
-                }else if (reader.GetInt32(0) == 2){
-                    System.Windows.Forms.MessageBox.Show("User is an Teacher");     //set session for teacher 
-                }else if (reader.GetInt32(0) == 3){
-                    System.Windows.Forms.MessageBox.Show("User is an Teacher's Assistant"); //etc...
-                }else if (reader.GetInt32(0) == 4){
-                    System.Windows.Forms.MessageBox.Show("User is an Department Head");
-                }else if (reader.GetInt32(0) == 5){
-                    System.Windows.Forms.MessageBox.Show("User is an Administrator");
-                }
+                MessageBox.Show("Welcome" + " who is logged in ? " + check.Name);
+                ShowPage(check.Role);
             }
             else
             {
                 System.Windows.Forms.MessageBox.Show("User name - " + userName + " does not match password " + password);
             }
-            database.Close();
+
             //TODO add login action
         }
 
-        public void ShowPage(UserTypes user)
+        public void ShowPage(UserTypes user) //why Usertype and not User object
         {
+           //user object holds all the logged in users info (userId, email, p/w, role, name)
 
         }
     }

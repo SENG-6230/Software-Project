@@ -112,5 +112,46 @@ namespace Quizard
             });
             return results;
         }
+
+
+        private SQLiteDataReader retrieveCommands(string query)
+        {
+            SQLiteDataReader reader;
+            SQLiteConnection database = new SQLiteConnection("Data Source =../../quizard.db");
+            database.Open();
+
+            SQLiteCommand command = new SQLiteCommand(query, database);
+            reader = command.ExecuteReader();
+            return reader;
+
+        }
+
+        internal User loginCheck(string userName, string password)
+        {
+            User userLoggedIn = new User();
+            UserTypes loggedInType = new UserTypes();
+            int validUser = 0;
+            //add sql code here to check user creditentials 
+
+            string command = "SELECT * FROM users WHERE email = '" + userName + "' AND password = '" + password + "';";
+            SQLiteDataReader reader = retrieveCommands(command);
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                validUser = Convert.ToInt32(reader["user_type"].ToString());
+                userLoggedIn.rowId = Convert.ToInt32(reader["user_ID"].ToString());
+                userLoggedIn.Email = reader["email"].ToString(); ;
+                userLoggedIn.Password = reader["password"].ToString();
+                userLoggedIn.Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
+                loggedInType = (UserTypes)validUser;
+            }
+            else
+            {
+                validUser = 0;
+            }
+             return userLoggedIn;
+        }
+
     }
 }
