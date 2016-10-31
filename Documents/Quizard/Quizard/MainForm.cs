@@ -35,9 +35,16 @@ namespace Quizard
         public MainForm()
         {
             InitializeComponent();
-            loaded = false;
+            loginPage.LoginSuccessful += userLogin;
+            showPage(loginPage);
+            loaded = true;
             menuStrip1.Visible = false;
             HomeBtn.Visible = false;
+        }
+
+        private void userLogin(User obj)
+        {
+            throw new NotImplementedException();
         }
 
         void showPage(Control page)

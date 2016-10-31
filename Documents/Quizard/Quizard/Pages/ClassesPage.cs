@@ -33,6 +33,7 @@ namespace Quizard.Pages
             classInfoPanel.Visible = false;
             addClassPage.Visible = true;
             addClassBtn.Visible = false;
+            addClassPage.ShowPage();
         }
 
         private void addAssignmentBtn_Click(object sender, EventArgs e)
@@ -66,6 +67,7 @@ namespace Quizard.Pages
             classInfoPanel.Visible = false;
             addClassPage.Visible = true;
             addClassBtn.Visible = false;
+            addClassPage.ShowPage((Class)classTV.SelectedNode.Tag);
         }
     }
 }

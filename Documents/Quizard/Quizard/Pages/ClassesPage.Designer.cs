@@ -33,7 +33,7 @@
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("SENG 6000");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CSCI 6540");
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.classTV = new System.Windows.Forms.TreeView();
             this.classStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addClassBtn = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             // 
             // splitContainer.Panel1
             // 
-            this.splitContainer.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer.Panel1.Controls.Add(this.classTV);
             this.splitContainer.Panel1.Controls.Add(this.addClassBtn);
             // 
             // splitContainer.Panel2
@@ -91,26 +91,26 @@
             this.splitContainer.SplitterWidth = 8;
             this.splitContainer.TabIndex = 0;
             // 
-            // treeView1
+            // classTV
             // 
-            this.treeView1.ContextMenuStrip = this.classStrip;
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.Location = new System.Drawing.Point(0, 88);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(6);
-            this.treeView1.Name = "treeView1";
+            this.classTV.ContextMenuStrip = this.classStrip;
+            this.classTV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classTV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classTV.Location = new System.Drawing.Point(0, 88);
+            this.classTV.Margin = new System.Windows.Forms.Padding(6);
+            this.classTV.Name = "classTV";
             treeNode1.Name = "Class1";
             treeNode1.Text = "CSCI 6230";
             treeNode2.Name = "class 2";
             treeNode2.Text = "SENG 6000";
             treeNode3.Name = "Class3";
             treeNode3.Text = "CSCI 6540";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            this.classTV.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3});
-            this.treeView1.Size = new System.Drawing.Size(150, 652);
-            this.treeView1.TabIndex = 0;
+            this.classTV.Size = new System.Drawing.Size(150, 652);
+            this.classTV.TabIndex = 0;
             // 
             // classStrip
             // 
@@ -118,12 +118,12 @@
             this.classStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editMenuItem});
             this.classStrip.Name = "assignmentStrip";
-            this.classStrip.Size = new System.Drawing.Size(270, 86);
+            this.classStrip.Size = new System.Drawing.Size(156, 42);
             // 
-            // toolStripMenuItem2
+            // editMenuItem
             // 
-            this.editMenuItem.Name = "toolStripMenuItem2";
-            this.editMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.editMenuItem.Name = "editMenuItem";
+            this.editMenuItem.Size = new System.Drawing.Size(155, 38);
             this.editMenuItem.Text = "Edit";
             this.editMenuItem.Click += new System.EventHandler(this.editMenuItem_Click);
             // 
@@ -425,7 +425,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView classTV;
         private System.Windows.Forms.Panel classInfoPanel;
         private System.Windows.Forms.Label teacherValueLbl;
         private System.Windows.Forms.Label teacherNameLbl;
