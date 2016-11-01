@@ -27,7 +27,7 @@ namespace Quizard.Pages
 
         private void populateUserList()
         {
-            //usersBx.Nodes.Clear();
+            usersBx.Nodes.Clear();
             List<User> users = Program.Database.GetAllUsers();
             foreach (User user in users)
             {
@@ -53,7 +53,7 @@ namespace Quizard.Pages
             nameBx.Text = newUser.Name;
             emailBx.Text = newUser.Email;
             passwordBx.Text = newUser.Password;
-            roleCbx.SelectedIndex = (int)newUser.Role;
+            roleCbx.SelectedIndex = (int)newUser.Role -1;
         }
 
         private void createBtn_Click(object sender, EventArgs e)

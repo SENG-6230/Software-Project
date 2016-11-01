@@ -46,8 +46,20 @@ namespace Quizard
 
         internal List<User> GetAllUsers()
         {
-            //insert user parsing here
-            return new List<User>();
+            List<User> rtnList = new List<User>();
+            string command = "SELECT * FROM users;";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    User newUser = parseUserFromReader(reader);
+                    if (newUser != null)
+                    {
+                        rtnList.Add(newUser);
+                    }
+                }
+            }
+            return rtnList;
         }
 
         internal int CreateUser(string Name, string email, string password, string role)
