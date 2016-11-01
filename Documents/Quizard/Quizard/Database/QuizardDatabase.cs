@@ -70,7 +70,7 @@ namespace Quizard
             {
                 command.CommandText =
                     "INSERT INTO users(rowid, fname, lname, email, user_type, password) "
-                    + "VALUES(NULL, " + Name + ", " + Name + ", " + email + ", " + (UserTypes)Enum.Parse(typeof(UserTypes), role) + ", " + password + ");";
+                    + "VALUES(NULL, \"" + Name + "\", \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
 
                 results = command.ExecuteNonQuery();
             });
