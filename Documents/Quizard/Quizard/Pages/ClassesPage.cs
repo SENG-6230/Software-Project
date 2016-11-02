@@ -57,19 +57,19 @@ namespace Quizard.Pages
             switch (user.Role)
             {
                 case UserTypes.Student:
-                    List<Class> studentsClasses = Program.Database.GetStudentsClasses();
+                    List<Class> studentsClasses = Program.Database.GetStudentsClasses(user);
                     populateClassList(studentsClasses);
                     break;
                 case UserTypes.Teacher:
-                    List<Class> teacherClasses = Program.Database.GetTeachersClasses();
+                    List<Class> teacherClasses = Program.Database.GetTeachersClasses(user);
                     populateClassList(teacherClasses);
                     break;
                 case UserTypes.TeachingAssistant:
-                    List<Class> assistantingClasses = Program.Database.GetTAClasses();
+                    List<Class> assistantingClasses = Program.Database.GetTAClasses(user);
                     populateClassList(assistantingClasses);
                     break;
                 case UserTypes.DepartmentHead:
-                    List<Class> departmentClasses = Program.Database.GetDepartmentClasses();
+                    List<Class> departmentClasses = Program.Database.GetDepartmentClasses(user);
                     populateClassList(departmentClasses);
                     break;
                 case UserTypes.Administrator:

@@ -85,9 +85,12 @@ namespace Quizard
             List<Class> rtnCLasses = new List<Class>();
             foreach (Class potential in allCLasses)
             {
-                if (potential.Students.Contains(user))
+                foreach (User student in potential.Students)
                 {
-                    rtnCLasses.Add(potential);
+                    if (student.rowId == user.rowId)
+                    {
+                        rtnCLasses.Add(potential);
+                    }
                 }
             }
 
@@ -96,17 +99,50 @@ namespace Quizard
 
         internal List<Class> GetDepartmentClasses(User user)
         {
-            throw new NotImplementedException();
+            List<Class> allCLasses = GetAllClasses();
+            List<Class> rtnCLasses = new List<Class>();
+            foreach (Class potential in allCLasses)
+            {
+                    if (potential.DepartmentHead.rowId == user.rowId)
+                    {
+                        rtnCLasses.Add(potential);
+                    }
+            }
+
+            return rtnCLasses;
         }
 
         internal List<Class> GetTeachersClasses(User user)
         {
-            throw new NotImplementedException();
+            List<Class> allCLasses = GetAllClasses();
+            List<Class> rtnCLasses = new List<Class>();
+            foreach (Class potential in allCLasses)
+            {
+                    if (potential.Teacher.rowId == user.rowId)
+                    {
+                        rtnCLasses.Add(potential);
+                    }
+            }
+
+            return rtnCLasses;
         }
 
         internal List<Class> GetTAClasses(User user)
         {
-            throw new NotImplementedException();
+            List<Class> allCLasses = GetAllClasses();
+            List<Class> rtnCLasses = new List<Class>();
+            foreach (Class potential in allCLasses)
+            {
+                foreach (User assistant in potential.AssistantTeachers)
+                {
+                    if (assistant.rowId == user.rowId)
+                    {
+                        rtnCLasses.Add(potential);
+                    }
+                }
+            }
+
+            return rtnCLasses;
         }
 
         internal List<Class> GetAllClasses()
