@@ -69,8 +69,10 @@ namespace Quizard
             executeCommand(delegate(SQLiteCommand command) 
             {
                 command.CommandText =
-                    "INSERT INTO users(rowid, fname, lname, email, user_type, password) "
-                    + "VALUES(NULL, \"\", \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
+                   "INSERT INTO users(rowid, name, email, user_type, password) "
+                    + "VALUES(NULL, \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
+                //"INSERT INTO users(rowid, fname, lname, email, user_type, password) "
+                //+ "VALUES(NULL, \"\", \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
 
                 results = command.ExecuteNonQuery();
             });
@@ -168,7 +170,7 @@ namespace Quizard
                     user.rowId = Convert.ToInt32(reader["user_ID"].ToString());
                     user.Email = reader["email"].ToString();
                     user.Password = reader["password"].ToString();
-                    user.Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
+                    user.Name = reader["name"].ToString(); // + " " + reader["LName"].ToString();
                     user.Name = user.Name.Trim();
                     user.Role = (UserTypes)reader["user_type"];
                 }
