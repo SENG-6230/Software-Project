@@ -13,6 +13,7 @@ namespace Quizard.Pages
 {
     public partial class ClassesPage : UserControl, QuizardPage
     {
+        User currentUser;
         public ClassesPage()
         {
             InitializeComponent();
@@ -54,6 +55,7 @@ namespace Quizard.Pages
 
         public void ShowPage(User user)
         {
+            currentUser = user;
             switch (user.Role)
             {
                 case UserTypes.Student:
@@ -76,8 +78,8 @@ namespace Quizard.Pages
                     List<Class> allClasses = Program.Database.GetAllClasses();
                     populateClassList(allClasses);
                     break;
-                default:
-                    throw new Exception("Unable to show page because the user type is not supported");
+                //default:
+                    //throw new Exception("Unable to show page because the user type is not supported");
             }
         }
 
