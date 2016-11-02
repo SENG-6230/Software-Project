@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite; 
+using System.Data.SQLite;
 
 namespace Quizard.Pages
 {
@@ -52,14 +52,44 @@ namespace Quizard.Pages
             }
         }
 
-        private void studentsBx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public void ShowPage(User user)
         {
+            switch (user.Role)
+            {
+                case UserTypes.Student:
+                    List<Class> studentsClasses = Program.Database.GetStudentsClasses();
+                    populateClassList(studentsClasses);
+                    break;
+                case UserTypes.Teacher:
+                    List<Class> teacherClasses = Program.Database.GetTeachersClasses();
+                    populateClassList(teacherClasses);
+                    break;
+                case UserTypes.TeachingAssistant:
+                    List<Class> assistantingClasses = Program.Database.GetTAClasses();
+                    populateClassList(assistantingClasses);
+                    break;
+                case UserTypes.DepartmentHead:
+                    List<Class> departmentClasses = Program.Database.GetDepartmentClasses();
+                    populateClassList(departmentClasses);
+                    break;
+                case UserTypes.Administrator:
+                    List<Class> allClasses = Program.Database.GetAllClasses();
+                    populateClassList(allClasses);
+                    break;
+                default:
+                    throw new Exception("Unable to show page because the user type is not supported");
+            }
+        }
 
+        private void populateClassList(List<Class> classList)
+        {
+            classTV.Nodes.Clear();
+            foreach (Class newCLass in classList)
+            {
+                TreeNode newNode = new TreeNode(newCLass.Name);
+                newNode.Tag = newCLass;
+                classTV.Nodes.Add(newNode);
+            }
         }
 
         private void editMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +98,16 @@ namespace Quizard.Pages
             addClassPage.Visible = true;
             addClassBtn.Visible = false;
             addClassPage.ShowPage((Class)classTV.SelectedNode.Tag);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void classTV_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
         }
     }
 }

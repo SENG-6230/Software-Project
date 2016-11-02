@@ -59,6 +59,7 @@
             this.classNameValueLbl = new System.Windows.Forms.Label();
             this.classNameLbl = new System.Windows.Forms.Label();
             this.addClassPage = new Quizard.Pages.AddClassPage();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -111,19 +112,21 @@
             treeNode3});
             this.classTV.Size = new System.Drawing.Size(150, 652);
             this.classTV.TabIndex = 0;
+            this.classTV.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.classTV_NodeMouseClick);
             // 
             // classStrip
             // 
             this.classStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.classStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editMenuItem});
+            this.editMenuItem,
+            this.deleteToolStripMenuItem});
             this.classStrip.Name = "assignmentStrip";
-            this.classStrip.Size = new System.Drawing.Size(156, 42);
+            this.classStrip.Size = new System.Drawing.Size(186, 80);
             // 
             // editMenuItem
             // 
             this.editMenuItem.Name = "editMenuItem";
-            this.editMenuItem.Size = new System.Drawing.Size(155, 38);
+            this.editMenuItem.Size = new System.Drawing.Size(185, 38);
             this.editMenuItem.Text = "Edit";
             this.editMenuItem.Click += new System.EventHandler(this.editMenuItem_Click);
             // 
@@ -399,6 +402,13 @@
             this.addClassPage.Size = new System.Drawing.Size(1140, 728);
             this.addClassPage.TabIndex = 18;
             // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // ClassesPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -451,5 +461,6 @@
         private AddClassPage addClassPage;
         private System.Windows.Forms.ContextMenuStrip classStrip;
         private System.Windows.Forms.ToolStripMenuItem editMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

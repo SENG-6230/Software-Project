@@ -66,15 +66,50 @@ namespace Quizard
         {
             int results = 0;
             //add sql database code here to add a user
-            executeCommand(delegate(SQLiteCommand command) 
+            executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "INSERT INTO users(rowid, fname, lname, email, user_type, password) "
-                    + "VALUES(NULL, \"\", \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
+                    "INSERT INTO users(rowid, name, email, user_type, password) "
+                    + "VALUES(NULL, \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
 
                 results = command.ExecuteNonQuery();
             });
             return results;
+        }
+
+        internal List<Class> GetStudentsClasses(User user)
+        {
+            List<Class> allCLasses = GetAllClasses();
+            List<Class> rtnCLasses = new List<Class>();
+            foreach (Class potential in allCLasses)
+            {
+                if (potential.Students.Contains(user))
+                {
+                    rtnCLasses.Add(potential);
+                }
+            }
+
+            return rtnCLasses;
+        }
+
+        internal List<Class> GetDepartmentClasses(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Class> GetTeachersClasses(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Class> GetTAClasses(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Class> GetAllClasses()
+        {
+            throw new NotImplementedException();
         }
 
         internal int EditUser(User currentUser, string Name, string email, string password, string role)
@@ -85,7 +120,7 @@ namespace Quizard
                 command.CommandText =
                     "UPDATE users"
                     + " SET"
-                    + " lname=\"" + Name + "\"," 
+                    + " name=\"" + Name + "\","
                     + " email=\"" + email + "\", password=\"" + password + "\", user_type=\"" + (int)Enum.Parse(typeof(UserTypes), role) + "\""
                     + " WHERE user_ID=\"" + currentUser.rowId + "\";";
 
@@ -168,8 +203,7 @@ namespace Quizard
                     user.rowId = Convert.ToInt32(reader["user_ID"].ToString());
                     user.Email = reader["email"].ToString();
                     user.Password = reader["password"].ToString();
-                    user.Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
-                    user.Name = user.Name.Trim();
+                    user.Name = reader["Name"].ToString();
                     user.Role = (UserTypes)reader["user_type"];
                 }
                 catch
