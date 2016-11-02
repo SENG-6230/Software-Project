@@ -14,7 +14,6 @@ namespace Quizard.Pages
     public partial class LoginPage : UserControl, QuizardPage
     {
         public Action<User> LoginSuccessful;
-        //ProfilePage profile = new ProfilePage();
 
         string userName
         {
@@ -52,8 +51,6 @@ namespace Quizard.Pages
 
             if (check != null)
             {
-                MessageBox.Show("Welcome" + " who is logged in ? " + check.Name);
-                ShowPage(check);
                 LoginSuccessful?.Invoke(check);
             }
             else

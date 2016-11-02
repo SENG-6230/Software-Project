@@ -59,10 +59,14 @@ namespace Quizard.Pages
                 roleVal.Text = value;
             }
         }
+        public ProfilePage() //added this back, not sure why but when initialized in the ShowPage function it cased the pages to stack
+        {
+            InitializeComponent();
+        }
 
         public void ShowPage(User user)
         {
-            InitializeComponent();
+           // InitializeComponent();
 
             this.passwordVal.Text = user.Password;
             this.emailVal.Text = user.Email;

@@ -29,6 +29,8 @@ namespace Quizard
         ProfilePage profile = new ProfilePage();
         UsersPage user = new UsersPage();
         AddClassPage addClass = new AddClassPage();
+        User userLoggedIn = new User();
+
         #endregion
 
         #region Methods
@@ -42,18 +44,13 @@ namespace Quizard
             HomeBtn.Visible = false;
         }
 
-        private void userLogin(User obj)
-        {
-            throw new NotImplementedException();
-        }
-
         void showPage(Control page)
         {
             pagePnl.Controls.Clear();
             page.Dock = DockStyle.Fill;
             pagePnl.Controls.Add(page);
             //This will tie into the results from the login page when we set that up
-            ((QuizardPage)page).ShowPage(new User());
+            ((QuizardPage)page).ShowPage(userLoggedIn);
         }
 
         #region Event Handlers
@@ -79,7 +76,15 @@ namespace Quizard
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
-            showPage(login);
+            loginPage.LoginSuccessful += userLogin; //create another event handler for a new user to log in
+            userLoggedIn = new User(); //set userlogged in to no one
+            showPage(loginPage);
+        }
+        private void userLogin(User user)
+        {
+            userLoggedIn = user; //Stores the info of the user logged in
+            //profile.ShowPage(userLoggedIn); //calls ShowPage function to assign values to variables
+            showPage(profile);
         }
         #endregion
         #endregion
