@@ -2,18 +2,18 @@ sqlite3.exe quizard.db
 
 CREATE TABLE users(
 user_ID INTEGER PRIMARY KEY, 
-fname VARCHAR(20) NOT NULL,
-lname VARCHAR(20) NOT NULL, 
+name VARCHAR(20) NOT NULL, 
 email VARCHAR(100) NOT NULL, 
 user_type INT NOT NULL,
 password VARCHAR(20) NOT NULL);
 
 
-INSERT INTO users(rowid, fname, lname, email, user_type, password) VALUES(NULL, "Jonathan", "Eng", "engj@ecu.edu", 3, "password");
-INSERT INTO users(rowid, fname, lname, email, user_type, password) VALUES(NULL, "Alan", "Master", "MasterA@ecu.edu", 3, "password");
-INSERT INTO users(rowid, fname, lname, email, user_type, password) VALUES(NULL, "David", "Anderson", "AndersonD@ecu.edu", 3, "password");
-INSERT INTO users(rowid, fname, lname, email, user_type, password) VALUES(NULL, "Sarim", "Akbar", "AkbarS@ecu.edu", 3, "password");
-INSERT INTO users(rowid, fname, lname, email, user_type, password) VALUES(NULL, "Bigyan", "Pandit", "PanditB@ecu.edu", 3, "password");
+INSERT INTO users(rowid,  name, email, user_type, password) VALUES(NULL, "Jonathan Eng", "engj@ecu.edu", 1, "password");
+INSERT INTO users(rowid,  name, email, user_type, password) VALUES(NULL, "Alan Master", "MasterA@ecu.edu", 2, "password");
+INSERT INTO users(rowid,  name, email, user_type, password) VALUES(NULL, "David Anderson", "AndersonD@ecu.edu", 3, "password");
+INSERT INTO users(rowid,  name, email, user_type, password) VALUES(NULL, "Sarim Akbar", "AkbarS@ecu.edu", 4, "password");
+INSERT INTO users(rowid,  name, email, user_type, password) VALUES(NULL, "Bigyan Pandit", "PanditB@ecu.edu", 5, "password");
+INSERT INTO users(rowid,  name, email, user_type, password) VALUES(NULL, "test test", "test", 1, "test");
 
 CREATE TABLE classes(
 class_ID INTEGER PRIMARY KEY,
