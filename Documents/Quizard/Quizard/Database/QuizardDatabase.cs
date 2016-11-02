@@ -70,7 +70,24 @@ namespace Quizard
             {
                 command.CommandText =
                     "INSERT INTO users(rowid, fname, lname, email, user_type, password) "
-                    + "VALUES(NULL, \"" + Name + "\", \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
+                    + "VALUES(NULL, \"\", \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
+
+                results = command.ExecuteNonQuery();
+            });
+            return results;
+        }
+
+        internal int EditUser(User currentUser, string Name, string email, string password, string role)
+        {
+            int results = 0;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "UPDATE users"
+                    + " SET"
+                    + " lname=\"" + Name + "\"," 
+                    + " email=\"" + email + "\", password=\"" + password + "\", user_type=\"" + (int)Enum.Parse(typeof(UserTypes), role) + "\""
+                    + " WHERE user_ID=\"" + currentUser.rowId + "\";";
 
                 results = command.ExecuteNonQuery();
             });
@@ -90,6 +107,20 @@ namespace Quizard
                 command.CommandText =
                     "INSERT INTO quizzes(class_ID, quiz_name, due_date, quiz_path) "
                     + "VALUES(" + classid + "," + name + "," + duedate + "," + path + ");";
+
+                results = command.ExecuteNonQuery();
+            });
+            return results;
+        }
+
+        internal int RemoveUser(User currentUser)
+        {
+            int results = 0;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "DELETE FROM users"
+                    + " WHERE user_ID=\"" + currentUser.rowId + "\";";
 
                 results = command.ExecuteNonQuery();
             });
@@ -138,6 +169,7 @@ namespace Quizard
                     user.Email = reader["email"].ToString();
                     user.Password = reader["password"].ToString();
                     user.Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
+                    user.Name = user.Name.Trim();
                     user.Role = (UserTypes)reader["user_type"];
                 }
                 catch

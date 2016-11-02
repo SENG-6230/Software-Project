@@ -51,6 +51,7 @@
             this.passwordLbl = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.userNameLbl = new System.Windows.Forms.Label();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -105,14 +106,15 @@
             // 
             this.userMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.userMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem});
             this.userMenuStrip.Name = "userMenuStrip";
-            this.userMenuStrip.Size = new System.Drawing.Size(156, 42);
+            this.userMenuStrip.Size = new System.Drawing.Size(270, 124);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(155, 38);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -182,11 +184,11 @@
             // 
             this.roleCbx.FormattingEnabled = true;
             this.roleCbx.Items.AddRange(new object[] {
-            "Administrator",
-            "Department Head",
+            "Student ",
             "Teacher",
-            "Teacher assistant",
-            "Student"});
+            "TeachingAssistant",
+            "DepartmentHead",
+            "Administrator"});
             this.roleCbx.Location = new System.Drawing.Point(384, 234);
             this.roleCbx.Margin = new System.Windows.Forms.Padding(6);
             this.roleCbx.Name = "roleCbx";
@@ -267,6 +269,13 @@
             this.userNameLbl.TabIndex = 9;
             this.userNameLbl.Text = "Name:";
             // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // UsersPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -307,5 +316,6 @@
         private System.Windows.Forms.Button createBtn;
         private System.Windows.Forms.ContextMenuStrip userMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

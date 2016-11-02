@@ -43,7 +43,7 @@ namespace Quizard.Pages
             nameBx.Text = "";
             emailBx.Text = "";
             passwordBx.Text = "";
-            roleCbx.SelectedIndex = -1;
+            roleCbx.SelectedIndex = 0;
             createBtn.Visible = false;
         }
 
@@ -54,15 +54,32 @@ namespace Quizard.Pages
             emailBx.Text = newUser.Email;
             passwordBx.Text = newUser.Password;
             roleCbx.SelectedIndex = (int)newUser.Role -1;
+            createBtn.Visible = false;
+            nameBx.Enabled = false;
+            emailBx.Enabled = false;
+            passwordBx.Enabled = false;
+            roleCbx.Enabled = false;
         }
 
         private void createBtn_Click(object sender, EventArgs e)
         {
-            Program.Database.CreateUser(
-                    Name: nameBx.Text,
-                    email: emailBx.Text,
-                    password: passwordBx.Text,
-                    role: roleCbx.Text);
+            if (currentUser == null)
+            {
+                Program.Database.CreateUser(
+                        Name: nameBx.Text,
+                        email: emailBx.Text,
+                        password: passwordBx.Text,
+                        role: roleCbx.Text);
+            }
+            else
+            {
+                Program.Database.EditUser(
+                        currentUser,
+                        Name: nameBx.Text,
+                        email: emailBx.Text,
+                        password: passwordBx.Text,
+                        role: roleCbx.Text);
+            }
             clearSelection();
             populateUserList();
         }
@@ -77,12 +94,29 @@ namespace Quizard.Pages
         {
             populateUserInfo((User)usersBx.SelectedNode.Tag);
             createBtn.Visible = true;
+            createBtn.Visible = true;
+            nameBx.Enabled = true;
+            emailBx.Enabled = true;
+            passwordBx.Enabled = true;
+            roleCbx.Enabled = true;
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
             clearSelection();
             createBtn.Visible = true;
+            createBtn.Visible = true;
+            nameBx.Enabled = true;
+            emailBx.Enabled = true;
+            passwordBx.Enabled = true;
+            roleCbx.Enabled = true;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.Database.RemoveUser((User)usersBx.SelectedNode.Tag);
+            clearSelection();
+            populateUserList();
         }
     }
 }
