@@ -97,7 +97,6 @@ namespace Quizard
                 if (fileChooser.ShowDialog() == DialogResult.OK)
                 {
                     string file = fileChooser.FileName.ToString();
-                    MessageBox.Show("File " + file + " Successfully Uploaded!");
                     lblSubmission.Text = file;
                 }
             }
@@ -124,7 +123,7 @@ namespace Quizard
             quiz.classid = 0;
             quiz.name = txtName.Text;
             quiz.duedate = dueDatePicker.Value;
-            quiz.path = Path.Combine(Directory.GetCurrentDirectory(), quiz.name + ".txt");
+            quiz.path = Path.Combine("../../assignments", quiz.name + ".txt");
             File.Copy(lblFile.Text, quiz.path, true);
             Program.Database.CreateQuiz(quiz);
             MessageBox.Show("Assignment Uploaded!");
