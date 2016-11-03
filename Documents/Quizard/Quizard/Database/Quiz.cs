@@ -9,10 +9,10 @@ namespace Quizard
     class Quiz
     {
         internal int rowId = -1;
-        private int quizid  { get; set; }
-        private int classid { get; set; }
-        private string name { get; set; }
-        private DateTime duedate { get; set; }
-        private string path { get; set; }
+        internal int quizid  { get; set; }
+        internal int classid { get; set; }
+        internal string name { get; set; }
+        internal DateTime duedate { get; set; }
+        internal string path { get; set; }
     }
 }

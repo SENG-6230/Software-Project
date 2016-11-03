@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,8 +120,14 @@ namespace Quizard
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //TODO: modify this to push the new assignment to the database
-            MessageBox.Show("Changes Saved!");
+            Quiz quiz = new Quiz();
+            quiz.classid = 0;
+            quiz.name = txtName.Text;
+            quiz.duedate = dueDatePicker.Value;
+            quiz.path = Path.Combine(Directory.GetCurrentDirectory(), quiz.name + ".txt");
+            File.Copy(lblFile.Text, quiz.path, true);
+            Program.Database.CreateQuiz(quiz);
+            MessageBox.Show("Assignment Uploaded!");
             this.Close();
         }
     }

@@ -172,14 +172,14 @@ namespace Quizard
             //add sql code here to add a class
         }
 
-        internal int CreateQuiz(int classid, string name, DateTime duedate, string path)
+        internal int CreateQuiz(Quiz quiz)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "INSERT INTO quizzes(class_ID, quiz_name, due_date, quiz_path) "
-                    + "VALUES(" + classid + "," + name + "," + duedate + "," + path + ");";
+                    "INSERT INTO quizzes(classid, quizname, duedate, path) "
+                    + "VALUES(" + "\"" + quiz.classid + "\",\"" + quiz.name + "\",\"" + quiz.duedate.ToString() + "\",\"" + quiz.path + "\");";
 
                 results = command.ExecuteNonQuery();
             });
