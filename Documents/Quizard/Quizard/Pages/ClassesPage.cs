@@ -55,7 +55,7 @@ namespace Quizard.Pages
                 }
                 else
                 {
-                    AssignmentForm form = AssignmentForm.studentAssignmentForm(0);
+                    AssignmentForm form = AssignmentForm.studentAssignmentForm(0, currentUser.rowId);
                     form.Show();
                 }
             }

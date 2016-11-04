@@ -200,14 +200,14 @@ namespace Quizard
             return results;
         }
 
-        internal int CreateSubmission(int quizid, int classid, int userid, string path)
+        internal int CreateSubmission(Submission submission)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "INSERT INTO submissions(quiz_ID, class_ID, user_ID, score,submission_path) "
-                    + "VALUES(" + "\"" + quizid + "\",\"" + classid + "\",\"" + userid + "\",\"" + "ungraded" + "\",\"" + path + "\");";
+                    "INSERT INTO submissions(quizid, classid, userid, score, path) "
+                    + "VALUES(" + "\"" + submission.quizid + "\",\"" + submission.classid + "\",\"" + submission.userid + "\",\"" + submission.score + "\",\"" + submission.path + "\");";
 
                 results = command.ExecuteNonQuery();
             });
