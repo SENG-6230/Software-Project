@@ -14,12 +14,25 @@ namespace Quizard.Pages
     public partial class ClassesPage : UserControl, QuizardPage
     {
         User currentUser;
+
         public ClassesPage()
         {
             InitializeComponent();
 
             addClassPage.Visible = false;
             addClassPage.finishedEvent += addClassFInishedHandler;
+        }
+
+        void clearClass()
+        {
+            classNameValueLbl.Text = "";
+            teacherValueLbl.Text = "";
+            gradeValLbl.Text = "";
+            attendanceValLbl.Text = "";
+            quizGradeValLbl.Text = "";
+            assistantsBx.Items.Clear();
+            studentsBx.Items.Clear();
+            assignmentsBx.Items.Clear();
         }
 
         private void addClassFInishedHandler(object sender, ClassArgs e)
@@ -56,6 +69,7 @@ namespace Quizard.Pages
         public void ShowPage(User user)
         {
             currentUser = user;
+            clearClass();
             switch (user.Role)
             {
                 case UserTypes.Student:
@@ -81,6 +95,7 @@ namespace Quizard.Pages
                 //default:
                     //throw new Exception("Unable to show page because the user type is not supported");
             }
+
         }
 
         private void populateClassList(List<Class> classList)
@@ -109,7 +124,20 @@ namespace Quizard.Pages
 
         private void classTV_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-
+            Class newClass = (Class)e.Node.Tag;
+            classNameValueLbl.Text = newClass.Name;
+            teacherValueLbl.Text = newClass.Teacher.Name;
+            //gradeValLbl.Text = "";
+            //attendanceValLbl.Text = "";
+            foreach (User assistant in newClass.AssistantTeachers)
+            {
+                assistantsBx.Items.Add(assistant.Name);
+            }
+            foreach (User student in newClass.Students)
+            {
+                studentsBx.Items.Add(student.Name);
+            }
+            //assignmentsBx.Items.Clear();
         }
     }
 }

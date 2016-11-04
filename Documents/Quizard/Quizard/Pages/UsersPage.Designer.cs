@@ -39,6 +39,7 @@
             this.usersBx = new System.Windows.Forms.TreeView();
             this.userMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.addUserBtn = new System.Windows.Forms.Button();
             this.classInfoPanel = new System.Windows.Forms.Panel();
@@ -51,7 +52,6 @@
             this.passwordLbl = new System.Windows.Forms.Label();
             this.emailLbl = new System.Windows.Forms.Label();
             this.userNameLbl = new System.Windows.Forms.Label();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -109,14 +109,21 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.userMenuStrip.Name = "userMenuStrip";
-            this.userMenuStrip.Size = new System.Drawing.Size(270, 124);
+            this.userMenuStrip.Size = new System.Drawing.Size(186, 80);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // splitContainer
             // 
@@ -182,6 +189,7 @@
             // 
             // roleCbx
             // 
+            this.roleCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleCbx.FormattingEnabled = true;
             this.roleCbx.Items.AddRange(new object[] {
             "Student ",
@@ -268,13 +276,6 @@
             this.userNameLbl.Size = new System.Drawing.Size(100, 36);
             this.userNameLbl.TabIndex = 9;
             this.userNameLbl.Text = "Name:";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // UsersPage
             // 
