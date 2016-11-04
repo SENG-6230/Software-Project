@@ -247,6 +247,27 @@ namespace Quizard
             return rtnList;
         }
 
+        internal Submission getSubmissionForUserAndAssignment(int assignmentid, int userid)
+        {
+            string command = "SELECT * FROM submissions WHERE quizid=\"" + assignmentid + "\" AND userid =\"" + userid + "\";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    Submission newSubmission = parseSubmissionFromReader(reader);
+                    if (newSubmission != null)
+                    {
+                        return newSubmission;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+
         private User parseUserFromReader(SQLiteDataReader reader)
         {
             User user = null;
