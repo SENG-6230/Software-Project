@@ -77,12 +77,13 @@ namespace Quizard.Pages
         public void ShowPage(User user)
         {
             currentUser = user;
-            clearClass();
+            resetView();
             switch (user.Role)
             {
                 case UserTypes.Student:
                     List<Class> studentsClasses = Program.Database.GetStudentsClasses(user);
                     populateClassList(studentsClasses);
+                    addAssignmentBtn.Visible = false;
                     break;
                 case UserTypes.Teacher:
                     List<Class> teacherClasses = Program.Database.GetTeachersClasses(user);
@@ -91,19 +92,55 @@ namespace Quizard.Pages
                 case UserTypes.TeachingAssistant:
                     List<Class> assistantingClasses = Program.Database.GetTAClasses(user);
                     populateClassList(assistantingClasses);
+                    addAssignmentBtn.Visible = false;
                     break;
                 case UserTypes.DepartmentHead:
                     List<Class> departmentClasses = Program.Database.GetDepartmentClasses(user);
                     populateClassList(departmentClasses);
+                    assistantsLbl.Visible = false;
+                    assistantsBx.Visible = false;
+                    studentsBx.Visible = false;
+                    studentsLbl.Visible = false;
+                    assignmentsBx.Visible = false;
+                    assignmentsLbl.Visible = false;
+                    quizGradelbl.Visible = false;
+                    quizGradeValLbl.Visible = false;
+                    addAssignmentBtn.Visible = false;
                     break;
                 case UserTypes.Administrator:
                     List<Class> allClasses = Program.Database.GetAllClasses();
                     populateClassList(allClasses);
+                    gradeLbl.Visible = false;
+                    gradeValLbl.Visible = false;
+                    quizGradelbl.Visible = false;
+                    quizGradeValLbl.Visible = false;
+                    addAssignmentBtn.Visible = false;
                     break;
                 //default:
                     //throw new Exception("Unable to show page because the user type is not supported");
             }
+        }
 
+        private void resetView()
+        {
+            clearClass();
+            classNameLbl.Visible = true;
+            classNameValueLbl.Visible = true;
+            teacherNameLbl.Visible = true;
+            teacherValueLbl.Visible = true;
+            gradeLbl.Visible = true;
+            gradeValLbl.Visible = true;
+            attendanceLbl.Visible = true;
+            attendanceValLbl.Visible = true;
+            assistantsBx.Visible = true;
+            assistantsLbl.Visible = true;
+            studentsBx.Visible = true;
+            studentsLbl.Visible = true;
+            assignmentsLbl.Visible = true;
+            assignmentsBx.Visible = true;
+            quizGradelbl.Visible = true;
+            quizGradeValLbl.Visible = true;
+            addAssignmentBtn.Visible = true;
         }
 
         private void populateClassList(List<Class> classList)
@@ -127,7 +164,7 @@ namespace Quizard.Pages
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Class deleteClass = (Class)classTV.SelectedNode.Tag;
         }
 
         private void classTV_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
