@@ -34,14 +34,15 @@
             this.groupBoxDueDate = new System.Windows.Forms.GroupBox();
             this.dueDatePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBoxFile = new System.Windows.Forms.GroupBox();
+            this.btnDownload = new System.Windows.Forms.Button();
             this.lblFile = new System.Windows.Forms.Label();
             this.btnUpload = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.groupBoxStudentFile = new System.Windows.Forms.GroupBox();
-            this.btnStudentUpload = new System.Windows.Forms.Button();
-            this.btnDownload = new System.Windows.Forms.Button();
-            this.btnStudentDownload = new System.Windows.Forms.Button();
             this.lblSubmission = new System.Windows.Forms.Label();
+            this.btnStudentDownload = new System.Windows.Forms.Button();
+            this.btnStudentUpload = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnGrades = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBoxName.SuspendLayout();
             this.groupBoxDueDate.SuspendLayout();
@@ -111,6 +112,15 @@
             this.groupBoxFile.TabStop = false;
             this.groupBoxFile.Text = "Assignment File";
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(87, 22);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(91, 28);
+            this.btnDownload.TabIndex = 4;
+            this.btnDownload.Text = "Download";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            // 
             // lblFile
             // 
             this.lblFile.AutoSize = true;
@@ -130,22 +140,12 @@
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnSave.Location = new System.Drawing.Point(3, 205);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(78, 27);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // groupBoxStudentFile
             // 
             this.groupBoxStudentFile.Controls.Add(this.lblSubmission);
             this.groupBoxStudentFile.Controls.Add(this.btnStudentDownload);
             this.groupBoxStudentFile.Controls.Add(this.btnStudentUpload);
+            this.groupBoxStudentFile.Controls.Add(this.btnGrades);
             this.groupBoxStudentFile.Location = new System.Drawing.Point(261, 104);
             this.groupBoxStudentFile.Name = "groupBoxStudentFile";
             this.groupBoxStudentFile.Size = new System.Drawing.Size(283, 95);
@@ -153,24 +153,13 @@
             this.groupBoxStudentFile.TabStop = false;
             this.groupBoxStudentFile.Text = "Student Submitted File";
             // 
-            // btnStudentUpload
+            // lblSubmission
             // 
-            this.btnStudentUpload.Location = new System.Drawing.Point(3, 20);
-            this.btnStudentUpload.Name = "btnStudentUpload";
-            this.btnStudentUpload.Size = new System.Drawing.Size(75, 30);
-            this.btnStudentUpload.TabIndex = 0;
-            this.btnStudentUpload.Text = "Upload";
-            this.btnStudentUpload.UseVisualStyleBackColor = true;
-            this.btnStudentUpload.Click += new System.EventHandler(this.btnStudentUpload_Click);
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.Location = new System.Drawing.Point(87, 22);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(91, 28);
-            this.btnDownload.TabIndex = 4;
-            this.btnDownload.Text = "Download";
-            this.btnDownload.UseVisualStyleBackColor = true;
+            this.lblSubmission.AutoSize = true;
+            this.lblSubmission.Location = new System.Drawing.Point(6, 53);
+            this.lblSubmission.Name = "lblSubmission";
+            this.lblSubmission.Size = new System.Drawing.Size(0, 18);
+            this.lblSubmission.TabIndex = 6;
             // 
             // btnStudentDownload
             // 
@@ -182,13 +171,36 @@
             this.btnStudentDownload.UseVisualStyleBackColor = true;
             this.btnStudentDownload.Click += new System.EventHandler(this.btnStudentDownload_Click);
             // 
-            // lblSubmission
+            // btnStudentUpload
             // 
-            this.lblSubmission.AutoSize = true;
-            this.lblSubmission.Location = new System.Drawing.Point(6, 53);
-            this.lblSubmission.Name = "lblSubmission";
-            this.lblSubmission.Size = new System.Drawing.Size(0, 18);
-            this.lblSubmission.TabIndex = 6;
+            this.btnStudentUpload.Location = new System.Drawing.Point(3, 20);
+            this.btnStudentUpload.Name = "btnStudentUpload";
+            this.btnStudentUpload.Size = new System.Drawing.Size(75, 30);
+            this.btnStudentUpload.TabIndex = 0;
+            this.btnStudentUpload.Text = "Upload";
+            this.btnStudentUpload.UseVisualStyleBackColor = true;
+            this.btnStudentUpload.Click += new System.EventHandler(this.btnStudentUpload_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnSave.Location = new System.Drawing.Point(3, 205);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(78, 27);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnGrades
+            // 
+            this.btnGrades.Location = new System.Drawing.Point(181, 20);
+            this.btnGrades.Name = "btnGrades";
+            this.btnGrades.Size = new System.Drawing.Size(75, 30);
+            this.btnGrades.TabIndex = 5;
+            this.btnGrades.Text = "Grades";
+            this.btnGrades.UseVisualStyleBackColor = true;
+            this.btnGrades.Click += new System.EventHandler(this.btnGrades_Click);
             // 
             // AssignmentForm
             // 
@@ -227,5 +239,6 @@
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.Button btnStudentDownload;
         private System.Windows.Forms.Label lblSubmission;
+        private System.Windows.Forms.Button btnGrades;
     }
 }

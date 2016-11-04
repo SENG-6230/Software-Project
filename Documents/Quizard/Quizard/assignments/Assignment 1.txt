@@ -1,0 +1,15 @@
+This is assignment 1
+
+Question 1: What is a model?
+A) a model
+B) a metamodel
+C) a metametamodel
+D) a metametametamodel
+E) all of the above
+
+Question 2: Who will win the election?
+A) Donald Trump
+B) Hillary Clinton
+C) Dwayne "The Rock" Johnson
+D) Sergiy Vilkomir
+

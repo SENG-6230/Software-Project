@@ -172,14 +172,14 @@ namespace Quizard
             //add sql code here to add a class
         }
 
-        internal int CreateQuiz(int classid, string name, DateTime duedate, string path)
+        internal int CreateQuiz(Quiz quiz)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "INSERT INTO quizzes(class_ID, quiz_name, due_date, quiz_path) "
-                    + "VALUES(" + classid + "," + name + "," + duedate + "," + path + ");";
+                    "INSERT INTO quizzes(classid, quizname, duedate, path) "
+                    + "VALUES(" + "\"" + quiz.classid + "\",\"" + quiz.name + "\",\"" + quiz.duedate.ToString() + "\",\"" + quiz.path + "\");";
 
                 results = command.ExecuteNonQuery();
             });
@@ -200,14 +200,14 @@ namespace Quizard
             return results;
         }
 
-        internal int CreateSubmission(int quizid, int classid, int userid, string path)
+        internal int CreateSubmission(Submission submission)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "INSERT INTO submissions(quiz_ID, class_ID, user_ID, score,submission_path) "
-                    + "VALUES(" + quizid + "," + classid + "," + userid + "," + "ungraded" + "," + path + ");";
+                    "INSERT INTO submissions(quizid, classid, userid, score, path) "
+                    + "VALUES(" + "\"" + submission.quizid + "\",\"" + submission.classid + "\",\"" + submission.userid + "\",\"" + submission.score + "\",\"" + submission.path + "\");";
 
                 results = command.ExecuteNonQuery();
             });
