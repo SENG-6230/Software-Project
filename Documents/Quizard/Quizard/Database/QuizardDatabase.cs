@@ -229,6 +229,24 @@ namespace Quizard
             return results;
         }
 
+        internal List<Submission> getSubmissionsForAssignment(int assignmentid)
+        {
+            List<Submission> rtnList = new List<Submission>();
+            string command = "SELECT * FROM submissions WHERE subid=\"" + assignmentid + "\";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    Submission newSubmission = parseSubmissionFromReader(reader);
+                    if (newSubmission != null)
+                    {
+                        rtnList.Add(newSubmission);
+                    }
+                }
+            }
+            return rtnList;
+        }
+
         private User parseUserFromReader(SQLiteDataReader reader)
         {
             User user = null;
@@ -251,6 +269,31 @@ namespace Quizard
                 }
             }
             return user;
+        }
+
+        private Submission parseSubmissionFromReader(SQLiteDataReader reader)
+        {
+            Submission sub = null;
+            if (reader.HasRows)
+            {
+                try
+                {
+                    sub = new Submission();
+                    reader.Read();
+                    sub.rowId = Convert.ToInt32(reader["subid"].ToString());
+                    sub.quizid = Convert.ToInt32(reader["quizid"].ToString());
+                    sub.classid = Convert.ToInt32(reader["classid"].ToString());
+                    sub.userid = Convert.ToInt32(reader["userid"].ToString());
+                    sub.path = reader["path"].ToString();
+                    sub.score = reader["score"].ToString();
+                }
+                catch
+                {
+                    //bad reader. return null
+                    return null;
+                }
+            }
+            return sub;
         }
 
         private SQLiteDataReader retrieveCommands(string query)
