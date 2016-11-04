@@ -207,7 +207,7 @@ namespace Quizard
             {
                 command.CommandText =
                     "INSERT INTO submissions(quiz_ID, class_ID, user_ID, score,submission_path) "
-                    + "VALUES(" + quizid + "," + classid + "," + userid + "," + "ungraded" + "," + path + ");";
+                    + "VALUES(" + "\"" + quizid + "\",\"" + classid + "\",\"" + userid + "\",\"" + "ungraded" + "\",\"" + path + "\");";
 
                 results = command.ExecuteNonQuery();
             });
