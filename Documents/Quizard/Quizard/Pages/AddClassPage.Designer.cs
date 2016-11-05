@@ -40,17 +40,19 @@
             this.assistantsBx = new System.Windows.Forms.CheckedListBox();
             this.studentsLbl = new System.Windows.Forms.Label();
             this.studentsBx = new System.Windows.Forms.CheckedListBox();
+            this.numberValBx = new System.Windows.Forms.TextBox();
+            this.numberLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameBx
             // 
             this.nameBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBx.Location = new System.Drawing.Point(376, 36);
-            this.nameBx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nameBx.Margin = new System.Windows.Forms.Padding(6);
             this.nameBx.Name = "nameBx";
             this.nameBx.Size = new System.Drawing.Size(312, 41);
             this.nameBx.TabIndex = 15;
-            this.nameBx.Text = "SENG 6230";
+            this.nameBx.Text = "Software Engineering";
             // 
             // userNameLbl
             // 
@@ -89,7 +91,7 @@
             // 
             this.headCbx.FormattingEnabled = true;
             this.headCbx.Location = new System.Drawing.Point(376, 160);
-            this.headCbx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.headCbx.Margin = new System.Windows.Forms.Padding(6);
             this.headCbx.Name = "headCbx";
             this.headCbx.Size = new System.Drawing.Size(312, 33);
             this.headCbx.TabIndex = 19;
@@ -100,7 +102,7 @@
             this.teacherCbx.Items.AddRange(new object[] {
             "Vilkomir, Sergiy"});
             this.teacherCbx.Location = new System.Drawing.Point(376, 104);
-            this.teacherCbx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.teacherCbx.Margin = new System.Windows.Forms.Padding(6);
             this.teacherCbx.Name = "teacherCbx";
             this.teacherCbx.Size = new System.Drawing.Size(312, 33);
             this.teacherCbx.TabIndex = 21;
@@ -109,7 +111,7 @@
             // 
             this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.Location = new System.Drawing.Point(32, 624);
-            this.addBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(188, 64);
             this.addBtn.TabIndex = 22;
@@ -121,7 +123,7 @@
             // 
             this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.Location = new System.Drawing.Point(250, 624);
-            this.cancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(4);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(188, 64);
             this.cancelBtn.TabIndex = 23;
@@ -145,13 +147,11 @@
             // 
             this.assistantsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assistantsBx.FormattingEnabled = true;
-            this.assistantsBx.ItemHeight = 36;
             this.assistantsBx.Items.AddRange(new object[] {
             "Swetha Mahendrakar"});
             this.assistantsBx.Location = new System.Drawing.Point(448, 324);
-            this.assistantsBx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.assistantsBx.Margin = new System.Windows.Forms.Padding(6);
             this.assistantsBx.Name = "assistantsBx";
-            this.assistantsBx.SelectionMode = System.Windows.Forms.SelectionMode.One;
             this.assistantsBx.Size = new System.Drawing.Size(328, 364);
             this.assistantsBx.TabIndex = 26;
             // 
@@ -170,7 +170,6 @@
             // 
             this.studentsBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentsBx.FormattingEnabled = true;
-            this.studentsBx.ItemHeight = 36;
             this.studentsBx.Items.AddRange(new object[] {
             "Alan Master",
             "David Anderson",
@@ -178,16 +177,38 @@
             "Mohammed Sarim Akbar",
             "Jonathan Eng"});
             this.studentsBx.Location = new System.Drawing.Point(806, 106);
-            this.studentsBx.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.studentsBx.Margin = new System.Windows.Forms.Padding(6);
             this.studentsBx.Name = "studentsBx";
-            this.studentsBx.SelectionMode = System.Windows.Forms.SelectionMode.One;
             this.studentsBx.Size = new System.Drawing.Size(328, 616);
             this.studentsBx.TabIndex = 24;
+            // 
+            // numberValBx
+            // 
+            this.numberValBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberValBx.Location = new System.Drawing.Point(207, 228);
+            this.numberValBx.Margin = new System.Windows.Forms.Padding(6);
+            this.numberValBx.Name = "numberValBx";
+            this.numberValBx.Size = new System.Drawing.Size(312, 41);
+            this.numberValBx.TabIndex = 29;
+            this.numberValBx.Text = "SENG 6230";
+            // 
+            // numberLbl
+            // 
+            this.numberLbl.AutoSize = true;
+            this.numberLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberLbl.Location = new System.Drawing.Point(44, 228);
+            this.numberLbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.numberLbl.Name = "numberLbl";
+            this.numberLbl.Size = new System.Drawing.Size(128, 36);
+            this.numberLbl.TabIndex = 28;
+            this.numberLbl.Text = "Number:";
             // 
             // AddClassPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.numberValBx);
+            this.Controls.Add(this.numberLbl);
             this.Controls.Add(this.assistantsLbl);
             this.Controls.Add(this.assistantsBx);
             this.Controls.Add(this.studentsLbl);
@@ -200,7 +221,7 @@
             this.Controls.Add(this.departmentLbl);
             this.Controls.Add(this.nameBx);
             this.Controls.Add(this.userNameLbl);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(1140, 728);
             this.Name = "AddClassPage";
             this.Size = new System.Drawing.Size(1140, 728);
@@ -223,5 +244,7 @@
         private System.Windows.Forms.CheckedListBox assistantsBx;
         private System.Windows.Forms.Label studentsLbl;
         private System.Windows.Forms.CheckedListBox studentsBx;
+        private System.Windows.Forms.TextBox numberValBx;
+        private System.Windows.Forms.Label numberLbl;
     }
 }

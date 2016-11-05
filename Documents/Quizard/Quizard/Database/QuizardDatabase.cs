@@ -103,10 +103,10 @@ namespace Quizard
             List<Class> rtnCLasses = new List<Class>();
             foreach (Class potential in allCLasses)
             {
-                    if (potential.DepartmentHead.rowId == user.rowId)
-                    {
-                        rtnCLasses.Add(potential);
-                    }
+                if (potential.DepartmentHead.rowId == user.rowId)
+                {
+                    rtnCLasses.Add(potential);
+                }
             }
 
             return rtnCLasses;
@@ -118,10 +118,10 @@ namespace Quizard
             List<Class> rtnCLasses = new List<Class>();
             foreach (Class potential in allCLasses)
             {
-                    if (potential.Teacher.rowId == user.rowId)
-                    {
-                        rtnCLasses.Add(potential);
-                    }
+                if (potential.Teacher.rowId == user.rowId)
+                {
+                    rtnCLasses.Add(potential);
+                }
             }
 
             return rtnCLasses;
@@ -167,9 +167,17 @@ namespace Quizard
             return results;
         }
 
-        internal void CreateClass(string name, User teacher, User DpHead, List<User> assistants, List<User> students)
+        internal int CreateClass(string name, string number, User teacher, User DpHead, List<User> assistants, List<User> students)
         {
-            //add sql code here to add a class
+            int results = -1;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "INSERT INTO classes(rowID, class_number, class_name)"
+                    + " VALUES(NULL, \"" + name + "\", \"" + number + "\")";
+                results = command.ExecuteNonQuery();
+            });
+            return results;
         }
 
         internal int CreateQuiz(Quiz quiz)
