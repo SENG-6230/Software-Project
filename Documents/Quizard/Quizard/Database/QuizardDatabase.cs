@@ -14,8 +14,11 @@ namespace Quizard
             try
             {
                 //add database file path login here
+                SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
             }
-            catch { }
+            catch {
+                // create Database instrcutions here... //Jonathan
+            }
         }
 
         private void executeCommand(Action<SQLiteCommand> commandAction)
@@ -147,8 +150,110 @@ namespace Quizard
 
         internal List<Class> GetAllClasses()
         {
-            throw new NotImplementedException();
+            List<Class> rtnList = new List<Class>();
+            string command = "SELECT * FROM classes;";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    try
+                    {
+                        Class newClass = new Class();
+                        reader.Read();
+                        int classID = Convert.ToInt32(reader["class_ID"].ToString());
+                        newClass.rowId = classID;
+                        newClass.number = reader["class_number"].ToString();
+                        newClass.Name = reader["class_name"].ToString();
+                        newClass.Teacher = getTeacher(classID);
+                        newClass.DepartmentHead = getDeptHead(classID);
+                        newClass.AssistantTeachers = getTAs(classID);
+                        newClass.Students = getStudents(classID);
+                        rtnList.Add(newClass);
+                    }
+                    catch
+                    {
+                        return rtnList;
+                    }
+
+
+            }
+                return rtnList;
+            }
         }
+
+        internal User getTeacher(int classID)
+        {
+            //int userID;
+            User whoIs = new User();
+            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 3 AND class_ID =" + classID + ";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                if (reader.HasRows)
+                {
+                    whoIs = parseUserFromReader(reader);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            return whoIs;
+        }
+
+        internal User getDeptHead(int classID){
+            //int userID;
+            User whoIs = new User();
+            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 4 AND class_ID =" + classID +";";
+            using (SQLiteDataReader reader = retrieveCommands(command)){
+                if (reader.HasRows){
+                  whoIs = parseUserFromReader(reader);
+                }else
+                {
+                    return null;
+                }
+            }
+            return whoIs;
+        }
+
+        internal List<User> getTAs(int classID)
+        {
+            //int userID;
+            List<User> whoIs = new List<User>();
+            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 2 AND class_ID =" + classID + ";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    User newTA = parseUserFromReader(reader);
+                    if(newTA != null)
+                    {
+                        whoIs.Add(newTA);
+                    }
+                }
+            }
+            return whoIs;
+        }
+
+        internal List<User> getStudents(int classID)
+        {
+            //int userID;
+            List<User> whoIs = new List<User>();
+            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 1 AND class_ID =" + classID + ";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    User newStudent = parseUserFromReader(reader);
+                    if (newStudent != null)
+                    {
+                        whoIs.Add(newStudent);
+                    }
+                }
+            }
+            return whoIs;
+        }
+
+
 
         internal int EditUser(User currentUser, string Name, string email, string password, string role)
         {
