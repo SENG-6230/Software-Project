@@ -38,6 +38,8 @@ namespace Quizard
             form.btnDownload.Enabled = false;
             form.btnDownload.Visible = false;
             form.lblFile.Text = "No File Chosen";
+            form.groupBoxGrades.Enabled = false;
+            form.groupBoxGrades.Visible = false;
             return form;
         }
 
@@ -53,6 +55,9 @@ namespace Quizard
             form.btnStudentDownload.Visible = false;
             form.btnStudentUpload.Enabled = false;
             form.btnStudentUpload.Enabled = false;
+            form.groupBoxGrades.Text = "Grades";
+            form.lblMyGrade.Enabled = false;
+            form.lblMyGrade.Visible = false;
             return form;
         }
 
@@ -69,8 +74,9 @@ namespace Quizard
             form.btnUpload.Visible = false;
             form.btnSave.Enabled = false;
             form.btnSave.Visible = false;
-            form.btnGrades.Enabled = false;
-            form.btnGrades.Visible = false;
+            form.groupBoxGrades.Text = "My Grade";
+            form.btnGrade.Enabled = false;
+            form.btnGrade.Visible = false;
             return form;
         }
 
@@ -154,11 +160,6 @@ namespace Quizard
             Program.Database.CreateQuiz(quiz);
             MessageBox.Show("Assignment Uploaded!");
             this.Close();
-        }
-
-        private void btnGrades_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
