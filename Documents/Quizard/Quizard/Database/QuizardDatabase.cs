@@ -334,6 +334,66 @@ namespace Quizard
             return results;
         }
 
+        internal List<Submission> getSubmissionsForAssignment(int assignmentid)
+        {
+            List<Submission> rtnList = new List<Submission>();
+            string command = "SELECT * FROM submissions WHERE subid=\"" + assignmentid + "\";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    Submission newSubmission = parseSubmissionFromReader(reader);
+                    if (newSubmission != null)
+                    {
+                        rtnList.Add(newSubmission);
+                    }
+                }
+            }
+            return rtnList;
+        }
+
+        internal Submission getSubmissionForUserAndAssignment(int assignmentid, int userid)
+        {
+            string command = "SELECT * FROM submissions WHERE quizid=\"" + assignmentid + "\" AND userid =\"" + userid + "\";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    Submission newSubmission = parseSubmissionFromReader(reader);
+                    if (newSubmission != null)
+                    {
+                        return newSubmission;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+
+        internal float getAvgGrade(User user, int classID)
+        {
+            float average = 0;
+            int numScores = 0;
+
+            string command = "SELECT score FROM scores WHERE class_ID =" + classID + " AND user_ID = " + user.rowId + ";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+               reader.Read();
+                    while (reader.HasRows)
+                    {
+                        numScores++; 
+                        average = average + Convert.ToInt32(reader["score"].ToString());
+                        reader.Read();
+                    }
+                
+            }
+
+            return average/numScores;
+        }
+
         private User parseUserFromReader(SQLiteDataReader reader)
         {
             User user = null;
@@ -356,6 +416,31 @@ namespace Quizard
                 }
             }
             return user;
+        }
+
+        private Submission parseSubmissionFromReader(SQLiteDataReader reader)
+        {
+            Submission sub = null;
+            if (reader.HasRows)
+            {
+                try
+                {
+                    sub = new Submission();
+                    reader.Read();
+                    sub.rowId = Convert.ToInt32(reader["subid"].ToString());
+                    sub.quizid = Convert.ToInt32(reader["quizid"].ToString());
+                    sub.classid = Convert.ToInt32(reader["classid"].ToString());
+                    sub.userid = Convert.ToInt32(reader["userid"].ToString());
+                    sub.path = reader["path"].ToString();
+                    sub.score = reader["score"].ToString();
+                }
+                catch
+                {
+                    //bad reader. return null
+                    return null;
+                }
+            }
+            return sub;
         }
 
         private SQLiteDataReader retrieveCommands(string query)
