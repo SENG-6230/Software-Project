@@ -10,6 +10,7 @@ namespace Quizard
     {
         internal int rowId = -1;
         internal string Name;
+        internal string number;
         internal User Teacher;
         internal User DepartmentHead;
         internal List<User> AssistantTeachers;

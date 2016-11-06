@@ -72,6 +72,8 @@ namespace Quizard
                     mainForm = new MainForm();
                     MainForm = mainForm;
 
+                  //  List<Class> getClass = Database.GetAllClasses(); //Testing/debuging line
+                  //  MessageBox.Show("debug line");                   //Testing/Debuging line
                     processCommandLine();
                 }
                 catch (Exception e)
