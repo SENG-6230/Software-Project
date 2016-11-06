@@ -419,7 +419,6 @@ namespace Quizard
             return null;
         }
 
-<<<<<<< HEAD
         internal float getAvgGrade(User user, int classID)
         {
             float average = 0;
@@ -428,18 +427,19 @@ namespace Quizard
             string command = "SELECT score FROM scores WHERE class_ID =" + classID + " AND user_ID = " + user.rowId + ";";
             using (SQLiteDataReader reader = retrieveCommands(command))
             {
-               reader.Read();
-                    while (reader.HasRows)
-                    {
-                        numScores++; 
-                        average = average + Convert.ToInt32(reader["score"].ToString());
-                        reader.Read();
-                    }
-                
+                reader.Read();
+                while (reader.HasRows)
+                {
+                    numScores++;
+                    average = average + Convert.ToInt32(reader["score"].ToString());
+                    reader.Read();
+                }
+
             }
 
-            return average/numScores;
-=======
+            return average / numScores;
+        }
+
         internal string getUserNameForSubmission(int userid)
         {
             string command = "SELECT * FROM users WHERE userid =\"" + userid + "\";";
@@ -459,7 +459,6 @@ namespace Quizard
                 }
             }
             return null;
->>>>>>> origin/master
         }
 
         private User parseUserFromReader(SQLiteDataReader reader)
