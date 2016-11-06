@@ -14,6 +14,7 @@ namespace Quizard.Pages
     public partial class ClassesPage : UserControl, QuizardPage
     {
         User currentUser;
+        Class currentClass;
 
         public ClassesPage()
         {
@@ -170,20 +171,28 @@ namespace Quizard.Pages
         private void classTV_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             Class newClass = (Class)e.Node.Tag;
-            //User newUser = (User)e.Node.Tag;
             classNameValueLbl.Text = newClass.Name;
             teacherValueLbl.Text = newClass.Teacher.Name;
-            gradeValLbl.Text = Program.Database.getAvgGrade(currentUser, newClass.rowId).ToString();
+            //gradeValLbl.Text = "";
             //attendanceValLbl.Text = "";
+            assistantsBx.Items.Clear();
             foreach (User assistant in newClass.AssistantTeachers)
             {
                 assistantsBx.Items.Add(assistant.Name);
             }
+            studentsBx.Items.Clear();
             foreach (User student in newClass.Students)
             {
                 studentsBx.Items.Add(student.Name);
             }
-            //assignmentsBx.Items.Clear();
+            assignmentsBx.Items.Clear();
+            populateAssignmentList(newClass.rowId);
+
+            currentClass = newClass;
+        }
+
+        private void populateAssignmentList(int rowId)
+        {
         }
     }
 }
