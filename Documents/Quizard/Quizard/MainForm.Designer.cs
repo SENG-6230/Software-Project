@@ -35,9 +35,9 @@
             this.usersBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
             this.pagePnl = new System.Windows.Forms.Panel();
-            this.loginPage = new Quizard.Pages.LoginPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginPage = new Quizard.Pages.LoginPage();
             this.flowLayoutPanel1.SuspendLayout();
             this.pagePnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -77,7 +77,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1468, 120);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1448, 120);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // InfoBtn
@@ -105,7 +105,7 @@
             // logOutBtn
             // 
             this.logOutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.logOutBtn.Location = new System.Drawing.Point(1192, 26);
+            this.logOutBtn.Location = new System.Drawing.Point(1116, 26);
             this.logOutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(152, 64);
@@ -122,8 +122,25 @@
             this.pagePnl.Location = new System.Drawing.Point(0, 160);
             this.pagePnl.Margin = new System.Windows.Forms.Padding(4);
             this.pagePnl.Name = "pagePnl";
-            this.pagePnl.Size = new System.Drawing.Size(1468, 762);
+            this.pagePnl.Size = new System.Drawing.Size(1448, 698);
             this.pagePnl.TabIndex = 3;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1448, 40);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(90, 36);
+            this.menuToolStripMenuItem.Text = "Menu";
             // 
             // loginPage
             // 
@@ -134,28 +151,11 @@
             this.loginPage.Size = new System.Drawing.Size(1285, 587);
             this.loginPage.TabIndex = 0;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1468, 40);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // menuToolStripMenuItem
-            // 
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(90, 36);
-            this.menuToolStripMenuItem.Text = "Menu";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1468, 922);
+            this.ClientSize = new System.Drawing.Size(1448, 858);
             this.Controls.Add(this.pagePnl);
             this.Controls.Add(this.logOutBtn);
             this.Controls.Add(this.flowLayoutPanel1);

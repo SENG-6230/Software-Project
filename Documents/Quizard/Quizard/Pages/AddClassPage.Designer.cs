@@ -89,6 +89,7 @@
             // 
             // headCbx
             // 
+            this.headCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.headCbx.FormattingEnabled = true;
             this.headCbx.Location = new System.Drawing.Point(376, 160);
             this.headCbx.Margin = new System.Windows.Forms.Padding(6);
@@ -98,6 +99,7 @@
             // 
             // teacherCbx
             // 
+            this.teacherCbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.teacherCbx.FormattingEnabled = true;
             this.teacherCbx.Items.AddRange(new object[] {
             "Vilkomir, Sergiy"});
@@ -135,7 +137,7 @@
             // 
             this.assistantsLbl.AutoSize = true;
             this.assistantsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assistantsLbl.Location = new System.Drawing.Point(544, 228);
+            this.assistantsLbl.Location = new System.Drawing.Point(552, 280);
             this.assistantsLbl.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.assistantsLbl.Name = "assistantsLbl";
             this.assistantsLbl.Size = new System.Drawing.Size(160, 72);
@@ -149,7 +151,7 @@
             this.assistantsBx.FormattingEnabled = true;
             this.assistantsBx.Items.AddRange(new object[] {
             "Swetha Mahendrakar"});
-            this.assistantsBx.Location = new System.Drawing.Point(448, 324);
+            this.assistantsBx.Location = new System.Drawing.Point(466, 358);
             this.assistantsBx.Margin = new System.Windows.Forms.Padding(6);
             this.assistantsBx.Name = "assistantsBx";
             this.assistantsBx.Size = new System.Drawing.Size(328, 364);
