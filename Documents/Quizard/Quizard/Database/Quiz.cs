@@ -14,5 +14,10 @@ namespace Quizard
         internal string name { get; set; }
         internal DateTime duedate { get; set; }
         internal string path { get; set; }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
