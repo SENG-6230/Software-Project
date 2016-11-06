@@ -14,5 +14,10 @@ namespace Quizard
         internal int userid { get; set; }
         internal string path { get; set; }
         internal string score { get; set; }
+
+        public override string ToString()
+        {
+            return Program.Database.getUserNameForSubmission(userid);
+        }
     }
 }

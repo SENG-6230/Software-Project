@@ -81,6 +81,12 @@
     <Compile Include="Database\QuizardDatabase.cs" />
     <Compile Include="Database\User.cs" />
     <Compile Include="Database\UserTypes.cs" />
+    <Compile Include="GradeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GradeForm.Designer.cs">
+      <DependentUpon>GradeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     <Compile Include="Database\Submission.cs" />
     <EmbeddedResource Include="AssignmentForm.resx">
       <DependentUpon>AssignmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradeForm.resx">
+      <DependentUpon>GradeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

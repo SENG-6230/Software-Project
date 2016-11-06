@@ -41,10 +41,10 @@
             this.lblSubmission = new System.Windows.Forms.Label();
             this.btnStudentDownload = new System.Windows.Forms.Button();
             this.btnStudentUpload = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.groupBoxGrades = new System.Windows.Forms.GroupBox();
             this.btnGrade = new System.Windows.Forms.Button();
             this.lblMyGrade = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBoxName.SuspendLayout();
             this.groupBoxDueDate.SuspendLayout();
@@ -184,17 +184,6 @@
             this.btnStudentUpload.UseVisualStyleBackColor = true;
             this.btnStudentUpload.Click += new System.EventHandler(this.btnStudentUpload_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnSave.Location = new System.Drawing.Point(261, 205);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(78, 27);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // groupBoxGrades
             // 
             this.groupBoxGrades.Controls.Add(this.btnGrade);
@@ -214,6 +203,7 @@
             this.btnGrade.TabIndex = 0;
             this.btnGrade.Text = "Grade Submissions";
             this.btnGrade.UseVisualStyleBackColor = true;
+            this.btnGrade.Click += new System.EventHandler(this.btnGrade_Click);
             // 
             // lblMyGrade
             // 
@@ -222,6 +212,17 @@
             this.lblMyGrade.Name = "lblMyGrade";
             this.lblMyGrade.Size = new System.Drawing.Size(0, 18);
             this.lblMyGrade.TabIndex = 6;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnSave.Location = new System.Drawing.Point(261, 205);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(78, 27);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // AssignmentForm
             // 
