@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -106,10 +107,10 @@ namespace Quizard
             List<Class> rtnCLasses = new List<Class>();
             foreach (Class potential in allCLasses)
             {
-                    if (potential.DepartmentHead.rowId == user.rowId)
-                    {
-                        rtnCLasses.Add(potential);
-                    }
+                if (potential.DepartmentHead.rowId == user.rowId)
+                {
+                    rtnCLasses.Add(potential);
+                }
             }
 
             return rtnCLasses;
@@ -121,10 +122,10 @@ namespace Quizard
             List<Class> rtnCLasses = new List<Class>();
             foreach (Class potential in allCLasses)
             {
-                    if (potential.Teacher.rowId == user.rowId)
-                    {
-                        rtnCLasses.Add(potential);
-                    }
+                if (potential.Teacher.rowId == user.rowId)
+                {
+                    rtnCLasses.Add(potential);
+                }
             }
 
             return rtnCLasses;
@@ -272,9 +273,55 @@ namespace Quizard
             return results;
         }
 
-        internal void CreateClass(string name, User teacher, User DpHead, List<User> assistants, List<User> students)
+        internal int CreateClass(string name, string number, User teacher, User DpHead, List<User> assistants, List<User> students)
         {
-            //add sql code here to add a class
+            int results = -1;
+            int id = -1;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "INSERT INTO classes(rowID, class_number, class_name)"
+                    + " VALUES(NULL, \"" + name + "\", \"" + number + "\")";
+                command.Parameters.Add("@rowID", DbType.Int32, 4).Direction = ParameterDirection.Output;
+                results = command.ExecuteNonQuery();
+                id = (int)command.Parameters["@rowID"].Value;
+            });
+
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "INSERT INTO class_members(class_ID, user_ID)"
+                    + "VALUES (" + id + ", " + teacher.rowId + ")";
+            });
+
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "INSERT INTO class_members(class_ID, user_ID)"
+                    + "VALUES (" + id + ", " + DpHead.rowId + ")";
+            });
+
+            foreach (User assistant in assistants)
+            {
+                executeCommand(delegate (SQLiteCommand command)
+                {
+                    command.CommandText =
+                        "INSERT INTO class_members(class_ID, user_ID)"
+                        + "VALUES (" + id + ", " + assistant.rowId + ")";
+                });
+            }
+
+            foreach (User student in students)
+            {
+                executeCommand(delegate (SQLiteCommand command)
+                {
+                    command.CommandText =
+                        "INSERT INTO class_members(class_ID, user_ID)"
+                        + "VALUES (" + id + ", " + student.rowId + ")";
+                });
+            }
+
+            return results;
         }
 
         internal int CreateQuiz(Quiz quiz)

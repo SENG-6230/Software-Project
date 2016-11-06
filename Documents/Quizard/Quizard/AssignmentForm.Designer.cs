@@ -42,12 +42,15 @@
             this.btnStudentDownload = new System.Windows.Forms.Button();
             this.btnStudentUpload = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnGrades = new System.Windows.Forms.Button();
+            this.groupBoxGrades = new System.Windows.Forms.GroupBox();
+            this.btnGrade = new System.Windows.Forms.Button();
+            this.lblMyGrade = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBoxName.SuspendLayout();
             this.groupBoxDueDate.SuspendLayout();
             this.groupBoxFile.SuspendLayout();
             this.groupBoxStudentFile.SuspendLayout();
+            this.groupBoxGrades.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -56,6 +59,7 @@
             this.flowLayoutPanel1.Controls.Add(this.groupBoxDueDate);
             this.flowLayoutPanel1.Controls.Add(this.groupBoxFile);
             this.flowLayoutPanel1.Controls.Add(this.groupBoxStudentFile);
+            this.flowLayoutPanel1.Controls.Add(this.groupBoxGrades);
             this.flowLayoutPanel1.Controls.Add(this.btnSave);
             this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(25, 12);
@@ -145,7 +149,6 @@
             this.groupBoxStudentFile.Controls.Add(this.lblSubmission);
             this.groupBoxStudentFile.Controls.Add(this.btnStudentDownload);
             this.groupBoxStudentFile.Controls.Add(this.btnStudentUpload);
-            this.groupBoxStudentFile.Controls.Add(this.btnGrades);
             this.groupBoxStudentFile.Location = new System.Drawing.Point(261, 104);
             this.groupBoxStudentFile.Name = "groupBoxStudentFile";
             this.groupBoxStudentFile.Size = new System.Drawing.Size(283, 95);
@@ -184,7 +187,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.btnSave.Location = new System.Drawing.Point(3, 205);
+            this.btnSave.Location = new System.Drawing.Point(261, 205);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(78, 27);
             this.btnSave.TabIndex = 3;
@@ -192,15 +195,33 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnGrades
+            // groupBoxGrades
             // 
-            this.btnGrades.Location = new System.Drawing.Point(181, 20);
-            this.btnGrades.Name = "btnGrades";
-            this.btnGrades.Size = new System.Drawing.Size(75, 30);
-            this.btnGrades.TabIndex = 5;
-            this.btnGrades.Text = "Grades";
-            this.btnGrades.UseVisualStyleBackColor = true;
-            this.btnGrades.Click += new System.EventHandler(this.btnGrades_Click);
+            this.groupBoxGrades.Controls.Add(this.btnGrade);
+            this.groupBoxGrades.Controls.Add(this.lblMyGrade);
+            this.groupBoxGrades.Location = new System.Drawing.Point(3, 205);
+            this.groupBoxGrades.Name = "groupBoxGrades";
+            this.groupBoxGrades.Size = new System.Drawing.Size(252, 100);
+            this.groupBoxGrades.TabIndex = 5;
+            this.groupBoxGrades.TabStop = false;
+            this.groupBoxGrades.Text = "Grades";
+            // 
+            // btnGrade
+            // 
+            this.btnGrade.Location = new System.Drawing.Point(6, 23);
+            this.btnGrade.Name = "btnGrade";
+            this.btnGrade.Size = new System.Drawing.Size(172, 26);
+            this.btnGrade.TabIndex = 0;
+            this.btnGrade.Text = "Grade Submissions";
+            this.btnGrade.UseVisualStyleBackColor = true;
+            // 
+            // lblMyGrade
+            // 
+            this.lblMyGrade.AutoSize = true;
+            this.lblMyGrade.Location = new System.Drawing.Point(6, 52);
+            this.lblMyGrade.Name = "lblMyGrade";
+            this.lblMyGrade.Size = new System.Drawing.Size(0, 18);
+            this.lblMyGrade.TabIndex = 6;
             // 
             // AssignmentForm
             // 
@@ -219,6 +240,8 @@
             this.groupBoxFile.PerformLayout();
             this.groupBoxStudentFile.ResumeLayout(false);
             this.groupBoxStudentFile.PerformLayout();
+            this.groupBoxGrades.ResumeLayout(false);
+            this.groupBoxGrades.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -239,6 +262,8 @@
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.Button btnStudentDownload;
         private System.Windows.Forms.Label lblSubmission;
-        private System.Windows.Forms.Button btnGrades;
+        private System.Windows.Forms.GroupBox groupBoxGrades;
+        private System.Windows.Forms.Button btnGrade;
+        private System.Windows.Forms.Label lblMyGrade;
     }
 }

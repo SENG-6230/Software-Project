@@ -63,6 +63,7 @@ namespace Quizard.Pages
         {
             Program.Database.CreateClass(
                 nameBx.Text,
+                numberValBx.Text,
                 (User)teacherCbx.SelectedItem,
                 (User)headCbx.SelectedItem,
                 getListOfAssistants(),
@@ -110,24 +111,27 @@ namespace Quizard.Pages
                 headCbx.SelectedValue = editClass.DepartmentHead;
                 foreach (User student in editClass.Students)
                 {
-                    int sIdx = studentsBx.Items.IndexOf(student);
-                    if (sIdx > -1)
+                    for(int i = 0; i < studentsBx.Items.Count; i++)
                     {
-                        studentsBx.SetItemChecked(sIdx, true);
+                        if (((User)studentsBx.Items[i]).rowId == student.rowId)
+                        {
+                            studentsBx.SetItemChecked(i, true);
+                        }
                     }
                 }
                 foreach (User assist in editClass.AssistantTeachers)
                 {
-                    int aIdx = assistantsBx.Items.IndexOf(assist);
-                    if (aIdx > -1)
+                    for (int i = 0; i < assistantsBx.Items.Count; i++)
                     {
-                        assistantsBx.SetItemChecked(aIdx, true);
+                        if (((User)assistantsBx.Items[i]).rowId == assist.rowId)
+                        {
+                            assistantsBx.SetItemChecked(i, true);
+                        }
                     }
                 }
             }
             else
             {
-
                 nameBx.Text = "";
             }
         }
