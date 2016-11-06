@@ -35,9 +35,9 @@
             this.usersBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
             this.pagePnl = new System.Windows.Forms.Panel();
+            this.loginPage = new Quizard.Pages.LoginPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginPage = new Quizard.Pages.LoginPage();
             this.flowLayoutPanel1.SuspendLayout();
             this.pagePnl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -67,7 +67,6 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.HomeBtn);
             this.flowLayoutPanel1.Controls.Add(this.InfoBtn);
             this.flowLayoutPanel1.Controls.Add(this.ClassesBtn);
@@ -125,6 +124,15 @@
             this.pagePnl.Size = new System.Drawing.Size(1448, 698);
             this.pagePnl.TabIndex = 3;
             // 
+            // loginPage
+            // 
+            this.loginPage.Location = new System.Drawing.Point(4, 8);
+            this.loginPage.Margin = new System.Windows.Forms.Padding(4);
+            this.loginPage.MinimumSize = new System.Drawing.Size(1170, 464);
+            this.loginPage.Name = "loginPage";
+            this.loginPage.Size = new System.Drawing.Size(1285, 587);
+            this.loginPage.TabIndex = 0;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -141,15 +149,6 @@
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(90, 36);
             this.menuToolStripMenuItem.Text = "Menu";
-            // 
-            // loginPage
-            // 
-            this.loginPage.Location = new System.Drawing.Point(4, 8);
-            this.loginPage.Margin = new System.Windows.Forms.Padding(4);
-            this.loginPage.MinimumSize = new System.Drawing.Size(1170, 464);
-            this.loginPage.Name = "loginPage";
-            this.loginPage.Size = new System.Drawing.Size(1285, 587);
-            this.loginPage.TabIndex = 0;
             // 
             // MainForm
             // 

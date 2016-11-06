@@ -42,6 +42,7 @@ namespace Quizard
             loaded = true;
             menuStrip1.Visible = false;
             HomeBtn.Visible = false;
+            clearAllPages();
         }
 
         void showPage(Control page)
@@ -76,14 +77,31 @@ namespace Quizard
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
-            loginPage.LoginSuccessful += userLogin; //create another event handler for a new user to log in
             userLoggedIn = new User(); //set userlogged in to no one
+            clearAllPages();
             showPage(loginPage);
         }
+
+        private void clearAllPages()
+        {
+            InfoBtn.Visible = false;
+            HomeBtn.Visible = false;
+            ClassesBtn.Visible = false;
+            usersBtn.Visible = false;
+            logOutBtn.Visible = false;
+        }
+
         private void userLogin(User user)
         {
             userLoggedIn = user; //Stores the info of the user logged in
-            //profile.ShowPage(userLoggedIn); //calls ShowPage function to assign values to variables
+            if(user.Role == UserTypes.Administrator)
+            {
+                usersBtn.Visible = true;
+            }
+            InfoBtn.Visible = true;
+            ClassesBtn.Visible = true;
+            logOutBtn.Visible = true;
+            this.PerformLayout();
             showPage(profile);
         }
         #endregion

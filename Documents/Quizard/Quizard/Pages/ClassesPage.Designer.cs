@@ -36,6 +36,7 @@
             this.classTV = new System.Windows.Forms.TreeView();
             this.classStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addClassBtn = new System.Windows.Forms.Button();
             this.classInfoPanel = new System.Windows.Forms.Panel();
             this.quizGradeValLbl = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.classNameValueLbl = new System.Windows.Forms.Label();
             this.classNameLbl = new System.Windows.Forms.Label();
             this.addClassPage = new Quizard.Pages.AddClassPage();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -121,14 +121,22 @@
             this.editMenuItem,
             this.deleteToolStripMenuItem});
             this.classStrip.Name = "assignmentStrip";
-            this.classStrip.Size = new System.Drawing.Size(186, 80);
+            this.classStrip.Size = new System.Drawing.Size(270, 124);
             // 
             // editMenuItem
             // 
             this.editMenuItem.Name = "editMenuItem";
-            this.editMenuItem.Size = new System.Drawing.Size(185, 38);
+            this.editMenuItem.Size = new System.Drawing.Size(269, 38);
             this.editMenuItem.Text = "Edit";
+            this.editMenuItem.Visible = false;
             this.editMenuItem.Click += new System.EventHandler(this.editMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(269, 38);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // addClassBtn
             // 
@@ -401,13 +409,6 @@
             this.addClassPage.Name = "addClassPage";
             this.addClassPage.Size = new System.Drawing.Size(1140, 728);
             this.addClassPage.TabIndex = 18;
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // ClassesPage
             // 
