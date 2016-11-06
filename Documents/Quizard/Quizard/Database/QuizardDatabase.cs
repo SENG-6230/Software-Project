@@ -315,6 +315,27 @@ namespace Quizard
             return null;
         }
 
+        internal string getUserNameForSubmission(int userid)
+        {
+            string command = "SELECT * FROM users WHERE userid =\"" + userid + "\";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                while (reader.HasRows)
+                {
+                    User user = parseUserFromReader(reader);
+                    if (user != null)
+                    {
+                        return user.Name;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+
         private User parseUserFromReader(SQLiteDataReader reader)
         {
             User user = null;

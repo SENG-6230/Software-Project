@@ -107,7 +107,6 @@ namespace Quizard
 
         private void btnStudentUpload_Click(object sender, EventArgs e)
         {
-            // TODO: modify this to upload submission to database
             if(DateTime.Now <= this.dueDatePicker.Value)
             {
                 OpenFileDialog fileChooser = new OpenFileDialog();
@@ -160,6 +159,12 @@ namespace Quizard
             Program.Database.CreateQuiz(quiz);
             MessageBox.Show("Assignment Uploaded!");
             this.Close();
+        }
+
+        private void btnGrade_Click(object sender, EventArgs e)
+        {
+            GradeForm form = new Quizard.GradeForm(0);
+            form.Show();
         }
     }
 }
