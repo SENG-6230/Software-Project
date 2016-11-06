@@ -170,9 +170,10 @@ namespace Quizard.Pages
         private void classTV_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             Class newClass = (Class)e.Node.Tag;
+            //User newUser = (User)e.Node.Tag;
             classNameValueLbl.Text = newClass.Name;
             teacherValueLbl.Text = newClass.Teacher.Name;
-            //gradeValLbl.Text = "";
+            gradeValLbl.Text = Program.Database.getAvgGrade(currentUser, newClass.rowId).ToString();
             //attendanceValLbl.Text = "";
             foreach (User assistant in newClass.AssistantTeachers)
             {
