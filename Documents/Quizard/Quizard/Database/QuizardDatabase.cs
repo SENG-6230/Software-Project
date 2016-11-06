@@ -171,29 +171,28 @@ namespace Quizard
         internal int CreateClass(string name, string number, User teacher, User DpHead, List<User> assistants, List<User> students)
         {
             int results = -1;
-            int id = -1;
+            Int64 id = -1;
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
                     "INSERT INTO classes(rowID, class_number, class_name)"
-                    + " VALUES(NULL, \"" + name + "\", \"" + number + "\")";
-                command.Parameters.Add("@rowID", DbType.Int32, 4).Direction = ParameterDirection.Output;
-                results = command.ExecuteNonQuery();
-                id = (int)command.Parameters["@rowID"].Value;
+                    + " VALUES(NULL, \"" + name + "\", \"" + number + "\");"
+                    + " select last_insert_rowid()";
+                id = (Int64)command.ExecuteScalar();
             });
 
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
                     "INSERT INTO class_members(class_ID, user_ID)"
-                    + "VALUES (" + id + ", " + teacher.rowId + ")";
+                    + "VALUES (" + id + ", " + teacher.rowId + ");";
             });
 
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
                     "INSERT INTO class_members(class_ID, user_ID)"
-                    + "VALUES (" + id + ", " + DpHead.rowId + ")";
+                    + "VALUES (" + id + ", " + DpHead.rowId + ");";
             });
 
             foreach (User assistant in assistants)
@@ -202,7 +201,7 @@ namespace Quizard
                 {
                     command.CommandText =
                         "INSERT INTO class_members(class_ID, user_ID)"
-                        + "VALUES (" + id + ", " + assistant.rowId + ")";
+                        + "VALUES (" + id + ", " + assistant.rowId + ");";
                 });
             }
 
@@ -212,7 +211,7 @@ namespace Quizard
                 {
                     command.CommandText =
                         "INSERT INTO class_members(class_ID, user_ID)"
-                        + "VALUES (" + id + ", " + student.rowId + ")";
+                        + "VALUES (" + id + ", " + student.rowId + ");";
                 });
             }
 
