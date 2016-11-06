@@ -163,7 +163,7 @@ namespace Quizard
 
         private void btnGrade_Click(object sender, EventArgs e)
         {
-            GradeForm form = new Quizard.GradeForm(0);
+            GradeForm form = new Quizard.GradeForm(this.assignmentid);
             form.Show();
         }
     }
