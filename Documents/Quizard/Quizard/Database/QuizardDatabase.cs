@@ -15,16 +15,17 @@ namespace Quizard
             try
             {
                 //add database file path login here
-                SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db");
+                SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source = quizard.db");
             }
             catch {
+                System.Windows.Forms.MessageBox.Show("Error with database, please contact your Administrator");
                 // create Database instrcutions here... //Jonathan
             }
         }
 
         private void executeCommand(Action<SQLiteCommand> commandAction)
         {
-            using (SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source =../../quizard.db"))
+            using (SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source = quizard.db"))
             {
                 database.Open();
                 using (SQLiteCommand command = database.CreateCommand())
@@ -74,7 +75,7 @@ namespace Quizard
             {
                 command.CommandText =
                    "INSERT INTO users(rowid, name, email, user_type, password) "
-                    + "VALUES(NULL, \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
+                    + "VALUES(NULL, \"" + Name + "\", \"" + email + "\", \"" + (int)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
                 //"INSERT INTO users(rowid, fname, lname, email, user_type, password) "
                 //+ "VALUES(NULL, \"\", \"" + Name + "\", \"" + email + "\", \"" + (UserTypes)Enum.Parse(typeof(UserTypes), role) + "\", \"" + password + "\");";
 
@@ -169,6 +170,7 @@ namespace Quizard
                         newClass.DepartmentHead = getDeptHead(classID);
                         newClass.AssistantTeachers = getTAs(classID);
                         newClass.Students = getStudents(classID);
+                        newClass.Assignments = getAssignments(classID);
                         rtnList.Add(newClass);
                     }
                     catch
@@ -186,7 +188,7 @@ namespace Quizard
         {
             //int userID;
             User whoIs = new User();
-            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 3 AND class_ID =" + classID + ";";
+            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 2 AND class_ID =" + classID + ";";
             using (SQLiteDataReader reader = retrieveCommands(command))
             {
                 if (reader.HasRows)
@@ -220,7 +222,7 @@ namespace Quizard
         {
             //int userID;
             List<User> whoIs = new List<User>();
-            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 2 AND class_ID =" + classID + ";";
+            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 3 AND class_ID =" + classID + ";";
             using (SQLiteDataReader reader = retrieveCommands(command))
             {
                 while (reader.HasRows)
@@ -253,6 +255,29 @@ namespace Quizard
             }
             return whoIs;
         }
+
+        internal List<string> getAssignments(int classID)
+        {
+            //int userID;
+            List<string> whatAre = new List<string>();
+            string command = "SELECT quiz_name FROM quizzes WHERE class_ID = " + classID + ";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                reader.Read();
+                while (reader.HasRows)
+                {
+                    
+                    string newAssignment = reader["quiz_name"].ToString();//  as string;
+                    if (newAssignment != null)
+                    {
+                        whatAre.Add(newAssignment);
+                    }
+                    reader.Read();
+                }
+            }
+            return whatAre;
+        }
+
 
 
 
@@ -421,10 +446,16 @@ namespace Quizard
 
         internal float getAvgGrade(User user, int classID)
         {
+            string command = null;
             float average = 0;
             int numScores = 0;
-
-            string command = "SELECT score FROM scores WHERE class_ID =" + classID + " AND user_ID = " + user.rowId + ";";
+            if (user.Role.ToString() == "Student")
+            {
+                command = "SELECT score FROM scores WHERE class_ID =" + classID + " AND user_ID = " + user.rowId + ";";
+            }else
+            {
+                command = "SELECT score FROM scores WHERE class_ID =" + classID + ";";
+            }
             using (SQLiteDataReader reader = retrieveCommands(command))
             {
                 reader.Read();
@@ -434,12 +465,10 @@ namespace Quizard
                     average = average + Convert.ToInt32(reader["score"].ToString());
                     reader.Read();
                 }
-
-            }
-
-            return average / numScores;
+                            }
+                        return average / numScores;
         }
-
+                
         internal string getUserNameForSubmission(int userid)
         {
             string command = "SELECT * FROM users WHERE userid =\"" + userid + "\";";
@@ -513,7 +542,7 @@ namespace Quizard
         private SQLiteDataReader retrieveCommands(string query)
         {
             SQLiteDataReader reader;
-            SQLiteConnection database = new SQLiteConnection("Data Source =../../quizard.db");
+            SQLiteConnection database = new SQLiteConnection("Data Source = quizard.db");
             database.Open();
 
             SQLiteCommand command = new SQLiteCommand(query, database);
@@ -524,14 +553,33 @@ namespace Quizard
 
         internal User loginCheck(string userName, string password)
         {
-            string command = "SELECT * FROM users WHERE email = '" + userName + "' AND password = '" + password + "';";
             User rtnUser = null;
-            using (SQLiteDataReader reader = retrieveCommands(command))
+            if (userName != null && password != null)
             {
-                rtnUser = parseUserFromReader(reader);
+                string command = "SELECT * FROM users WHERE email = '" + userName + "' AND password = '" + password + "';";
+                using (SQLiteDataReader reader = retrieveCommands(command))
+                {
+                    rtnUser = parseUserFromReader(reader);
+                }
             }
             return rtnUser;
         }
 
-    }
+        internal int buildDB()
+        {
+            int results= 0;
+            string line;
+            SQLiteConnection.CreateFile("quizard.db");
+            System.IO.StreamReader file = new System.IO.StreamReader("buildDB.txt");
+            while((line = file.ReadLine()) != null) {
+                executeCommand(delegate (SQLiteCommand command)
+                {
+                    command.CommandText = line;
+                    results = command.ExecuteNonQuery();
+                });
+
+            }
+            return results;
+        }
+       }
 }

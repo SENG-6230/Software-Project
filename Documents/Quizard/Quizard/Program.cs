@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -68,13 +69,13 @@ namespace Quizard
                 {
                     Database = new QuizardDatabase();
                     Database.Open();
-
+                    if (!File.Exists("quizard.db"))
+                    {
+                        int x = Database.buildDB();
+                    }
                     mainForm = new MainForm();
                     MainForm = mainForm;
-
-                  //  List<Class> getClass = Database.GetAllClasses(); //Testing/debuging line
-                  //  MessageBox.Show("debug line");                   //Testing/Debuging line
-                    processCommandLine();
+                   processCommandLine();
                 }
                 catch (Exception e)
                 {
