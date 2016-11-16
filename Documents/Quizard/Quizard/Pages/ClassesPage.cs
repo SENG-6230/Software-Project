@@ -154,6 +154,16 @@ namespace Quizard.Pages
                 classTV.Nodes.Add(newNode);
             }
         }
+        private void populateAssignmentList(List<string> assignmentList)
+        {
+            classTV.Nodes.Clear();
+            foreach (string assignment in assignmentList)
+            {
+                TreeNode newNode = new TreeNode(assignment);
+                newNode.Tag = assignment;
+                classTV.Nodes.Add(newNode);
+            }
+        }
 
         private void editMenuItem_Click(object sender, EventArgs e)
         {
@@ -171,11 +181,10 @@ namespace Quizard.Pages
         private void classTV_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             Class newClass = (Class)e.Node.Tag;
-            //User newUser = (User)e.Node.Tag;
             classNameValueLbl.Text = newClass.Name;
             teacherValueLbl.Text = newClass.Teacher.Name;
             gradeValLbl.Text = Program.Database.getAvgGrade(currentUser, newClass.rowId).ToString();
-            //attendanceValLbl.Text = "";
+            attendanceValLbl.Text = "Attedence" + "\r\n   Not" + "\r\n    Taken";
             assistantsBx.Items.Clear();
             foreach (User assistant in newClass.AssistantTeachers)
             {
@@ -186,14 +195,19 @@ namespace Quizard.Pages
             {
                 studentsBx.Items.Add(student.Name);
             }
+           // populateAssignmentList(newClass.Assignments);
             assignmentsBx.Items.Clear();
-            populateAssignmentList(newClass.rowId);
+           foreach(string Assignment in newClass.Assignments)
+            {
+                assignmentsBx.Items.Add(Assignment);
+            } 
 
             currentClass = newClass;
         }
 
         private void populateAssignmentList(int rowId)
         {
+
         }
     }
 }

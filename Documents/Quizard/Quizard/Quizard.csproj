@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\createDatabase.cs" />
     <Compile Include="Database\Quiz.cs" />
     <Compile Include="AssignmentForm.cs">
       <SubType>Form</SubType>

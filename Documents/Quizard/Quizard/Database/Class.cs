@@ -15,5 +15,6 @@ namespace Quizard
         internal User DepartmentHead;
         internal List<User> AssistantTeachers;
         internal List<User> Students;
+        internal List<string> Assignments;
     }
 }
