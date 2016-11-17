@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Quizard
 {
-    class Quiz
+    public class Quiz
     {
         internal int rowId = -1;
         internal int quizid  { get; set; }

@@ -10,7 +10,7 @@ namespace Quizard
 {
     public class QuizardDatabase
     {
-        internal void Open()
+        public void Open()
         {
             try
             {
@@ -565,7 +565,7 @@ namespace Quizard
             return rtnUser;
         }
 
-        internal int buildDB()
+        public int buildDB()
         {
             int results= 0;
             string line;
