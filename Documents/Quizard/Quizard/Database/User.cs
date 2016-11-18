@@ -9,10 +9,10 @@ namespace Quizard
     public class User
     {
         internal int rowId = -1;
-        internal string Email;
-        internal string Password;
-        internal UserTypes Role;
-        internal string Name;
+        public string Email;
+        public string Password;
+        public UserTypes Role;
+        public string Name;
 
         public override string ToString()
         {

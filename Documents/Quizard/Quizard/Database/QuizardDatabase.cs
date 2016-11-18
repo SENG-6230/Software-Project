@@ -35,7 +35,7 @@ namespace Quizard
             }
         }
 
-        internal List<User> GetAllUsers(UserTypes type)
+        public List<User> GetAllUsers(UserTypes type)
         {
             List<User> users = GetAllUsers();
             List<User> rtnList = new List<User>();
@@ -49,7 +49,7 @@ namespace Quizard
             return rtnList;
         }
 
-        internal List<User> GetAllUsers()
+        public List<User> GetAllUsers()
         {
             List<User> rtnList = new List<User>();
             string command = "SELECT * FROM users;";
@@ -67,7 +67,7 @@ namespace Quizard
             return rtnList;
         }
 
-        internal int CreateUser(string Name, string email, string password, string role)
+        public int CreateUser(string Name, string email, string password, string role)
         {
             int results = 0;
             //add sql database code here to add a user
@@ -84,7 +84,7 @@ namespace Quizard
             return results;
         }
 
-        internal List<Class> GetStudentsClasses(User user)
+        public List<Class> GetStudentsClasses(User user)
         {
             List<Class> allCLasses = GetAllClasses();
             List<Class> rtnCLasses = new List<Class>();
@@ -102,7 +102,7 @@ namespace Quizard
             return rtnCLasses;
         }
 
-        internal List<Class> GetDepartmentClasses(User user)
+        public List<Class> GetDepartmentClasses(User user)
         {
             List<Class> allCLasses = GetAllClasses();
             List<Class> rtnCLasses = new List<Class>();
@@ -117,7 +117,7 @@ namespace Quizard
             return rtnCLasses;
         }
 
-        internal List<Class> GetTeachersClasses(User user)
+        public List<Class> GetTeachersClasses(User user)
         {
             List<Class> allCLasses = GetAllClasses();
             List<Class> rtnCLasses = new List<Class>();
@@ -132,7 +132,7 @@ namespace Quizard
             return rtnCLasses;
         }
 
-        internal List<Class> GetTAClasses(User user)
+        public List<Class> GetTAClasses(User user)
         {
             List<Class> allCLasses = GetAllClasses();
             List<Class> rtnCLasses = new List<Class>();
@@ -150,7 +150,7 @@ namespace Quizard
             return rtnCLasses;
         }
 
-        internal List<Class> GetAllClasses()
+        public List<Class> GetAllClasses()
         {
             List<Class> rtnList = new List<Class>();
             string command = "SELECT * FROM classes;";
@@ -184,7 +184,7 @@ namespace Quizard
             }
         }
 
-        internal User getTeacher(int classID)
+        public User getTeacher(int classID)
         {
             //int userID;
             User whoIs = new User();
@@ -203,7 +203,7 @@ namespace Quizard
             return whoIs;
         }
 
-        internal User getDeptHead(int classID){
+        public User getDeptHead(int classID){
             //int userID;
             User whoIs = new User();
             string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 4 AND class_ID =" + classID +";";
@@ -218,7 +218,7 @@ namespace Quizard
             return whoIs;
         }
 
-        internal List<User> getTAs(int classID)
+        public List<User> getTAs(int classID)
         {
             //int userID;
             List<User> whoIs = new List<User>();
@@ -237,7 +237,7 @@ namespace Quizard
             return whoIs;
         }
 
-        internal List<User> getStudents(int classID)
+        public List<User> getStudents(int classID)
         {
             //int userID;
             List<User> whoIs = new List<User>();
@@ -256,7 +256,7 @@ namespace Quizard
             return whoIs;
         }
 
-        internal List<string> getAssignments(int classID)
+        public List<string> getAssignments(int classID)
         {
             //int userID;
             List<string> whatAre = new List<string>();
@@ -281,7 +281,7 @@ namespace Quizard
 
 
 
-        internal int EditUser(User currentUser, string Name, string email, string password, string role)
+        public int EditUser(User currentUser, string Name, string email, string password, string role)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
@@ -298,7 +298,7 @@ namespace Quizard
             return results;
         }
 
-        internal int CreateClass(string name, string number, User teacher, User DpHead, List<User> assistants, List<User> students)
+        public int CreateClass(string name, string number, User teacher, User DpHead, List<User> assistants, List<User> students)
         {
             int results = -1;
             Int64 id = -1;
@@ -348,7 +348,7 @@ namespace Quizard
             return results;
         }
 
-        internal int CreateQuiz(Quiz quiz)
+        public int CreateQuiz(Quiz quiz)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
@@ -362,7 +362,7 @@ namespace Quizard
             return results;
         }
 
-        internal int RemoveUser(User currentUser)
+        public int RemoveUser(User currentUser)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
@@ -376,7 +376,7 @@ namespace Quizard
             return results;
         }
 
-        internal int CreateSubmission(Submission submission)
+        public int CreateSubmission(Submission submission)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
@@ -390,7 +390,7 @@ namespace Quizard
             return results;
         }
 
-        internal int GradeSubmission(int id, string grade)
+        public int GradeSubmission(int id, string grade)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
@@ -405,7 +405,7 @@ namespace Quizard
             return results;
         }
 
-        internal List<Submission> getSubmissionsForAssignment(int assignmentid)
+        public List<Submission> getSubmissionsForAssignment(int assignmentid)
         {
             List<Submission> rtnList = new List<Submission>();
             string command = "SELECT * FROM submissions WHERE subid=\"" + assignmentid + "\";";
@@ -423,7 +423,7 @@ namespace Quizard
             return rtnList;
         }
 
-        internal Submission getSubmissionForUserAndAssignment(int assignmentid, int userid)
+        public Submission getSubmissionForUserAndAssignment(int assignmentid, int userid)
         {
             string command = "SELECT * FROM submissions WHERE quizid=\"" + assignmentid + "\" AND userid =\"" + userid + "\";";
             using (SQLiteDataReader reader = retrieveCommands(command))
@@ -444,7 +444,7 @@ namespace Quizard
             return null;
         }
 
-        internal float getAvgGrade(User user, int classID)
+        public float getAvgGrade(User user, int classID)
         {
             string command = null;
             float average = 0;
@@ -468,8 +468,8 @@ namespace Quizard
                             }
                         return average / numScores;
         }
-                
-        internal string getUserNameForSubmission(int userid)
+
+        public string getUserNameForSubmission(int userid)
         {
             string command = "SELECT * FROM users WHERE userid =\"" + userid + "\";";
             using (SQLiteDataReader reader = retrieveCommands(command))
@@ -490,7 +490,7 @@ namespace Quizard
             return null;
         }
 
-        private User parseUserFromReader(SQLiteDataReader reader)
+        public User parseUserFromReader(SQLiteDataReader reader)
         {
             User user = null;
             if (reader.HasRows)
@@ -514,7 +514,7 @@ namespace Quizard
             return user;
         }
 
-        private Submission parseSubmissionFromReader(SQLiteDataReader reader)
+        public Submission parseSubmissionFromReader(SQLiteDataReader reader)
         {
             Submission sub = null;
             if (reader.HasRows)
@@ -551,7 +551,7 @@ namespace Quizard
 
         }
 
-        internal User loginCheck(string userName, string password)
+        public User loginCheck(string userName, string password)
         {
             User rtnUser = null;
             if (userName != null && password != null)
