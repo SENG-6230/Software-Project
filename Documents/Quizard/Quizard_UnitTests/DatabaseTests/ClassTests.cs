@@ -30,6 +30,7 @@ namespace Quizard_UnitTests.DatabaseTests
             Console.WriteLine("Database created");
 
             List<Class> allClasses = db.GetAllClasses();
+            Console.WriteLine("Query successful");
 
             Console.WriteLine("Class count = " + allClasses.Count);
             Assert.DoesNotThrow(delegate

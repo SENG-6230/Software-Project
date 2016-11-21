@@ -30,6 +30,7 @@ namespace Quizard_UnitTests.DatabaseTests
             Console.WriteLine("Database created");
 
             List<User> allCUsers = db.GetAllUsers();
+            Console.WriteLine("Query successful");
             Console.WriteLine("users count  = " + allCUsers.Count);
 
             //Assert.DoesNotThrow(delegate
@@ -63,6 +64,7 @@ namespace Quizard_UnitTests.DatabaseTests
                 }
                 Console.WriteLine("database created");
                 users = db.GetAllUsers(UserTypes.Administrator);
+                Console.WriteLine("Query successful");
                 Console.WriteLine("all Administrator count = " + users.Count);
             });
 
@@ -90,6 +92,7 @@ namespace Quizard_UnitTests.DatabaseTests
                 }
                 Console.WriteLine("database created");
                 users = db.GetAllUsers(UserTypes.DepartmentHead);
+                Console.WriteLine("Query successful");
                 Console.WriteLine("all DepartmentHead count = " + users.Count);
             });
 
@@ -117,6 +120,7 @@ namespace Quizard_UnitTests.DatabaseTests
                 }
                 Console.WriteLine("database created");
                 users = db.GetAllUsers(UserTypes.Student);
+                Console.WriteLine("Query successful");
                 Console.WriteLine("all Student count = " + users.Count);
             });
 
@@ -144,6 +148,7 @@ namespace Quizard_UnitTests.DatabaseTests
                 }
                 Console.WriteLine("database created");
                 users = db.GetAllUsers(UserTypes.Teacher);
+                Console.WriteLine("Query successful");
                 Console.WriteLine("all teacher count = " + users.Count);
             });
 
@@ -171,6 +176,7 @@ namespace Quizard_UnitTests.DatabaseTests
                 }
                 Console.WriteLine("database created");
                 users = db.GetAllUsers(UserTypes.TeachingAssistant);
+                Console.WriteLine("Query successful");
                 Console.WriteLine("all TeachingAssistant count = " + users.Count);
             });
 
@@ -180,6 +186,70 @@ namespace Quizard_UnitTests.DatabaseTests
                 Console.WriteLine("Testing " + user.Name);
                 Assert.AreEqual(UserTypes.TeachingAssistant, user.Role);
                 Console.WriteLine(user.Name + " is a TeachingAssistant");
+            }
+        }
+
+        [Test]
+        public void AllUsersLogin()
+        {
+            List<User> users = null;
+            QuizardDatabase db = null;
+            Assert.DoesNotThrow(delegate
+            {
+                db = new QuizardDatabase();
+                db.Open();
+                if (!File.Exists("quizard.db"))
+                {
+                    int x = db.buildDB();
+                    Assert.AreEqual(x, 0);
+                }
+                Console.WriteLine("database created");
+                users = db.GetAllUsers();
+                Console.WriteLine("Query successful");
+                Console.WriteLine("all users count = " + users.Count);
+            });
+
+            foreach (User user in users)
+            {
+                Console.WriteLine("User: " +user.Name);
+                Console.WriteLine("email: " + user.Email);
+                Console.WriteLine("password: " + user.Password);
+                User logUser = db.loginCheck(user.Email, user.Password);
+                Console.WriteLine("query successful");
+                Assert.IsNotNull(logUser);
+                Console.WriteLine("--------Login SuccessFul!----------");
+            }
+        }
+
+        [Test]
+        public void loginFailTest()
+        {
+            List<User> users = null;
+            QuizardDatabase db = null;
+            Assert.DoesNotThrow(delegate
+            {
+                db = new QuizardDatabase();
+                db.Open();
+                if (!File.Exists("quizard.db"))
+                {
+                    int x = db.buildDB();
+                    Assert.AreEqual(x, 0);
+                }
+                Console.WriteLine("database created");
+                users = db.GetAllUsers();
+                Console.WriteLine("Query successful");
+                Console.WriteLine("all users count = " + users.Count);
+            });
+
+            foreach (User user in users)
+            {
+                Console.WriteLine("User: " + user.Name);
+                Console.WriteLine("email: " + user.Email);
+                Console.WriteLine("password: INVALID");
+                User logUser = db.loginCheck(user.Email, "INVALID");
+                Console.WriteLine("query successful");
+                Assert.IsNull(logUser);
+                Console.WriteLine("--------Login Failed as expected!----------");
             }
         }
     }
