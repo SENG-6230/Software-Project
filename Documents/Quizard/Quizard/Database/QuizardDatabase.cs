@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Quizard.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -570,7 +572,7 @@ namespace Quizard
             int results= 0;
             string line;
             SQLiteConnection.CreateFile("quizard.db");
-            System.IO.StreamReader file = new System.IO.StreamReader("buildDB.txt");
+            StringReader file = new StringReader(Resources.buildDB);
             while((line = file.ReadLine()) != null) {
                 executeCommand(delegate (SQLiteCommand command)
                 {

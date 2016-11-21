@@ -75,7 +75,7 @@ namespace Quizard
                     }
                     mainForm = new MainForm();
                     MainForm = mainForm;
-                   processCommandLine();
+                    processCommandLine();
                 }
                 catch (Exception e)
                 {

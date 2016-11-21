@@ -13,7 +13,8 @@ namespace Quizard_UnitTests.DatabaseTests
     [TestFixture]
     public class ClassTests
     {
-        public void GetALlClassesTest()
+        [Test]
+        public void GetAllClassesTest()
         {
             QuizardDatabase db = null;
             Assert.DoesNotThrow(delegate
@@ -23,12 +24,14 @@ namespace Quizard_UnitTests.DatabaseTests
                 if (!File.Exists("quizard.db"))
                 {
                     int x = db.buildDB();
-                    Assert.Equals(x, 0);
+                    Assert.AreEqual(x, 0);
                 }
             });
+            Console.WriteLine("Database created");
 
             List<Class> allClasses = db.GetAllClasses();
 
+            Console.WriteLine("Class count = " + allClasses.Count);
             Assert.DoesNotThrow(delegate
             {
                 using (SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source = quizard.db"))
@@ -36,8 +39,11 @@ namespace Quizard_UnitTests.DatabaseTests
                     database.Open();
                     using (SQLiteCommand command = database.CreateCommand())
                     {
+                        Console.WriteLine("SELECT COUNT(*) FROM classes;");
                         command.CommandText = "SELECT COUNT(*) FROM classes;";
-                        Assert.Equals(command.ExecuteScalar(), allClasses.Count);
+                        Assert.AreEqual(command.ExecuteScalar(), allClasses.Count);
+
+                        Console.WriteLine("Count was equal");
                     }
                 }
             });
