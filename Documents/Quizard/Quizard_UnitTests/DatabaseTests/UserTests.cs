@@ -252,5 +252,80 @@ namespace Quizard_UnitTests.DatabaseTests
                 Console.WriteLine("--------Login Failed as expected!----------");
             }
         }
+
+        [Test]
+        public void userAddAndRemoveTest()
+        {
+            QuizardDatabase db = null;
+            Assert.DoesNotThrow(delegate
+            {
+                db = new QuizardDatabase();
+                db.Open();
+                if (!File.Exists("quizard.db"))
+                {
+                    int x = db.buildDB();
+                    Assert.AreEqual(x, 0);
+                }
+            });
+
+            long allUsersCount = 0;
+            using (SQLiteConnection database = new SQLiteConnection("Data Source = quizard.db"))
+            {
+                database.Open();
+                using (SQLiteCommand command = database.CreateCommand())
+                {
+                    command.CommandText = "SELECT COUNT(*) FROM users;";
+                    Console.WriteLine("SELECT COUNT(*) FROM users;");
+                    long vallUsersCount = (long)command.ExecuteScalar();
+                    Console.WriteLine("current user count: " + vallUsersCount);
+                }
+            }
+
+            Console.WriteLine("Database opened correctly");
+            Console.WriteLine("name: testName");
+            Console.WriteLine("email: testEmail");
+            Console.WriteLine("password: testPassword");
+            Console.WriteLine("role: " + UserTypes.Teacher.ToString());
+            int result = db.CreateUser("testName", "testEmail", "testPassword", UserTypes.Teacher.ToString());
+            Assert.AreEqual(result, 1);
+
+            using (SQLiteConnection database = new SQLiteConnection("Data Source = quizard.db"))
+            {
+                database.Open();
+                using (SQLiteCommand command = database.CreateCommand())
+                {
+                    command.CommandText = "SELECT COUNT(*) FROM users;";
+                    Console.WriteLine("SELECT COUNT(*) FROM users;");
+                    long other = (long)command.ExecuteScalar();
+                    Assert.Greater(other, allUsersCount);
+                    allUsersCount = other;
+                }
+            }
+            Console.WriteLine("The user was inserted correctly");
+
+            List<User> toRemove = db.GetAllUsers(UserTypes.Teacher);
+            foreach (User user in toRemove)
+            {
+                if (user.Name == "testName")
+                {
+                    db.RemoveUser(user);
+                    Console.WriteLine("deleted user");
+                }
+            }
+
+            using (SQLiteConnection database = new SQLiteConnection("Data Source = quizard.db"))
+            {
+                database.Open();
+                using (SQLiteCommand command = database.CreateCommand())
+                {
+                    command.CommandText = "SELECT COUNT(*) FROM users;";
+                    Console.WriteLine("SELECT COUNT(*) FROM users;");
+                    long other = (long)command.ExecuteScalar();
+                    Assert.Less(other, allUsersCount);
+                    allUsersCount = other;
+                }
+            }
+            Console.WriteLine("The user was deleted properly correctly");
+        }
     }
 }
