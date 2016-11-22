@@ -8,13 +8,13 @@ namespace Quizard
 {
     public class Class
     {
-        internal int rowId = -1;
-        internal string Name;
-        internal string number;
-        internal User Teacher;
-        internal User DepartmentHead;
-        internal List<User> AssistantTeachers;
-        internal List<User> Students;
-        internal List<string> Assignments;
+        public int rowId = -1;
+        public string Name;
+        public string number;
+        public User Teacher;
+        public User DepartmentHead;
+        public List<User> AssistantTeachers;
+        public List<User> Students;
+        public List<string> Assignments;
     }
 }
