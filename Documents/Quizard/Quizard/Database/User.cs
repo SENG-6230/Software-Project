@@ -8,7 +8,7 @@ namespace Quizard
 {
     public class User
     {
-        internal int rowId = -1;
+        public int rowId = -1;
         public string Email;
         public string Password;
         public UserTypes Role;

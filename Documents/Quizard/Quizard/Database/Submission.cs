@@ -8,12 +8,12 @@ namespace Quizard
 {
     public class Submission
     {
-        internal int rowId = -1;
-        internal int quizid { get; set; }
-        internal int classid { get; set; }
-        internal int userid { get; set; }
-        internal string path { get; set; }
-        internal string score { get; set; }
+        public int rowId = -1;
+        public int quizid { get; set; }
+        public int classid { get; set; }
+        public int userid { get; set; }
+        public string path { get; set; }
+        public string score { get; set; }
 
         public override string ToString()
         {
