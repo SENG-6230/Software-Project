@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseTests\AssignmentTests.cs" />
     <Compile Include="DatabaseTests\ClassTests.cs" />
     <Compile Include="DatabaseTests\DatabaseTests.cs" />
     <Compile Include="DatabaseTests\UserTests.cs" />

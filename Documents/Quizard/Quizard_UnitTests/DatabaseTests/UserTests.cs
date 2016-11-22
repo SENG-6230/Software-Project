@@ -276,8 +276,8 @@ namespace Quizard_UnitTests.DatabaseTests
                 {
                     command.CommandText = "SELECT COUNT(*) FROM users;";
                     Console.WriteLine("SELECT COUNT(*) FROM users;");
-                    long vallUsersCount = (long)command.ExecuteScalar();
-                    Console.WriteLine("current user count: " + vallUsersCount);
+                    allUsersCount = (long)command.ExecuteScalar();
+                    Console.WriteLine("current user count: " + allUsersCount);
                 }
             }
 
@@ -299,6 +299,7 @@ namespace Quizard_UnitTests.DatabaseTests
                     long other = (long)command.ExecuteScalar();
                     Assert.Greater(other, allUsersCount);
                     allUsersCount = other;
+                    Console.WriteLine("current user count: " + allUsersCount);
                 }
             }
             Console.WriteLine("The user was inserted correctly");
@@ -323,6 +324,7 @@ namespace Quizard_UnitTests.DatabaseTests
                     long other = (long)command.ExecuteScalar();
                     Assert.Less(other, allUsersCount);
                     allUsersCount = other;
+                    Console.WriteLine("current user count: " + allUsersCount);
                 }
             }
             Console.WriteLine("The user was deleted properly correctly");

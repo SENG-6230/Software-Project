@@ -18,21 +18,30 @@ namespace Quizard_UnitTests.DatabaseTests
             Assert.DoesNotThrow(delegate
             {
                 QuizardDatabase Database = new QuizardDatabase();
+                Console.WriteLine("DB instatiated");
                 Database.Open();
+                Console.WriteLine("DB opened");
             });
         }
 
+        [Test]
         public void BuildTest()
         {
             Assert.DoesNotThrow(delegate
             {
                 QuizardDatabase Database = new QuizardDatabase();
                 Database.Open();
-                if (!File.Exists("quizard.db"))
+                Console.WriteLine("DB opened");
+                if (File.Exists("quizard.db"))
                 {
-                    int x = Database.buildDB();
-                    Assert.Equals(x, 0);
+                    File.Delete("quizard.db");
+                    Console.WriteLine("DB deleted");
                 }
+                int x = Database.buildDB();
+                Console.WriteLine("DB built");
+                Assert.Greater(x, 0);
+                Assert.IsTrue(File.Exists("quizard.db"));
+                Console.WriteLine("DB built correctly");
             });
         }
     }

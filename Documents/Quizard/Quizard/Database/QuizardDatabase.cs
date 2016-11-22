@@ -19,7 +19,8 @@ namespace Quizard
                 //add database file path login here
                 SQLiteConnection database = new System.Data.SQLite.SQLiteConnection("Data Source = quizard.db");
             }
-            catch {
+            catch
+            {
                 System.Windows.Forms.MessageBox.Show("Error with database, please contact your Administrator");
                 // create Database instrcutions here... //Jonathan
             }
@@ -181,7 +182,7 @@ namespace Quizard
                     }
 
 
-            }
+                }
                 return rtnList;
             }
         }
@@ -205,14 +206,18 @@ namespace Quizard
             return whoIs;
         }
 
-        public User getDeptHead(int classID){
+        public User getDeptHead(int classID)
+        {
             //int userID;
             User whoIs = new User();
-            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 4 AND class_ID =" + classID +";";
-            using (SQLiteDataReader reader = retrieveCommands(command)){
-                if (reader.HasRows){
-                  whoIs = parseUserFromReader(reader);
-                }else
+            string command = "SELECT * FROM users, class_members WHERE users.user_ID = class_members.user_ID AND user_type = 4 AND class_ID =" + classID + ";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                if (reader.HasRows)
+                {
+                    whoIs = parseUserFromReader(reader);
+                }
+                else
                 {
                     return null;
                 }
@@ -230,7 +235,7 @@ namespace Quizard
                 while (reader.HasRows)
                 {
                     User newTA = parseUserFromReader(reader);
-                    if(newTA != null)
+                    if (newTA != null)
                     {
                         whoIs.Add(newTA);
                     }
@@ -268,7 +273,7 @@ namespace Quizard
                 reader.Read();
                 while (reader.HasRows)
                 {
-                    
+
                     string newAssignment = reader["quiz_name"].ToString();//  as string;
                     if (newAssignment != null)
                     {
@@ -454,7 +459,8 @@ namespace Quizard
             if (user.Role.ToString() == "Student")
             {
                 command = "SELECT score FROM scores WHERE class_ID =" + classID + " AND user_ID = " + user.rowId + ";";
-            }else
+            }
+            else
             {
                 command = "SELECT score FROM scores WHERE class_ID =" + classID + ";";
             }
@@ -467,8 +473,8 @@ namespace Quizard
                     average = average + Convert.ToInt32(reader["score"].ToString());
                     reader.Read();
                 }
-                            }
-                        return average / numScores;
+            }
+            return average / numScores;
         }
 
         public string getUserNameForSubmission(int userid)
@@ -569,19 +575,20 @@ namespace Quizard
 
         public int buildDB()
         {
-            int results= 0;
+            int results = 0;
             string line;
             SQLiteConnection.CreateFile("quizard.db");
             StringReader file = new StringReader(Resources.buildDB);
-            while((line = file.ReadLine()) != null) {
+            while ((line = file.ReadLine()) != null)
+            {
                 executeCommand(delegate (SQLiteCommand command)
                 {
                     command.CommandText = line;
-                    results = command.ExecuteNonQuery();
+                    results += command.ExecuteNonQuery();
                 });
 
             }
             return results;
         }
-       }
+    }
 }
