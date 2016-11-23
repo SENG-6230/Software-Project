@@ -51,9 +51,45 @@ namespace Quizard_UnitTests.DatabaseTests
         }
 
         [Test]
-        public void GetAllStudents()
+        public void GetAllStudentsClassTest()
         {
+            QuizardDatabase db = null;
+            Assert.DoesNotThrow(delegate
+            {
+                db = new QuizardDatabase();
+                db.Open();
+                if (!File.Exists("quizard.db"))
+                {
+                    int x = db.buildDB();
+                    Assert.AreEqual(x, 0);
+                }
+            });
+            Console.WriteLine("Database created");
 
+            List<User> students = db.GetAllUsers(UserTypes.Student);
+            Console.WriteLine("retrieved all students");
+            Console.WriteLine("total StudentsCount: " + students.Count);
+            foreach (User student in students)
+            {
+                Console.WriteLine("student name: " + student.Name);
+                List<Class> classes = db.GetStudentsClasses(student);
+                Console.WriteLine("Retrieved all classes for student");
+                Console.WriteLine("Total class count: " + classes.Count);
+                foreach (Class iClass in classes)
+                {
+                    Console.WriteLine("Testing class: " + iClass.Name);
+                    bool found = false;
+                    foreach (User cStud in iClass.Students)
+                    {
+                        if (cStud.rowId == student.rowId)
+                        {
+                            found = true;
+                        }
+                    }
+                    Assert.IsTrue(found);
+                    Console.WriteLine("Class does contain the student");
+                }
+            }
         }
     }
 }
