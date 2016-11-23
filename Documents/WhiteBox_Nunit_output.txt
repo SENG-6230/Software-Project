@@ -1,0 +1,667 @@
+***** Quizard_UnitTests.DatabaseTests.AssignmentTests.GetAllAssignmentsTest
+Database created
+Retrieved All Classes
+Total Class count: 5
+CLass Name: Software Engineering
+Total Names count for Software Engineering: 12
+SELECT COUNT(*) FROM quizzes WHERE class_ID = 1;
+current user count: 12
+Counts match with 12
+CLass Name: Computer System Architecture
+Total Names count for Computer System Architecture: 3
+SELECT COUNT(*) FROM quizzes WHERE class_ID = 2;
+current user count: 3
+Counts match with 3
+CLass Name: Computer Stuff
+Total Names count for Computer Stuff: 3
+SELECT COUNT(*) FROM quizzes WHERE class_ID = 3;
+current user count: 3
+Counts match with 3
+CLass Name: Operating Systems
+Total Names count for Operating Systems: 0
+SELECT COUNT(*) FROM quizzes WHERE class_ID = 4;
+current user count: 0
+Counts match with 0
+CLass Name: Fluid Mechanics
+Total Names count for Fluid Mechanics: 4
+SELECT COUNT(*) FROM quizzes WHERE class_ID = 5;
+current user count: 4
+Counts match with 4
+***** Quizard_UnitTests.DatabaseTests.ClassTests.GetAllClassesTest
+Database created
+Query successful
+Class count = 5
+SELECT COUNT(*) FROM classes;
+Count was equal
+***** Quizard_UnitTests.DatabaseTests.ClassTests.GetAllDepartmentHeadsClassTest
+Database created
+retrieved all DepartmentHead
+total users Count: 2
+departmentHead name: Sarim Akbar
+Retrieved all classes for DepartmentHead
+Total class count: 4
+Class does not contain the DepartmentHead
+Class does not contain the DepartmentHead
+Class does not contain the DepartmentHead
+Class does not contain the DepartmentHead
+departmentHead name: Department Head 1
+Retrieved all classes for DepartmentHead
+Total class count: 1
+Class does not contain the DepartmentHead
+***** Quizard_UnitTests.DatabaseTests.ClassTests.GetAllSTAslassTest
+Database created
+retrieved all TeachingAssistant
+total TeachingAssistant Count: 6
+TeachingAssistant name: Alan Master
+Retrieved all classes for TeachingAssistant
+Total class count: 2
+Testing class: Software Engineering
+Class does contain the TeachingAssistant
+Testing class: Computer System Architecture
+Class does contain the TeachingAssistant
+TeachingAssistant name: Teacher's Assistant 1
+Retrieved all classes for TeachingAssistant
+Total class count: 1
+Testing class: Computer System Architecture
+Class does contain the TeachingAssistant
+TeachingAssistant name: Teacher's Assistant 2
+Retrieved all classes for TeachingAssistant
+Total class count: 2
+Testing class: Computer Stuff
+Class does contain the TeachingAssistant
+Testing class: Operating Systems
+Class does contain the TeachingAssistant
+TeachingAssistant name: Teacher's Assistant 3
+Retrieved all classes for TeachingAssistant
+Total class count: 1
+Testing class: Operating Systems
+Class does contain the TeachingAssistant
+TeachingAssistant name: Teacher's Assistant 4
+Retrieved all classes for TeachingAssistant
+Total class count: 1
+Testing class: Fluid Mechanics
+Class does contain the TeachingAssistant
+TeachingAssistant name: Teacher's Assistant 5
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+***** Quizard_UnitTests.DatabaseTests.ClassTests.GetAllStudentsClassTest
+Database created
+retrieved all students
+total StudentsCount: 7
+student name: Jonathan Eng
+Retrieved all classes for student
+Total class count: 2
+Testing class: Software Engineering
+Class does contain the student
+Testing class: Computer System Architecture
+Class does contain the student
+student name: Student 1
+Retrieved all classes for student
+Total class count: 3
+Testing class: Software Engineering
+Class does contain the student
+Testing class: Computer Stuff
+Class does contain the student
+Testing class: Operating Systems
+Class does contain the student
+student name: Student 2
+Retrieved all classes for student
+Total class count: 4
+Testing class: Software Engineering
+Class does contain the student
+Testing class: Computer System Architecture
+Class does contain the student
+Testing class: Computer Stuff
+Class does contain the student
+Testing class: Operating Systems
+Class does contain the student
+student name: Student 3
+Retrieved all classes for student
+Total class count: 4
+Testing class: Software Engineering
+Class does contain the student
+Testing class: Computer System Architecture
+Class does contain the student
+Testing class: Computer Stuff
+Class does contain the student
+Testing class: Operating Systems
+Class does contain the student
+student name: Student 4
+Retrieved all classes for student
+Total class count: 4
+Testing class: Software Engineering
+Class does contain the student
+Testing class: Computer System Architecture
+Class does contain the student
+Testing class: Computer Stuff
+Class does contain the student
+Testing class: Fluid Mechanics
+Class does contain the student
+student name: Student 5
+Retrieved all classes for student
+Total class count: 3
+Testing class: Software Engineering
+Class does contain the student
+Testing class: Computer System Architecture
+Class does contain the student
+Testing class: Operating Systems
+Class does contain the student
+student name: Student 6
+Retrieved all classes for student
+Total class count: 2
+Testing class: Software Engineering
+Class does contain the student
+Testing class: Fluid Mechanics
+Class does contain the student
+***** Quizard_UnitTests.DatabaseTests.ClassTests.GetAllTeachersClassTest
+Database created
+retrieved all students
+total users Count: 4
+teacher name: David Anderson
+Retrieved all classes for teacher
+Total class count: 1
+Class does not contain the teacher
+teacher name: Teacher 1
+Retrieved all classes for teacher
+Total class count: 2
+Class does not contain the teacher
+Class does not contain the teacher
+teacher name: Teacher 2
+Retrieved all classes for teacher
+Total class count: 1
+Class does not contain the teacher
+teacher name: Teacher 3
+Retrieved all classes for teacher
+Total class count: 1
+Class does not contain the teacher
+***** Quizard_UnitTests.DatabaseTests.ClassTests.NegativeDepartmentClassTest
+Database created
+retrieved all departmentHeads
+total users Count: 20
+departmentHeads name: Jonathan Eng
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Student 1
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Student 2
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Student 3
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Student 4
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Student 5
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Student 6
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Alan Master
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher's Assistant 1
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher's Assistant 2
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher's Assistant 3
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher's Assistant 4
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher's Assistant 5
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: David Anderson
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher 1
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher 2
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Teacher 3
+Retrieved all classes for departmentHeads
+Total class count: 0
+departmentHeads name: Bigyan Pandit
+Retrieved all classes for departmentHeads
+Total class count: 0
+***** Quizard_UnitTests.DatabaseTests.ClassTests.NegativeStudentsClassTest
+Database created
+retrieved all students
+total users Count: 20
+student name: Alan Master
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher's Assistant 1
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher's Assistant 2
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher's Assistant 3
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher's Assistant 4
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher's Assistant 5
+Retrieved all classes for student
+Total class count: 0
+student name: David Anderson
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher 1
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher 2
+Retrieved all classes for student
+Total class count: 0
+student name: Teacher 3
+Retrieved all classes for student
+Total class count: 0
+student name: Sarim Akbar
+Retrieved all classes for student
+Total class count: 0
+student name: Department Head 1
+Retrieved all classes for student
+Total class count: 0
+student name: Bigyan Pandit
+Retrieved all classes for student
+Total class count: 0
+***** Quizard_UnitTests.DatabaseTests.ClassTests.NegativetasClassTest
+Database created
+retrieved all TeachingAssistant
+total users Count: 20
+TeachingAssistant name: Jonathan Eng
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Student 1
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Student 2
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Student 3
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Student 4
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Student 5
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Student 6
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: David Anderson
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Teacher 1
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Teacher 2
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Teacher 3
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Sarim Akbar
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Department Head 1
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+TeachingAssistant name: Bigyan Pandit
+Retrieved all classes for TeachingAssistant
+Total class count: 0
+***** Quizard_UnitTests.DatabaseTests.ClassTests.NegativeTeachersClassTest
+Database created
+retrieved all teachers
+total users Count: 20
+teacher name: Jonathan Eng
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Student 1
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Student 2
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Student 3
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Student 4
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Student 5
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Student 6
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Alan Master
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Teacher's Assistant 1
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Teacher's Assistant 2
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Teacher's Assistant 3
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Teacher's Assistant 4
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Teacher's Assistant 5
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Sarim Akbar
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Department Head 1
+Retrieved all classes for teacher
+Total class count: 0
+teacher name: Bigyan Pandit
+Retrieved all classes for teacher
+Total class count: 0
+***** Quizard_UnitTests.DatabaseTests.DatabaseTests.OpenTest
+DB instatiated
+DB opened
+***** Quizard_UnitTests.DatabaseTests.UserTests.AllUsersLogin
+database created
+Query successful
+all users count = 20
+User: Jonathan Eng
+email: engj@ecu.edu
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Student 1
+email: S1
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Student 2
+email: S2
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Student 3
+email: S3
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Student 4
+email: S4
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Student 5
+email: S5
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Student 6
+email: S6
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Alan Master
+email: MasterA@ecu.edu
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher's Assistant 1
+email: TA1
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher's Assistant 2
+email: TA2
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher's Assistant 3
+email: TA3
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher's Assistant 4
+email: TA4
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher's Assistant 5
+email: TA5
+password: password
+query successful
+--------Login SuccessFul!----------
+User: David Anderson
+email: AndersonD@ecu.edu
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher 1
+email: T1
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher 2
+email: T2
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Teacher 3
+email: T3
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Sarim Akbar
+email: AkbarS@ecu.edu
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Department Head 1
+email: DH1
+password: password
+query successful
+--------Login SuccessFul!----------
+User: Bigyan Pandit
+email: PanditB@ecu.edu
+password: password
+query successful
+--------Login SuccessFul!----------
+***** Quizard_UnitTests.DatabaseTests.UserTests.EnsureAdministratorsTest
+database created
+Query successful
+all Administrator count = 1
+Testing Bigyan Pandit
+Bigyan Pandit is an Administrator
+***** Quizard_UnitTests.DatabaseTests.UserTests.EnsureDepartmentHeadTest
+database created
+Query successful
+all DepartmentHead count = 2
+Testing Sarim Akbar
+Sarim Akbar is a DepartmentHead
+Testing Department Head 1
+Department Head 1 is a DepartmentHead
+***** Quizard_UnitTests.DatabaseTests.UserTests.EnsureStudentsTest
+database created
+Query successful
+all Student count = 7
+Testing Jonathan Eng
+Jonathan Eng is a Student
+Testing Student 1
+Student 1 is a Student
+Testing Student 2
+Student 2 is a Student
+Testing Student 3
+Student 3 is a Student
+Testing Student 4
+Student 4 is a Student
+Testing Student 5
+Student 5 is a Student
+Testing Student 6
+Student 6 is a Student
+***** Quizard_UnitTests.DatabaseTests.UserTests.EnsureTeachersTest
+database created
+Query successful
+all teacher count = 4
+Testing David Anderson
+David Anderson is a teacher
+Testing Teacher 1
+Teacher 1 is a teacher
+Testing Teacher 2
+Teacher 2 is a teacher
+Testing Teacher 3
+Teacher 3 is a teacher
+***** Quizard_UnitTests.DatabaseTests.UserTests.EnsureTeachingAssistantsTest
+database created
+Query successful
+all TeachingAssistant count = 6
+Testing Alan Master
+Alan Master is a TeachingAssistant
+Testing Teacher's Assistant 1
+Teacher's Assistant 1 is a TeachingAssistant
+Testing Teacher's Assistant 2
+Teacher's Assistant 2 is a TeachingAssistant
+Testing Teacher's Assistant 3
+Teacher's Assistant 3 is a TeachingAssistant
+Testing Teacher's Assistant 4
+Teacher's Assistant 4 is a TeachingAssistant
+Testing Teacher's Assistant 5
+Teacher's Assistant 5 is a TeachingAssistant
+***** Quizard_UnitTests.DatabaseTests.UserTests.GetALlUsersTest
+Database created
+Query successful
+users count  = 20
+SELECT COUNT(*) FROM users;
+counts are equal!
+***** Quizard_UnitTests.DatabaseTests.UserTests.loginFailTest
+database created
+Query successful
+all users count = 20
+User: Jonathan Eng
+email: engj@ecu.edu
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Student 1
+email: S1
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Student 2
+email: S2
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Student 3
+email: S3
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Student 4
+email: S4
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Student 5
+email: S5
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Student 6
+email: S6
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Alan Master
+email: MasterA@ecu.edu
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher's Assistant 1
+email: TA1
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher's Assistant 2
+email: TA2
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher's Assistant 3
+email: TA3
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher's Assistant 4
+email: TA4
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher's Assistant 5
+email: TA5
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: David Anderson
+email: AndersonD@ecu.edu
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher 1
+email: T1
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher 2
+email: T2
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Teacher 3
+email: T3
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Sarim Akbar
+email: AkbarS@ecu.edu
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Department Head 1
+email: DH1
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+User: Bigyan Pandit
+email: PanditB@ecu.edu
+password: INVALID
+query successful
+--------Login Failed as expected!----------
+***** Quizard_UnitTests.DatabaseTests.UserTests.userAddAndRemoveTest
+SELECT COUNT(*) FROM users;
+current user count: 20
+Database opened correctly
+name: testName
+email: testEmail
+password: testPassword
+role: Teacher
+SELECT COUNT(*) FROM users;
+current user count: 21
+The user was inserted correctly
+deleted user
+SELECT COUNT(*) FROM users;
+current user count: 20
+The user was deleted properly correctly

@@ -32,12 +32,12 @@ namespace Quizard_UnitTests.DatabaseTests
             List<Class> classes = db.GetAllClasses();
             Console.WriteLine("Retrieved All Classes");
             Console.WriteLine("Total Class count: " + classes.Count);
-            foreach (Class iClass in classes) 
+            foreach (Class iClass in classes)
             {
                 Console.WriteLine("CLass Name: " + iClass.Name);
                 List<string> names = db.getAssignments(iClass.rowId);
                 Console.WriteLine("Total Names count for " + iClass.Name + ": " + names.Count);
-                
+
                 using (SQLiteConnection database = new SQLiteConnection("Data Source = quizard.db"))
                 {
                     database.Open();
