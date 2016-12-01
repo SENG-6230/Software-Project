@@ -53,7 +53,7 @@ namespace Quizard.Pages
 
         private void addAssignmentBtn_Click(object sender, EventArgs e)
         {
-            AssignmentForm form = AssignmentForm.uploadAssignmentForm();
+            AssignmentForm form = AssignmentForm.uploadAssignmentForm(currentClass.rowId);
             form.Show();
         }
 
@@ -62,14 +62,16 @@ namespace Quizard.Pages
             int index = this.assignmentsBx.IndexFromPoint(e.Location);
             if (index != System.Windows.Forms.ListBox.NoMatches)
             {
-                if(currentUser.Role == UserTypes.Teacher)
+                string name = assignmentsBx.SelectedItem.ToString();
+                Quiz quiz = Program.Database.getAssignmentFromName(name, currentClass.rowId);
+                if (currentUser.Role == UserTypes.Teacher) 
                 {
-                    AssignmentForm form = AssignmentForm.editAssignmentForm(0);
+                    AssignmentForm form = AssignmentForm.editAssignmentForm(quiz);
                     form.Show();
                 }
                 else
                 {
-                    AssignmentForm form = AssignmentForm.studentAssignmentForm(0, currentUser.rowId);
+                    AssignmentForm form = AssignmentForm.studentAssignmentForm(quiz, currentUser.rowId);
                     form.Show();
                 }
             }
@@ -85,15 +87,18 @@ namespace Quizard.Pages
                     List<Class> studentsClasses = Program.Database.GetStudentsClasses(user);
                     populateClassList(studentsClasses);
                     addAssignmentBtn.Visible = false;
+                    addClassBtn.Visible = false;
                     break;
                 case UserTypes.Teacher:
                     List<Class> teacherClasses = Program.Database.GetTeachersClasses(user);
                     populateClassList(teacherClasses);
+                    addClassBtn.Visible = false;
                     break;
                 case UserTypes.TeachingAssistant:
                     List<Class> assistantingClasses = Program.Database.GetTAClasses(user);
                     populateClassList(assistantingClasses);
                     addAssignmentBtn.Visible = false;
+                    addClassBtn.Visible = false;
                     break;
                 case UserTypes.DepartmentHead:
                     List<Class> departmentClasses = Program.Database.GetDepartmentClasses(user);
@@ -107,6 +112,7 @@ namespace Quizard.Pages
                     quizGradelbl.Visible = false;
                     quizGradeValLbl.Visible = false;
                     addAssignmentBtn.Visible = false;
+                    addClassBtn.Visible = false;
                     break;
                 case UserTypes.Administrator:
                     List<Class> allClasses = Program.Database.GetAllClasses();
@@ -154,7 +160,7 @@ namespace Quizard.Pages
                 classTV.Nodes.Add(newNode);
             }
         }
-        private void populateAssignmentList(List<string> assignmentList)
+        public void populateAssignmentList(List<string> assignmentList)
         {
             classTV.Nodes.Clear();
             foreach (string assignment in assignmentList)
@@ -184,7 +190,7 @@ namespace Quizard.Pages
             classNameValueLbl.Text = newClass.Name;
             teacherValueLbl.Text = newClass.Teacher.Name;
             gradeValLbl.Text = Program.Database.getAvgGrade(currentUser, newClass.rowId).ToString();
-            attendanceValLbl.Text = "Attedence" + "\r\n   Not" + "\r\n    Taken";
+            attendanceValLbl.Text = "None";
             assistantsBx.Items.Clear();
             foreach (User assistant in newClass.AssistantTeachers)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,17 +39,23 @@ namespace Quizard
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Program.Database.GradeSubmission(this.id, txtGrade.Text);
+           Program.Database.GradeSubmission(selectedSubmission.userid, selectedSubmission.quizid, Convert.ToInt32(txtGrade.Text));
+            List<Submission> submissions = Program.Database.getSubmissionsForAssignment(id);
+            listBoxSubmissions.Items.Clear();
+            foreach (Submission s in submissions)
+            {
+                listBoxSubmissions.Items.Add(s);
+            }
             MessageBox.Show("Submission Graded!");
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            // TODO: get file from database
             SaveFileDialog save = new SaveFileDialog();
             if (save.ShowDialog() == DialogResult.OK)
             {
                 string file = save.FileName.ToString();
+                File.Copy(selectedSubmission.path, file, true);
                 MessageBox.Show("File saved as " + file);
             }
         }

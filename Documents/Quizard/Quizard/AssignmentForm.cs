@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quizard.Pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,24 +14,19 @@ namespace Quizard
 {
     public partial class AssignmentForm : Form
     {
-        internal int assignmentid;
+        internal Quiz quiz;
         internal int userid;
+        internal int classid;
 
         public AssignmentForm()
         {
             InitializeComponent();
         }
 
-        public AssignmentForm(int uid, int aid)
-        {
-            InitializeComponent();
-            assignmentid = aid;
-            userid = uid;
-        }
-
-        public static AssignmentForm uploadAssignmentForm()
+        public static AssignmentForm uploadAssignmentForm(int cid)
         {
             AssignmentForm form = new AssignmentForm();
+            form.classid = cid;
             form.Text = "Upload a new assignment";
             form.txtName.Text = "Enter Name";
             form.dueDatePicker.Value = DateTime.Now;
@@ -43,14 +39,16 @@ namespace Quizard
             return form;
         }
 
-        public static AssignmentForm editAssignmentForm(int assignmentid)
+        public static AssignmentForm editAssignmentForm(Quiz q)
         {
-            // TODO: pull assignment info from database for assignment matching id
             AssignmentForm form = new AssignmentForm();
             form.Text = "Editing existing assignment";
-            form.txtName.Text = "Placeholder";
-            form.dueDatePicker.Value = new DateTime(2099, 3, 1, 7, 0, 0);
-            form.groupBoxStudentFile.Text = "Edit Student Grades";
+            form.quiz = q;
+            form.txtName.Text = q.name;
+            form.lblFile.Text = q.path;
+            form.dueDatePicker.Value = q.duedate;
+            form.groupBoxStudentFile.Enabled = false;
+            form.groupBoxStudentFile.Visible = false;
             form.btnStudentDownload.Enabled = false;
             form.btnStudentDownload.Visible = false;
             form.btnStudentUpload.Enabled = false;
@@ -61,13 +59,16 @@ namespace Quizard
             return form;
         }
 
-        public static AssignmentForm studentAssignmentForm(int assignmentid, int userid)
+        public static AssignmentForm studentAssignmentForm(Quiz q, int uid)
         {
-            // TODO: pull assignment info from database for assignment matching id
-            AssignmentForm form = new AssignmentForm(assignmentid, userid);
+            AssignmentForm form = new AssignmentForm();
+            form.userid = uid;
+            form.quiz = q;
             form.Text = "Upload student assignment submission";
-            form.txtName.Text = "Placeholder";
-            form.dueDatePicker.Value = new DateTime(2099, 3, 1, 7, 0, 0);
+            form.Text = "Editing existing assignment";
+            form.txtName.Text = q.name;
+            form.lblFile.Text = q.path;
+            form.dueDatePicker.Value = q.duedate;
             form.txtName.Enabled = false;
             form.dueDatePicker.Enabled = false;
             form.btnUpload.Enabled = false;
@@ -77,6 +78,25 @@ namespace Quizard
             form.groupBoxGrades.Text = "My Grade";
             form.btnGrade.Enabled = false;
             form.btnGrade.Visible = false;
+
+            Submission s = Program.Database.getSubmissionForUserAndAssignment(q.quizid, uid);
+            if(s != null)
+            {
+                form.lblSubmission.Text = s.path;
+                if(s.score == "")
+                {
+                    form.lblMyGrade.Text = "This assignment is not yet graded";
+                }
+                else
+                {
+                    form.lblMyGrade.Text = s.score;
+                }
+            }
+            else
+            {
+                form.lblSubmission.Text = "You have not submitted";
+                form.lblMyGrade.Text = "This assignment is not yet graded";
+            }
             return form;
         }
 
@@ -96,18 +116,22 @@ namespace Quizard
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            // TODO: modify this to download assignment from database
             SaveFileDialog save = new SaveFileDialog();
             if (save.ShowDialog() == DialogResult.OK)
             {
                 string file = save.FileName.ToString();
+                File.Copy(lblFile.Text, file, true);
                 MessageBox.Show("File saved as " + file);
             }
         }
 
         private void btnStudentUpload_Click(object sender, EventArgs e)
         {
-            if(DateTime.Now <= this.dueDatePicker.Value)
+            if(!lblMyGrade.Text.Equals("This assignment is not yet graded"))
+            {
+                MessageBox.Show("This assignment has already been graded so you may not submit.");
+            }
+            else if (DateTime.Now <= this.dueDatePicker.Value)
             {
                 OpenFileDialog fileChooser = new OpenFileDialog();
                 fileChooser.Title = "Select Your Submission File";
@@ -117,16 +141,31 @@ namespace Quizard
                 if (fileChooser.ShowDialog() == DialogResult.OK)
                 {
                     lblSubmission.Text = fileChooser.FileName;
-                    Submission submission = new Submission();
-                    // modify to get id for quiz and class
-                    submission.quizid = 0;
-                    submission.classid = 0;
-                    var fileInfo = new FileInfo(lblSubmission.Text);
-                    string extention = fileInfo.Extension;
-                    submission.path = Path.Combine("../../assignments", lblFile.Text + userid + extention);
-                    submission.score = "ungraded";
-                    Program.Database.CreateSubmission(submission);
-                    MessageBox.Show("Submission Uploaded!");
+                    Submission s = Program.Database.getSubmissionForUserAndAssignment(quiz.quizid, userid);
+                    if(s == null)
+                    {
+                        Submission sub = new Submission();
+                        sub.quizid = quiz.quizid;
+                        sub.userid = this.userid;
+                        sub.classid = this.classid;
+
+                        string studentName = Program.Database.getUserNameForSubmission(sub.userid);
+                        var fileInfo = new FileInfo(lblSubmission.Text);
+                        string extention = fileInfo.Extension;
+                        sub.path = Path.Combine("../../submissions", quiz.name + " " + studentName + extention);
+                        if (!File.Exists(sub.path))
+                        {
+                            File.Copy(lblSubmission.Text, sub.path, true);
+                        }
+
+                        Program.Database.CreateSubmission(sub);
+                        MessageBox.Show("Submission Uploaded!");
+                    }
+                    else
+                    {
+                        Program.Database.EditSubmission(fileChooser.FileName, userid, quiz.quizid);
+                        MessageBox.Show("Submission Uploaded!");
+                    }   
                 }
             }
             else
@@ -137,34 +176,53 @@ namespace Quizard
 
         private void btnStudentDownload_Click(object sender, EventArgs e)
         {
-            // TODO: modify this to download submission from database
             SaveFileDialog save = new SaveFileDialog();
             if (save.ShowDialog() == DialogResult.OK)
             {
                 string file = save.FileName.ToString();
+                File.Copy(lblSubmission.Text, file, true);
                 MessageBox.Show("File saved as " + file);
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Quiz quiz = new Quiz();
-            quiz.classid = 0;
+            if(quiz == null)
+            {
+                quiz = new Quiz();
+                quiz.classid = this.classid;
+            }
             quiz.name = txtName.Text;
             quiz.duedate = dueDatePicker.Value;
             var fileInfo = new FileInfo(lblFile.Text);
             string extention = fileInfo.Extension;
             quiz.path = Path.Combine("../../assignments", quiz.name + extention);
-            File.Copy(lblFile.Text, quiz.path, true);
-            Program.Database.CreateQuiz(quiz);
+            if (!File.Exists(quiz.path))
+            {
+                File.Copy(lblFile.Text, quiz.path, true);
+            }
+            if(this.Text.Equals("Upload a new assignment"))
+            {
+                Program.Database.CreateQuiz(quiz);
+            }
+            else
+            {
+                Program.Database.UpdateQuiz(quiz);
+            }
             MessageBox.Show("Assignment Uploaded!");
             this.Close();
         }
 
         private void btnGrade_Click(object sender, EventArgs e)
         {
-            GradeForm form = new Quizard.GradeForm(this.assignmentid);
+            GradeForm form = new Quizard.GradeForm(quiz.quizid);
+            form.Text = "Grading Assignment: " + quiz.name;
             form.Show();
+        }
+
+        private void AssignmentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

@@ -187,6 +187,20 @@ namespace Quizard
             }
         }
 
+        internal int EditSubmission(string fileName, int userid, int quizid)
+        {
+            int results = 0;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "UPDATE scores"
+                    + " SET submission_path= \"" + fileName +  "\" WHERE quiz_ID = \"" + quizid + "\" AND user_ID = \"" + userid +"\";";
+
+                results = command.ExecuteNonQuery();
+            });
+            return results;
+        }
+
         public User getTeacher(int classID)
         {
             //int userID;
@@ -204,6 +218,20 @@ namespace Quizard
                 }
             }
             return whoIs;
+        }
+
+        internal int UpdateQuiz(Quiz quiz)
+        {
+            int results = 0;
+            executeCommand(delegate (SQLiteCommand command)
+            {
+                command.CommandText =
+                    "UPDATE quizzes"
+                    + " SET quiz_name=\"" + quiz.name + "\", location =\"" + quiz.path + "\", due_date =\"" + quiz.duedate + "\" WHERE quiz_ID = \"" + quiz.quizid + "\";";
+
+                results = command.ExecuteNonQuery();
+            });
+            return results;
         }
 
         public User getDeptHead(int classID)
@@ -323,6 +351,7 @@ namespace Quizard
                 command.CommandText =
                     "INSERT INTO class_members(class_ID, user_ID)"
                     + "VALUES (" + id + ", " + teacher.rowId + ");";
+                results = command.ExecuteNonQuery();
             });
 
             executeCommand(delegate (SQLiteCommand command)
@@ -330,6 +359,7 @@ namespace Quizard
                 command.CommandText =
                     "INSERT INTO class_members(class_ID, user_ID)"
                     + "VALUES (" + id + ", " + DpHead.rowId + ");";
+                results = command.ExecuteNonQuery();
             });
 
             foreach (User assistant in assistants)
@@ -339,6 +369,7 @@ namespace Quizard
                     command.CommandText =
                         "INSERT INTO class_members(class_ID, user_ID)"
                         + "VALUES (" + id + ", " + assistant.rowId + ");";
+                    results = command.ExecuteNonQuery();
                 });
             }
 
@@ -349,6 +380,7 @@ namespace Quizard
                     command.CommandText =
                         "INSERT INTO class_members(class_ID, user_ID)"
                         + "VALUES (" + id + ", " + student.rowId + ");";
+                    results = command.ExecuteNonQuery();
                 });
             }
 
@@ -361,12 +393,34 @@ namespace Quizard
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "INSERT INTO quizzes(classid, quizname, duedate, path) "
-                    + "VALUES(" + "\"" + quiz.classid + "\",\"" + quiz.name + "\",\"" + quiz.duedate.ToString() + "\",\"" + quiz.path + "\");";
+                    "INSERT INTO quizzes(class_ID, quiz_name, location, due_date) "
+                    + "VALUES(" + "\"" + quiz.classid + "\",\"" + quiz.name + "\",\"" +  quiz.path + "\",\"" + quiz.duedate.ToString() + "\");";
 
                 results = command.ExecuteNonQuery();
             });
             return results;
+        }
+
+        public Quiz getAssignmentFromName(string name, int classID)
+        {
+
+            //int userID;
+            Quiz q = new Quiz();
+            string command = "SELECT * FROM quizzes WHERE class_ID =\"" + classID +"\" AND quiz_name = \"" + name + "\";";
+            using (SQLiteDataReader reader = retrieveCommands(command))
+            {
+                reader.Read();
+                while (reader.HasRows)
+                {
+                    q.quizid = Convert.ToInt32(reader["quiz_ID"].ToString());
+                    q.classid = Convert.ToInt32(reader["class_ID"].ToString());
+                    q.name = reader["quiz_name"].ToString();
+                    q.path = reader["location"].ToString();
+                    q.duedate = Convert.ToDateTime(reader["due_date"].ToString());
+                    reader.Read();
+                }
+            }
+            return q;
         }
 
         public int RemoveUser(User currentUser)
@@ -389,7 +443,7 @@ namespace Quizard
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "INSERT INTO submissions(quizid, classid, userid, score, path) "
+                    "INSERT INTO scores(quiz_ID, class_ID, user_ID, score, submission_path) "
                     + "VALUES(" + "\"" + submission.quizid + "\",\"" + submission.classid + "\",\"" + submission.userid + "\",\"" + submission.score + "\",\"" + submission.path + "\");";
 
                 results = command.ExecuteNonQuery();
@@ -397,25 +451,26 @@ namespace Quizard
             return results;
         }
 
-        public int GradeSubmission(int id, string grade)
+        public int GradeSubmission(int userid, int quizid, int grade)
         {
             int results = 0;
             executeCommand(delegate (SQLiteCommand command)
             {
                 command.CommandText =
-                    "UPDATE submissions "
-                    + "SET score = " + grade
-                    + "WHERE submission_ID = " + id + ";";
+                    "UPDATE scores "
+                    + "SET score = \"" + grade
+                    + "\" WHERE quiz_ID = \"" + quizid 
+                    + "\" AND user_ID = \"" + userid + "\";";
 
                 results = command.ExecuteNonQuery();
             });
             return results;
         }
 
-        public List<Submission> getSubmissionsForAssignment(int assignmentid)
+        public List<Submission> getSubmissionsForAssignment(int quizid)
         {
             List<Submission> rtnList = new List<Submission>();
-            string command = "SELECT * FROM submissions WHERE subid=\"" + assignmentid + "\";";
+            string command = "SELECT * FROM scores WHERE quiz_ID =\"" + quizid + "\";";
             using (SQLiteDataReader reader = retrieveCommands(command))
             {
                 while (reader.HasRows)
@@ -432,7 +487,7 @@ namespace Quizard
 
         public Submission getSubmissionForUserAndAssignment(int assignmentid, int userid)
         {
-            string command = "SELECT * FROM submissions WHERE quizid=\"" + assignmentid + "\" AND userid =\"" + userid + "\";";
+            string command = "SELECT * FROM scores WHERE quiz_ID =\"" + assignmentid + "\" AND user_ID =\"" + userid + "\";";
             using (SQLiteDataReader reader = retrieveCommands(command))
             {
                 while (reader.HasRows)
@@ -479,7 +534,7 @@ namespace Quizard
 
         public string getUserNameForSubmission(int userid)
         {
-            string command = "SELECT * FROM users WHERE userid =\"" + userid + "\";";
+            string command = "SELECT * FROM users WHERE user_ID =\"" + userid + "\";";
             using (SQLiteDataReader reader = retrieveCommands(command))
             {
                 while (reader.HasRows)
@@ -531,11 +586,10 @@ namespace Quizard
                 {
                     sub = new Submission();
                     reader.Read();
-                    sub.rowId = Convert.ToInt32(reader["subid"].ToString());
-                    sub.quizid = Convert.ToInt32(reader["quizid"].ToString());
-                    sub.classid = Convert.ToInt32(reader["classid"].ToString());
-                    sub.userid = Convert.ToInt32(reader["userid"].ToString());
-                    sub.path = reader["path"].ToString();
+                    sub.quizid = Convert.ToInt32(reader["quiz_ID"].ToString());
+                    sub.classid = Convert.ToInt32(reader["class_ID"].ToString());
+                    sub.userid = Convert.ToInt32(reader["user_ID"].ToString());
+                    sub.path = reader["submission_path"].ToString();
                     sub.score = reader["score"].ToString();
                 }
                 catch
